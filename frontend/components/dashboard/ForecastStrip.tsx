@@ -16,47 +16,47 @@ export function ForecastStrip({
   data: ScenarioPayload;
   expanded?: boolean;
 }) {
+  const panels = [
+    {
+      key: "electricity",
+      series: data.forecasts.electricityPrice,
+      color: data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice,
+    },
+    {
+      key: "danube",
+      series: data.forecasts.danubeTemperature,
+      color: data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature,
+    },
+    {
+      key: "heat",
+      series: data.forecasts.heatDemand,
+      color: chartColors.heatDemand,
+    },
+  ];
+
   if (expanded) {
     return (
-      <section className="grid h-full min-h-0 grid-cols-1 gap-3 overflow-hidden lg:grid-cols-3">
-        <div className="dashboard-card flex flex-col">
-          <ForecastPanel
-            series={data.forecasts.electricityPrice}
-            color={data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice}
-            expanded
-          />
-        </div>
-        <div className="dashboard-card flex flex-col">
-          <ForecastPanel
-            series={data.forecasts.danubeTemperature}
-            color={data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature}
-            expanded
-          />
-        </div>
-        <div className="dashboard-card flex flex-col">
-          <ForecastPanel
-            series={data.forecasts.heatDemand}
-            color={chartColors.heatDemand}
-            expanded
-          />
-        </div>
+      <section className="grid min-h-[620px] grid-rows-3 gap-3 xl:h-full xl:min-h-0 xl:overflow-hidden">
+        {panels.map((panel) => (
+          <div key={panel.key} className="dashboard-card flex min-h-0 flex-col">
+            <ForecastPanel series={panel.series} color={panel.color} expanded />
+          </div>
+        ))}
       </section>
     );
   }
 
   return (
-    <section className="dashboard-card grid min-h-0 grid-cols-[1fr_1px_1fr_1px_1fr] overflow-hidden">
-      <ForecastPanel
-        series={data.forecasts.electricityPrice}
-        color={data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice}
-      />
-      <div aria-hidden className="w-px bg-app-border" />
-      <ForecastPanel
-        series={data.forecasts.danubeTemperature}
-        color={data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature}
-      />
-      <div aria-hidden className="w-px bg-app-border" />
-      <ForecastPanel series={data.forecasts.heatDemand} color={chartColors.heatDemand} />
+    <section className="dashboard-card grid min-h-[236px] grid-rows-3 overflow-hidden xl:min-h-0">
+      {panels.map((panel, index) => (
+        <ForecastPanel
+          key={panel.key}
+          series={panel.series}
+          color={panel.color}
+          compact
+          separated={index > 0}
+        />
+      ))}
     </section>
   );
 }
@@ -65,10 +65,14 @@ function ForecastPanel({
   series,
   color,
   expanded = false,
+  compact = false,
+  separated = false,
 }: {
   series: ForecastSeries;
   color: string;
   expanded?: boolean;
+  compact?: boolean;
+  separated?: boolean;
 }) {
   const values = series.points.map((point) => point.value);
   const min = Math.min(...values, series.limit ?? Number.POSITIVE_INFINITY);
@@ -94,6 +98,91 @@ function ForecastPanel({
 
   const slug = series.label.replace(/\s+/g, "-").toLowerCase();
   const statusColor = colorForStatus(series.status);
+  const chart = (
+    <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-full w-full">
+      <defs>
+        <linearGradient id={`fill-${slug}`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stopColor={color} stopOpacity="0.22" />
+          <stop offset="100%" stopColor={color} stopOpacity="0" />
+        </linearGradient>
+        <pattern id={`future-${slug}`} width="6" height="6" patternUnits="userSpaceOnUse">
+          <path d="M0,6 L6,0" stroke="rgba(148,163,184,0.18)" strokeWidth="1" />
+        </pattern>
+      </defs>
+
+      {[0.25, 0.5, 0.75].map((t) => (
+        <line
+          key={t}
+          x1="0"
+          x2={width}
+          y1={height * t}
+          y2={height * t}
+          stroke="rgba(148, 163, 184, 0.22)"
+          strokeWidth="1"
+          strokeDasharray="2 4"
+        />
+      ))}
+
+      <rect x={markerX} y="0" width={width - markerX} height={height} fill={`url(#future-${slug})`} />
+
+      <polygon points={area} fill={`url(#fill-${slug})`} />
+
+      {series.limit != null ? (
+        <line
+          x1="0"
+          x2={width}
+          y1={y(series.limit)}
+          y2={y(series.limit)}
+          stroke="var(--rose)"
+          strokeWidth="1"
+          strokeDasharray="4 4"
+          opacity="0.8"
+        />
+      ) : null}
+
+      <line
+        x1={markerX}
+        x2={markerX}
+        y1="0"
+        y2={height}
+        stroke="rgba(15,23,42,0.4)"
+        strokeWidth="1"
+      />
+
+      <polyline
+        points={points}
+        fill="none"
+        stroke={color}
+        strokeWidth={compact ? "1.65" : "1.9"}
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+
+      <circle cx={markerX} cy={markerY} r={compact ? "3.8" : "4.5"} fill={color} stroke="var(--surface)" strokeWidth="2.2" />
+    </svg>
+  );
+
+  if (compact) {
+    return (
+      <div
+        className={clsx(
+          "grid min-h-0 grid-cols-[minmax(160px,0.48fr)_minmax(0,1fr)] bg-app-surface",
+          separated && "border-t border-app-border",
+        )}
+      >
+        <div className="flex min-w-0 flex-col justify-center gap-1.5 px-4 py-2.5">
+          <div className="flex min-w-0 items-center gap-2">
+            <span aria-hidden className="h-3.5 w-[3px] shrink-0 rounded-full" style={{ backgroundColor: color }} />
+            <span className="panel-title text-[12px] leading-tight">{series.label}</span>
+          </div>
+          <span className="mono truncate text-[15px] font-bold tabular-nums" style={{ color: statusColor }}>
+            {currentLabel}
+          </span>
+        </div>
+        <div className="min-h-0 px-3 py-2">{chart}</div>
+      </div>
+    );
+  }
 
   return (
     <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
@@ -121,67 +210,7 @@ function ForecastPanel({
         </span>
       </div>
       <div className="min-h-0 flex-1 px-4 pb-4 pt-3">
-        <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-full w-full">
-          <defs>
-            <linearGradient id={`fill-${slug}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={color} stopOpacity="0.22" />
-              <stop offset="100%" stopColor={color} stopOpacity="0" />
-            </linearGradient>
-            <pattern id={`future-${slug}`} width="6" height="6" patternUnits="userSpaceOnUse">
-              <path d="M0,6 L6,0" stroke="rgba(148,163,184,0.18)" strokeWidth="1" />
-            </pattern>
-          </defs>
-
-          {[0.25, 0.5, 0.75].map((t) => (
-            <line
-              key={t}
-              x1="0"
-              x2={width}
-              y1={height * t}
-              y2={height * t}
-              stroke="rgba(148, 163, 184, 0.22)"
-              strokeWidth="1"
-              strokeDasharray="2 4"
-            />
-          ))}
-
-          <rect x={markerX} y="0" width={width - markerX} height={height} fill={`url(#future-${slug})`} />
-
-          <polygon points={area} fill={`url(#fill-${slug})`} />
-
-          {series.limit != null ? (
-            <line
-              x1="0"
-              x2={width}
-              y1={y(series.limit)}
-              y2={y(series.limit)}
-              stroke="var(--rose)"
-              strokeWidth="1"
-              strokeDasharray="4 4"
-              opacity="0.8"
-            />
-          ) : null}
-
-          <line
-            x1={markerX}
-            x2={markerX}
-            y1="0"
-            y2={height}
-            stroke="rgba(15,23,42,0.4)"
-            strokeWidth="1"
-          />
-
-          <polyline
-            points={points}
-            fill="none"
-            stroke={color}
-            strokeWidth="1.9"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-
-          <circle cx={markerX} cy={markerY} r="4.5" fill={color} stroke="var(--surface)" strokeWidth="2.2" />
-        </svg>
+        {chart}
       </div>
     </div>
   );

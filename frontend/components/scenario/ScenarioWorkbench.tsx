@@ -54,7 +54,7 @@ export function ScenarioWorkbench() {
   if (baselineQuery.isLoading || baselineQuery.isSlow || !baselineQuery.data) {
     return (
       <main className="min-h-screen bg-app-bg p-3 text-app-text">
-        <div className="skeleton h-[calc(100vh-24px)] rounded-xl" />
+        <div className="skeleton h-[calc(100vh-24px)] rounded-lg" />
       </main>
     );
   }
@@ -71,9 +71,9 @@ export function ScenarioWorkbench() {
   const deltaUp = visibleComparison.revenueDeltaEuroHr >= 0;
 
   return (
-    <div className="h-screen min-w-[1280px] bg-app-bg p-3">
-      <main className="dashboard-shell flex h-full min-w-[1280px] flex-col overflow-hidden rounded-xl border border-app-border bg-app-surface text-app-text">
-        <header className="flex h-[52px] shrink-0 items-center gap-4 border-b border-app-border bg-app-surface px-5">
+    <div className="min-h-screen bg-app-bg p-2 sm:p-3 xl:h-screen">
+      <main className="dashboard-shell flex min-h-[calc(100vh-16px)] flex-col overflow-hidden rounded-lg border border-app-border bg-app-surface text-app-text sm:min-h-[calc(100vh-24px)] xl:h-full">
+        <header className="flex min-h-[52px] shrink-0 flex-wrap items-center gap-3 border-b border-app-border bg-app-surface px-4 py-2 sm:px-5">
           <Link
             href="/"
             className="focus-ring inline-flex h-7 items-center gap-2 rounded-md border border-app-border bg-app-elevated px-2.5 text-[12px] font-medium text-app-text-soft transition-colors hover:border-app-border-strong hover:bg-app-sunken hover:text-app-text"
@@ -82,17 +82,17 @@ export function ScenarioWorkbench() {
             Dashboard
           </Link>
           <div className="leading-tight">
-            <div className="text-[14px] font-semibold tracking-tight text-app-text">Scenario comparison</div>
+            <div className="text-[14px] font-semibold text-app-text">Scenario comparison</div>
             <div className="text-[11px] text-app-muted">Operator override workbench</div>
           </div>
-          <div className="ml-auto flex items-center gap-2 rounded-full border border-app-border bg-app-elevated px-2.5 py-1 text-[11px] text-app-muted">
+          <div className="ml-auto flex items-center gap-2 rounded-lg border border-app-border bg-app-elevated px-2.5 py-1 text-[11px] text-app-muted">
             <span className="h-1.5 w-1.5 rounded-full bg-app-emerald" />
             <span className="mono">mock mode ready</span>
           </div>
         </header>
 
-        <div className="grid min-h-0 flex-1 grid-cols-[332px_minmax(0,1fr)] overflow-hidden">
-          <aside className="overflow-y-auto border-r border-app-border bg-app-sunken/40 p-5">
+        <div className="grid min-h-0 flex-1 overflow-visible xl:grid-cols-[332px_minmax(0,1fr)] xl:overflow-hidden">
+          <aside className="overflow-y-auto border-b border-app-border bg-app-sunken/40 p-4 sm:p-5 xl:border-b-0 xl:border-r">
             <div className="panel-label mb-3">Overrides</div>
             <div className="space-y-5">
               <SliderControl
@@ -182,13 +182,13 @@ export function ScenarioWorkbench() {
             </div>
           </aside>
 
-          <section className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-app-surface">
-            <div className="grid grid-cols-2 border-b border-app-border">
+          <section className="grid min-h-[620px] grid-rows-[auto_minmax(0,1fr)] overflow-hidden bg-app-surface xl:min-h-0">
+            <div className="grid border-b border-app-border lg:grid-cols-2">
               <SummaryBlock title="Baseline plan" data={visibleComparison.baseline} />
               <SummaryBlock title="Scenario plan" data={visibleComparison.scenario} />
             </div>
 
-            <div className="grid min-h-0 grid-cols-2 overflow-hidden">
+            <div className="grid min-h-0 overflow-hidden lg:grid-cols-2">
               <TimelineComparison title="Baseline allocation" data={visibleComparison.baseline} />
               <TimelineComparison title="Scenario allocation" data={visibleComparison.scenario} />
             </div>
@@ -269,9 +269,9 @@ function ReactorToggle({
 // Displays compact revenue and operating-state metrics above a comparison chart.
 function SummaryBlock({ title, data }: { title: string; data: ScenarioPayload }) {
   return (
-    <div className="border-r border-app-border bg-app-sunken/40 px-5 py-4 last:border-r-0">
+    <div className="border-b border-app-border bg-app-sunken/40 px-5 py-4 last:border-b-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
       <div className="panel-label mb-2.5">{title}</div>
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <SummaryMetric label="Revenue" value={data.metrics.revenueRateEuroHr.toLocaleString("en-US")} unit="€/hr" />
         <SummaryMetric label="Electricity" value={data.metrics.electricityOutMw.toLocaleString("en-US")} unit="MW" />
         <SummaryMetric label="Heat" value={data.metrics.heatDeliveredMw.toLocaleString("en-US")} unit="MW" />
@@ -303,7 +303,7 @@ function TimelineComparison({ title, data }: { title: string; data: ScenarioPayl
   );
 
   return (
-    <div className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface last:border-r-0">
+    <div className="flex min-h-[280px] flex-col overflow-hidden border-b border-app-border bg-app-surface last:border-b-0 lg:min-h-0 lg:border-b-0 lg:border-r lg:last:border-r-0">
       <div className="flex h-10 items-center gap-2 border-b border-app-border bg-app-sunken/40 px-5">
         <span aria-hidden className="h-3 w-[2px] rounded-full bg-app-blue" />
         <div className="panel-title">{title}</div>

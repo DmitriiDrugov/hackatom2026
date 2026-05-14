@@ -128,7 +128,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
   };
 
   return (
-    <section className="dashboard-card flex min-h-0 flex-col">
+    <section className="dashboard-card flex min-h-[320px] flex-col xl:min-h-0">
       <PanelHeader title="48-hour allocation" value="MW / hour" accent="var(--primary)" />
 
       {/* Legend */}
@@ -263,7 +263,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
         </div>
 
         {/* X-axis */}
-        <div className="mono pointer-events-none absolute inset-x-2 bottom-1 ml-9 flex justify-between text-[9px] font-medium uppercase tracking-wide text-app-muted">
+        <div className="mono pointer-events-none absolute inset-x-2 bottom-1 ml-9 flex justify-between text-[9px] font-medium uppercase text-app-muted">
           {["00", "06", "12", "18", "+24h", "06", "12", "18", "+48h"].map((label, index, labels) => (
             <span
               key={`${label}-${index}`}
@@ -277,7 +277,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
         {/* Tooltip card */}
         {hoverHour ? (
           <div
-            className="pointer-events-none absolute z-20 w-[200px] rounded-xl border border-app-border bg-white px-3 py-2.5 shadow-soft-pop"
+            className="pointer-events-none absolute z-20 w-[200px] rounded-lg border border-app-border bg-white px-3 py-2.5 shadow-soft-pop"
             style={{
               top: 12,
               left: `min(max(${(hoverX / W) * 100}% + 1.75rem - 100px, 1rem), calc(100% - 13rem))`,
@@ -285,7 +285,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
           >
             <div className="mb-2 flex items-baseline justify-between">
               <span className="text-[11px] font-bold text-app-text">{hoverHour.label}</span>
-              <span className="mono text-[9px] font-semibold uppercase tracking-wider text-app-muted">
+              <span className="mono text-[9px] font-semibold uppercase text-app-muted">
                 {hoverHour.hourIndex < 24 ? "Today" : "Tomorrow"}
               </span>
             </div>
