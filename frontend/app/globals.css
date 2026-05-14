@@ -3,17 +3,19 @@
 @tailwind utilities;
 
 :root {
-  --bg: #0b1120;
-  --surface: #111827;
-  --surface-elevated: #1a2540;
-  --border: #1f2d45;
-  --cyan: #38bdf8;
-  --emerald: #34d399;
-  --amber: #fbbf24;
-  --rose: #fb7185;
-  --purple: #c084fc;
-  --muted: #64748b;
-  --text: #e2e8f0;
+  color-scheme: dark;
+  --bg: #070a0f;
+  --surface: #101722;
+  --surface-elevated: #182231;
+  --border: #2a3648;
+  --cyan: #4cc9f0;
+  --emerald: #3ddc97;
+  --amber: #f5c451;
+  --rose: #ff6b7a;
+  --purple: #b78cff;
+  --muted: #8fa1b8;
+  --text: #f2f6fb;
+  --text-soft: #c8d3e2;
 }
 
 * {
@@ -27,6 +29,11 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: var(--font-inter), Inter, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  line-height: 1.35;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
@@ -56,7 +63,7 @@ svg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border);
+  background: #344258;
   border-radius: 999px;
 }
 
@@ -65,13 +72,13 @@ svg {
 }
 
 .focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.55);
 }
 
 .panel-label {
-  color: var(--muted);
+  color: #9fb0c7;
   font-size: 10px;
-  font-weight: 600;
+  font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -81,7 +88,7 @@ svg {
 }
 
 .skeleton {
-  background: linear-gradient(90deg, rgba(26, 37, 64, 0.8), rgba(31, 45, 69, 0.8), rgba(26, 37, 64, 0.8));
+  background: linear-gradient(90deg, rgba(24, 34, 49, 0.8), rgba(42, 54, 72, 0.8), rgba(24, 34, 49, 0.8));
   background-size: 180% 100%;
   animation: skeleton-pulse 1.2s ease-in-out infinite;
 }

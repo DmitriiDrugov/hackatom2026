@@ -24,7 +24,7 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
   return (
     <aside
-      className="fixed bottom-0 right-0 top-12 z-40 flex w-80 flex-col overflow-hidden border-l border-app-border bg-app-surface shadow-[-4px_0_20px_rgba(0,0,0,0.4)] transition-transform duration-[220ms] ease-in-out"
+      className="fixed bottom-0 right-0 top-12 z-40 flex w-80 flex-col overflow-hidden border-l border-app-border bg-app-surface shadow-[-8px_0_30px_rgba(0,0,0,0.38)] transition-transform duration-[220ms] ease-in-out"
       style={{ transform: explanationOpen ? "translateX(0)" : "translateX(100%)" }}
       aria-hidden={!explanationOpen}
     >
@@ -39,14 +39,14 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
           type="button"
           title="Close"
           onClick={closeExplanation}
-          className="focus-ring rounded border border-app-border p-1.5 text-app-muted transition-colors hover:border-slate-600 hover:text-app-text"
+          className="focus-ring rounded border border-app-border bg-app-elevated/70 p-1.5 text-app-muted transition-colors hover:border-[#43536b] hover:text-app-text"
         >
           <X size={14} strokeWidth={1.8} />
         </button>
       </div>
 
       <PanelSection title="Optimization gain">
-        <div className="rounded border border-emerald-400/20 bg-emerald-400/10 px-3 py-2 text-center">
+        <div className="rounded border border-app-emerald/25 bg-app-emerald/10 px-3 py-2 text-center">
           <div className="mono text-[20px] text-app-emerald">{formatSignedEuro(hour.savingsVsElectricEuro)}</div>
           <div className="mt-0.5 text-[11px] text-app-muted">vs full electricity output</div>
         </div>
@@ -69,7 +69,7 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
           {hour.bindingConstraints.map((constraint) => (
             <div
               key={constraint.name}
-              className="flex items-center justify-between rounded border border-rose-400/20 bg-rose-400/10 px-2 py-1.5"
+              className="flex items-center justify-between rounded border border-app-rose/25 bg-app-rose/10 px-2 py-1.5"
             >
               <span className="text-[11px] text-app-text">{constraint.name}</span>
               <span className="mono text-[11px] text-app-rose">
@@ -90,8 +90,8 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
               label={key === "hydrogen" ? "Hydrogen" : key[0].toUpperCase() + key.slice(1)}
               value={value > 0 ? `+${formatEuro(value)}` : `-${formatEuro(Math.abs(value))}`}
               width={(Math.abs(value) / maxMarginal) * 100}
-              color={value < 0 ? "#fb7185" : colorForChannel(key)}
-              valueColor={value < 0 ? "#fb7185" : colorForChannel(key)}
+              color={value < 0 ? "#ff6b7a" : colorForChannel(key)}
+              valueColor={value < 0 ? "#ff6b7a" : colorForChannel(key)}
             />
           );
         })}
@@ -136,7 +136,7 @@ function AllocationRow({
       <div className="h-[7px] min-w-0 flex-1 rounded-full bg-app-elevated">
         <div className="h-full rounded-full" style={{ width: `${width}%`, backgroundColor: color }} />
       </div>
-      <span className="mono w-[58px] shrink-0 text-right text-[11px]" style={{ color: valueColor ?? "#e2e8f0" }}>
+      <span className="mono w-[58px] shrink-0 text-right text-[11px]" style={{ color: valueColor ?? "#f2f6fb" }}>
         {value}
       </span>
     </div>

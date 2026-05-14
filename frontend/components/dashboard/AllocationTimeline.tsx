@@ -49,7 +49,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
                 className={clsx(
                   "focus-ring flex min-h-[24px] flex-1 cursor-pointer flex-col-reverse overflow-hidden rounded-t-[1px] transition-opacity hover:opacity-85",
                   isCurrent && "outline outline-[1.5px] outline-offset-1 outline-app-cyan",
-                  isSelected && !isCurrent && "outline outline-1 outline-offset-1 outline-slate-300",
+                  isSelected && !isCurrent && "outline outline-1 outline-offset-1 outline-[#c8d3e2]",
                 )}
                 style={{ height: `${heightPct}%` }}
                 onMouseEnter={(event) =>

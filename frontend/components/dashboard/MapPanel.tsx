@@ -8,9 +8,9 @@ import { useDashboardStore } from "@/lib/store/dashboard-store";
 import { PanelHeader } from "@/components/dashboard/PanelHeader";
 
 const colorMap = {
-  cyan: "#38bdf8",
-  emerald: "#34d399",
-  purple: "#c084fc",
+  cyan: "#4cc9f0",
+  emerald: "#3ddc97",
+  purple: "#b78cff",
 };
 
 function CityMarker({
@@ -40,7 +40,7 @@ function CityMarker({
       <text
         y={city.kind === "source" ? 24 : -13}
         textAnchor="middle"
-        fill="#94a3b8"
+        fill="#c6d3e4"
         fontFamily="Inter"
         fontSize="9"
         fontWeight="600"
@@ -50,7 +50,7 @@ function CityMarker({
       <text
         y={city.kind === "source" ? 33 : -4}
         textAnchor="middle"
-        fill="#475569"
+        fill="#7f91aa"
         fontFamily="JetBrains Mono"
         fontSize="8"
       >
@@ -66,7 +66,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
   const selectedCity = data.cities.find((city) => city.id === selectedCityId) ?? data.cities[0];
   const paks = data.cities.find((city) => city.id === "paks") ?? data.cities[0];
   const riverStatus =
-    data.danube.status === "crit" ? "#fb7185" : data.danube.status === "warn" ? "#0e7490" : "#0e4f6b";
+    data.danube.status === "crit" ? "#ff6b7a" : data.danube.status === "warn" ? "#2f8faf" : "#22647f";
 
   return (
     <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
@@ -75,8 +75,8 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
         <svg viewBox="0 0 600 360" className="h-full w-full" aria-label="Hungary heat allocation map">
           <polygon
             points="88,108 110,88 150,76 195,72 238,80 285,72 322,78 355,85 385,98 410,88 440,95 468,110 482,130 478,152 465,170 472,195 458,215 438,232 415,245 388,248 358,250 320,255 288,248 262,258 235,262 205,255 175,258 150,252 128,240 110,225 95,208 82,190 78,168 82,148 88,128"
-            fill="#131f35"
-            stroke="#1e3a5f"
+            fill="#0f1824"
+            stroke="#30445f"
             strokeWidth="1.5"
           />
           <path
@@ -116,7 +116,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
           ))}
         </svg>
 
-        <div className="absolute right-3 top-3 w-44 rounded-md border border-app-border bg-app-surface p-3">
+        <div className="absolute right-3 top-3 w-44 rounded-md border border-app-border bg-app-elevated/95 p-3 shadow-[0_10px_24px_rgba(0,0,0,0.26)]">
           <div className="mb-2 text-[12px] font-semibold text-app-text">{selectedCity.name}</div>
           <div className="space-y-1">
             <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} />
@@ -140,14 +140,14 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
           <div
             className={clsx(
               "h-full rounded-full",
-              data.danube.status === "crit" ? "bg-app-rose" : "bg-gradient-to-r from-sky-500 to-app-amber",
+              data.danube.status === "crit" ? "bg-app-rose" : "bg-gradient-to-r from-app-cyan to-app-amber",
             )}
             style={{ width: `${data.danube.pctOfLimit}%` }}
           />
         </div>
         <span
           className="mono w-[54px] shrink-0 text-right text-[11px]"
-          style={{ color: data.danube.status === "crit" ? "#fb7185" : data.danube.status === "warn" ? "#fbbf24" : "#38bdf8" }}
+          style={{ color: data.danube.status === "crit" ? "#ff6b7a" : data.danube.status === "warn" ? "#f5c451" : "#4cc9f0" }}
         >
           {formatTemp(data.danube.currentTempC)}
         </span>

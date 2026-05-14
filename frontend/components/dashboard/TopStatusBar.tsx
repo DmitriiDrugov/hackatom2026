@@ -84,7 +84,7 @@ export function TopStatusBar({
       </div>
 
       <div className="flex min-w-0 items-center justify-end gap-3">
-        <div className="flex shrink-0 items-center gap-2 rounded border border-rose-400/30 px-2 py-1 text-[11px] text-app-rose">
+        <div className="flex shrink-0 items-center gap-2 rounded border border-app-rose/35 bg-app-rose/5 px-2 py-1 text-[11px] text-app-rose">
           <span className="h-[5px] w-[5px] animate-blink rounded-full bg-app-rose" />
           <AlertTriangle size={12} strokeWidth={1.8} />
           <span>{alerts} alerts</span>
@@ -101,8 +101,8 @@ export function TopStatusBar({
               className={clsx(
                 "focus-ring flex h-7 shrink-0 items-center gap-1.5 rounded border px-2 text-[11px] font-medium transition-colors",
                 activeScenario === key
-                  ? "border-cyan-400/40 bg-app-elevated text-app-cyan"
-                  : "border-app-border bg-transparent text-app-muted hover:border-slate-600 hover:bg-app-elevated hover:text-app-text",
+                  ? "border-app-cyan/45 bg-app-elevated text-app-cyan"
+                  : "border-app-border bg-transparent text-app-muted hover:border-[#43536b] hover:bg-app-elevated hover:text-app-text",
               )}
             >
               <Icon size={13} strokeWidth={1.8} />

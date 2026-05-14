@@ -32,7 +32,7 @@ export function Dashboard() {
           <button
             type="button"
             onClick={() => query.refetch()}
-            className="focus-ring inline-flex h-8 items-center gap-2 rounded border border-cyan-400/40 bg-app-elevated px-3 text-[12px] text-app-cyan"
+            className="focus-ring inline-flex h-8 items-center gap-2 rounded border border-app-cyan/45 bg-app-elevated px-3 text-[12px] text-app-cyan"
           >
             <RotateCw size={14} strokeWidth={1.8} />
             Retry
