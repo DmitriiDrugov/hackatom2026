@@ -1,4 +1,8 @@
-export const scenarioKeys = ["summer", "winter", "heatwave"] as const;
+export const scenarioKeys = [
+  "summer_negative_price",
+  "winter_peak_demand",
+  "danube_overheating",
+] as const;
 
 export type ScenarioKey = (typeof scenarioKeys)[number];
 export type Status = "ok" | "warn" | "crit" | "off";
@@ -110,11 +114,13 @@ export type ScenarioPayload = {
 };
 
 export type ScenarioInputs = {
-  baseScenario: ScenarioKey;
-  priceMultiplier: number;
-  danubeLimitC: number;
-  demandMultiplier: number;
-  reactorsOnline: string[];
+  overrides?: {
+    price_multiplier?: number;
+    danube_temp_limit?: number;
+    demand_multiplier?: number;
+    reactor_offline?: string[];
+  };
+  horizon_hours?: number;
 };
 
 export type ScenarioComparison = {

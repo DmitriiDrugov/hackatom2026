@@ -15,7 +15,7 @@ type DashboardState = {
 };
 
 export const useDashboardStore = create<DashboardState>((set) => ({
-  activeScenario: "summer",
+  activeScenario: "summer_negative_price",
   selectedHour: 24,
   selectedCityId: "dunaujvaros",
   explanationOpen: false,

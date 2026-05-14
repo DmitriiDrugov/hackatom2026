@@ -13,24 +13,32 @@ type RequestOptions = RequestInit & {
   retryAttempts?: number;
 };
 
+// Waits before retrying a transient network failure.
 function sleep(ms: number) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+// Removes trailing slashes so API paths join predictably.
 function normalizeBaseUrl(value: string) {
   return value.endsWith("/") ? value.slice(0, -1) : value;
 }
 
+// Resolves frontend-local mock paths or backend API paths from a contract-relative path.
 function resolveUrl(path: string) {
   const apiPath = path.startsWith("/") ? path : `/${path}`;
 
   if (USE_MOCK) {
+    if (apiPath.startsWith("/mock/")) {
+      return `/api${apiPath}`;
+    }
+
     return `/api/mock${apiPath}`;
   }
 
   return `${normalizeBaseUrl(API_URL)}/api${apiPath}`;
 }
 
+// Fetches JSON with bounded exponential-backoff retry behavior.
 async function requestJson<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const retryAttempts = options.retryAttempts ?? 3;
   const { retryAttempts: _retryAttempts, ...fetchOptions } = options;
@@ -66,6 +74,7 @@ async function requestJson<T>(path: string, options: RequestOptions = {}): Promi
   throw lastError instanceof Error ? lastError : new Error("Network request failed");
 }
 
+// Exposes a delayed loading flag for skeleton states on slow requests.
 function useSlowFlag(isFetching: boolean, thresholdMs = 500) {
   const [isSlow, setIsSlow] = useState(false);
 
@@ -82,10 +91,11 @@ function useSlowFlag(isFetching: boolean, thresholdMs = 500) {
   return isSlow;
 }
 
+// Loads one contract-named demo scenario for the main dashboard.
 export function useScenarioQuery(scenario: ScenarioKey) {
   const query = useQuery({
     queryKey: ["scenario", scenario],
-    queryFn: () => requestJson<ScenarioPayload>(`/scenario/${scenario}`),
+    queryFn: () => requestJson<ScenarioPayload>(`/mock/scenario/${scenario}`),
     staleTime: 60_000,
     gcTime: 10 * 60_000,
   });
@@ -94,6 +104,7 @@ export function useScenarioQuery(scenario: ScenarioKey) {
   return useMemo(() => ({ ...query, isSlow }), [query, isSlow]);
 }
 
+// Runs operator overrides through the scenario endpoint and returns a comparison payload in mock mode.
 export function useScenarioMutation() {
   const mutation = useMutation({
     mutationFn: (inputs: ScenarioInputs) =>

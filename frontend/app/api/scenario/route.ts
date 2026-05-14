@@ -1,14 +1,11 @@
 import { NextResponse } from "next/server";
 
 import type { ScenarioInputs } from "@/lib/domain";
-import { getScenarioComparison, isScenarioKey } from "@/lib/mock/scenarios";
+import { getScenarioComparison } from "@/lib/mock/scenarios";
 
+// Mirrors the scenario POST endpoint locally until the backend service is wired in.
 export async function POST(request: Request) {
   const body = (await request.json()) as ScenarioInputs;
-
-  if (!isScenarioKey(body.baseScenario)) {
-    return NextResponse.json({ message: "Unknown base scenario" }, { status: 400 });
-  }
 
   return NextResponse.json(getScenarioComparison(body));
 }
