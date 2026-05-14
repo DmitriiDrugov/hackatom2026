@@ -1,6 +1,7 @@
 "use client";
 
 import clsx from "clsx";
+import { X } from "lucide-react";
 import { useMemo } from "react";
 
 import type { ScenarioPayload } from "@/lib/domain";
@@ -13,8 +14,8 @@ import { PanelHeader } from "@/components/dashboard/PanelHeader";
 export function MapPanel({ data }: { data: ScenarioPayload }) {
   const selectedCityId = useDashboardStore((state) => state.selectedCityId);
   const setSelectedCityId = useDashboardStore((state) => state.setSelectedCityId);
-  const selectedCity = data.cities.find((city) => city.id === selectedCityId) ?? data.cities[0];
-  const selectedCityName = selectedCity.kind === "source" ? "Energy Hub" : selectedCity.name;
+  const selectedCity = data.cities.find((city) => city.id === selectedCityId);
+  const selectedCityName = selectedCity?.kind === "source" ? "Energy Hub" : selectedCity?.name;
 
   const flowSummary = useMemo(() => {
     const servedCities = data.cities.filter((city) => city.kind === "sink").length;
@@ -22,7 +23,11 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
   }, [data.cities]);
 
   const danubeStatusColor =
-    data.danube.status === "crit" ? "#ef4444" : data.danube.status === "warn" ? "#f59e0b" : "#0891b2";
+    data.danube.status === "crit"
+      ? "#ef4444"
+      : data.danube.status === "warn"
+        ? "#f59e0b"
+        : "#0891b2";
 
   return (
     <section className="dashboard-card flex min-h-[420px] flex-col xl:min-h-0">
@@ -48,36 +53,58 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
         </div>
 
         {/* Top-right selected city detail card — hard-coded slate for guaranteed contrast */}
-        <div
-          className="absolute left-3 top-[84px] w-[calc(100vw-40px)] overflow-hidden rounded-lg border border-slate-700/40 shadow-soft-pop sm:left-auto sm:right-3 sm:top-3 sm:w-[212px]"
-          style={{ backgroundColor: "rgba(15, 23, 42, 0.96)" }}
-        >
-          <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
-            <span className="truncate text-[13px] font-semibold text-white">
-              {selectedCityName}
-            </span>
-            <span className="rounded-sm border border-white/15 bg-white/5 px-1.5 py-0.5 text-[9px] font-medium uppercase text-cyan-300">
-              {selectedCity.kind === "source" ? "Source" : "Sink"}
-            </span>
+        {selectedCity ? (
+          <div
+            className="absolute left-3 top-[84px] w-[calc(100vw-40px)] overflow-hidden rounded-lg border border-slate-700/40 shadow-soft-pop sm:left-auto sm:right-3 sm:top-3 sm:w-[224px]"
+            style={{ backgroundColor: "rgba(15, 23, 42, 0.96)" }}
+          >
+            <div className="flex items-center justify-between gap-2 border-b border-white/10 px-3 py-2">
+              <span className="min-w-0 flex-1 truncate text-[13px] font-semibold text-white">
+                {selectedCityName}
+              </span>
+              <span className="rounded-sm border border-white/15 bg-white/5 px-1.5 py-0.5 text-[9px] font-medium uppercase text-cyan-300">
+                {selectedCity.kind === "source" ? "Source" : "Sink"}
+              </span>
+              <button
+                type="button"
+                title="Close city detail"
+                aria-label="Close city detail"
+                onClick={() => setSelectedCityId("")}
+                className="focus-ring -mr-1 grid h-6 w-6 shrink-0 place-items-center rounded text-slate-400 transition-colors hover:bg-white/10 hover:text-white"
+              >
+                <X size={13} strokeWidth={2.2} />
+              </button>
+            </div>
+            <div className="space-y-1.5 px-3 py-2.5">
+              <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} accent />
+              <CityRow
+                label="Distance"
+                value={selectedCity.distanceKm == null ? "—" : `${selectedCity.distanceKm} km`}
+              />
+              <CityRow
+                label="Pipeline loss"
+                value={
+                  selectedCity.pipelineLossPct == null
+                    ? "—"
+                    : `${selectedCity.pipelineLossPct.toFixed(1)}%`
+                }
+              />
+              <CityRow
+                label="Demand coverage"
+                value={
+                  selectedCity.demandCoveragePct == null
+                    ? "—"
+                    : `${selectedCity.demandCoveragePct}%`
+                }
+                status={
+                  selectedCity.demandCoveragePct && selectedCity.demandCoveragePct > 90
+                    ? "ok"
+                    : undefined
+                }
+              />
+            </div>
           </div>
-          <div className="space-y-1.5 px-3 py-2.5">
-            <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} accent />
-            <CityRow
-              label="Distance"
-              value={selectedCity.distanceKm == null ? "—" : `${selectedCity.distanceKm} km`}
-            />
-            <CityRow
-              label="Pipeline loss"
-              value={selectedCity.pipelineLossPct == null ? "—" : `${selectedCity.pipelineLossPct.toFixed(1)}%`}
-            />
-            <CityRow
-              label="Demand coverage"
-              value={selectedCity.demandCoveragePct == null ? "—" : `${selectedCity.demandCoveragePct}%`}
-              status={selectedCity.demandCoveragePct && selectedCity.demandCoveragePct > 90 ? "ok" : undefined}
-            />
-          </div>
-        </div>
-
+        ) : null}
       </div>
 
       {/* Danube footer */}
