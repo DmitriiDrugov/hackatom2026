@@ -1,4 +1,4 @@
-# Hackatom 2026 Monorepo
+# HackAtom 2026 Monorepo
 
 This is a hackathon monorepo for the Paks NPP thermal optimizer project.
 
