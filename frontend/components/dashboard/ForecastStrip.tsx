@@ -9,15 +9,17 @@ const chartColors = {
 
 export function ForecastStrip({ data }: { data: ScenarioPayload }) {
   return (
-    <section className="grid min-h-0 grid-cols-3 overflow-hidden border-t border-app-border bg-app-surface">
+    <section className="dashboard-card grid min-h-0 grid-cols-[1fr_1px_1fr_1px_1fr] overflow-hidden">
       <ForecastPanel
         series={data.forecasts.electricityPrice}
         color={data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice}
       />
+      <div aria-hidden className="w-px bg-app-border" />
       <ForecastPanel
         series={data.forecasts.danubeTemperature}
         color={data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature}
       />
+      <div aria-hidden className="w-px bg-app-border" />
       <ForecastPanel series={data.forecasts.heatDemand} color={chartColors.heatDemand} />
     </section>
   );
@@ -50,20 +52,20 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
   const statusColor = colorForStatus(series.status);
 
   return (
-    <div className="flex min-w-0 flex-col overflow-hidden border-r border-app-border last:border-r-0">
-      <div className="flex h-9 items-center justify-between border-b border-app-border bg-app-sunken/40 px-4">
+    <div className="flex min-w-0 flex-col overflow-hidden">
+      <div className="flex h-11 shrink-0 items-center justify-between gap-3 px-5">
         <div className="flex items-center gap-2">
-          <span aria-hidden className="h-3 w-[2px] rounded-full" style={{ backgroundColor: color }} />
-          <span className="panel-title text-[12px]">{series.label}</span>
+          <span aria-hidden className="h-3.5 w-[2px] rounded-full" style={{ backgroundColor: color }} />
+          <span className="panel-title">{series.label}</span>
         </div>
         <span
-          className="mono ml-3 shrink-0 text-[12px] font-medium tabular-nums"
+          className="mono shrink-0 text-[13px] font-medium tabular-nums"
           style={{ color: statusColor }}
         >
           {currentLabel}
         </span>
       </div>
-      <div className="min-h-0 flex-1 px-2 py-1.5">
+      <div className="min-h-0 flex-1 px-4 pb-3">
         <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-full w-full">
           <defs>
             <linearGradient id={`fill-${slug}`} x1="0" y1="0" x2="0" y2="1">
@@ -75,7 +77,6 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             </pattern>
           </defs>
 
-          {/* Soft horizontal gridlines */}
           {[0.25, 0.5, 0.75].map((t) => (
             <line
               key={t}
@@ -89,7 +90,6 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             />
           ))}
 
-          {/* Future-half hatch tint */}
           <rect x={markerX} y="0" width={width - markerX} height={height} fill={`url(#future-${slug})`} />
 
           <polygon points={area} fill={`url(#fill-${slug})`} />
@@ -107,7 +107,6 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             />
           ) : null}
 
-          {/* Now line */}
           <line
             x1={markerX}
             x2={markerX}
@@ -126,7 +125,6 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             strokeLinejoin="round"
           />
 
-          {/* Current marker */}
           <circle cx={markerX} cy={markerY} r="4" fill={color} stroke="var(--surface)" strokeWidth="2" />
         </svg>
       </div>

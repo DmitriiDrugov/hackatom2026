@@ -24,7 +24,7 @@ export function Dashboard() {
   if (query.isError || !query.data) {
     return (
       <div className="flex h-screen min-h-[720px] items-center justify-center bg-app-bg p-8 text-app-text">
-        <div className="dashboard-shell w-[380px] rounded-xl border border-app-border bg-app-surface p-5">
+        <div className="dashboard-card w-[380px] p-5">
           <div className="mb-1 text-[15px] font-semibold text-app-text">Scenario data unavailable</div>
           <p className="mb-4 text-[12px] leading-relaxed text-app-muted">
             Mock mode should serve local data from <span className="mono text-app-text-soft">/api/mock</span>. Retry
@@ -46,15 +46,15 @@ export function Dashboard() {
   const data = query.data;
 
   return (
-    <div className="h-screen min-h-[720px] min-w-[1280px] bg-app-bg p-3">
-      <main className="dashboard-shell relative grid h-full grid-rows-[52px_minmax(0,1fr)_168px_108px] overflow-hidden rounded-xl border border-app-border bg-app-surface text-[13px] text-app-text">
+    <div className="h-screen min-h-[760px] min-w-[1280px] bg-app-bg p-4 text-[13px] text-app-text">
+      <main className="grid h-full grid-rows-[56px_minmax(0,1fr)_172px_104px] gap-3 overflow-hidden">
         <TopStatusBar
           activeScenario={activeScenario}
           reactors={data.reactors}
           alerts={data.alerts}
           onScenarioChange={setActiveScenario}
         />
-        <div className="grid min-h-0 grid-cols-[47%_31%_22%] overflow-hidden border-t border-app-border">
+        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-3 overflow-hidden">
           <MapPanel data={data} />
           <AllocationTimeline data={data} />
           <LiveMetricsPanel data={data} />
@@ -69,34 +69,26 @@ export function Dashboard() {
 
 function DashboardSkeleton() {
   return (
-    <div className="h-screen min-h-[720px] min-w-[1280px] bg-app-bg p-3">
-      <main className="dashboard-shell grid h-full grid-rows-[52px_minmax(0,1fr)_168px_108px] overflow-hidden rounded-xl border border-app-border bg-app-surface">
-        <div className="border-b border-app-border bg-app-surface px-4 py-3">
+    <div className="h-screen min-h-[760px] min-w-[1280px] bg-app-bg p-4">
+      <main className="grid h-full grid-rows-[56px_minmax(0,1fr)_172px_104px] gap-3 overflow-hidden">
+        <div className="dashboard-card flex items-center px-5">
           <div className="skeleton h-5 w-64 rounded" />
         </div>
-        <div className="grid min-h-0 grid-cols-[47%_31%_22%]">
-          <div className="border-r border-app-border bg-app-surface p-4">
+        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-3">
+          <div className="dashboard-card p-4">
             <div className="skeleton h-full rounded-md" />
           </div>
-          <div className="border-r border-app-border bg-app-surface p-4">
+          <div className="dashboard-card p-4">
             <div className="skeleton h-full rounded-md" />
           </div>
-          <div className="bg-app-surface p-4">
-            <div className="skeleton h-full rounded-md" />
-          </div>
-        </div>
-        <div className="grid grid-cols-3 border-t border-app-border bg-app-surface">
-          <div className="border-r border-app-border p-4">
-            <div className="skeleton h-full rounded-md" />
-          </div>
-          <div className="border-r border-app-border p-4">
-            <div className="skeleton h-full rounded-md" />
-          </div>
-          <div className="p-4">
+          <div className="dashboard-card p-4">
             <div className="skeleton h-full rounded-md" />
           </div>
         </div>
-        <div className="border-t border-app-border bg-app-surface p-4">
+        <div className="dashboard-card p-4">
+          <div className="skeleton h-full rounded-md" />
+        </div>
+        <div className="dashboard-card p-4">
           <div className="skeleton h-full rounded-md" />
         </div>
       </main>

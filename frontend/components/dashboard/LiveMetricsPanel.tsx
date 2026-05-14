@@ -11,13 +11,14 @@ export function LiveMetricsPanel({ data }: { data: ScenarioPayload }) {
   const DeltaIcon = deltaUp ? ArrowUpRight : ArrowDownRight;
 
   return (
-    <section className="flex min-h-0 flex-col overflow-hidden bg-app-surface">
+    <section className="dashboard-card flex min-h-0 flex-col">
       <PanelHeader title="Live metrics" accent="var(--emerald)" />
 
-      <div className="border-b border-app-border px-4 py-3">
+      {/* Revenue hero */}
+      <div className="px-5 pt-1 pb-4">
         <div className="panel-label mb-1.5">Revenue rate</div>
         <div className="flex items-baseline gap-1.5">
-          <span className="stat-num text-[30px] leading-none text-app-text">
+          <span className="stat-num text-[32px] leading-none text-app-text">
             {metrics.revenueRateEuroHr.toLocaleString("en-US")}
           </span>
           <span className="text-[12px] font-medium text-app-muted">€/hr</span>
@@ -34,7 +35,8 @@ export function LiveMetricsPanel({ data }: { data: ScenarioPayload }) {
         </div>
       </div>
 
-      <div className="border-b border-app-border px-4 py-3">
+      {/* Thermal efficiency rail */}
+      <div className="px-5 pb-4">
         <div className="mb-1.5 flex items-baseline justify-between">
           <span className="text-[11px] font-medium text-app-text-soft">Thermal efficiency</span>
           <span className="mono text-[12px] font-medium tabular-nums text-app-emerald">
@@ -49,21 +51,23 @@ export function LiveMetricsPanel({ data }: { data: ScenarioPayload }) {
         </div>
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-2">
+      {/* Stat grid */}
+      <div className="grid shrink-0 grid-cols-2 gap-px bg-app-border px-px">
         <MetricCell label="Today's revenue" value={metrics.todayRevenueMEur.toFixed(2)} unit="M€" />
         <MetricCell label="H2 produced" value={metrics.h2ProducedTonnes.toFixed(1)} unit="t" />
         <MetricCell label="Heat delivered" value={metrics.heatDeliveredMw.toLocaleString("en-US")} unit="MW" />
         <MetricCell label="Electricity out" value={metrics.electricityOutMw.toLocaleString("en-US")} unit="MW" />
       </div>
 
-      <div className="border-t border-app-border bg-app-sunken/40 px-4 py-3">
-        <div className="panel-label mb-2">Active constraints</div>
+      {/* Active constraints */}
+      <div className="mt-auto bg-app-sunken/50 px-5 py-3.5">
+        <div className="panel-label mb-2.5">Active constraints</div>
         <div className="space-y-1.5">
           {metrics.activeConstraints.map((constraint) => {
             const color = colorForStatus(constraint.status);
             return (
               <div key={constraint.name} className="flex items-center gap-2">
-                <span className="relative inline-flex h-2 w-2 items-center justify-center">
+                <span className="relative inline-flex h-2 w-2 shrink-0 items-center justify-center">
                   <span
                     className="h-1.5 w-1.5 rounded-full"
                     style={{ backgroundColor: color }}
@@ -76,7 +80,7 @@ export function LiveMetricsPanel({ data }: { data: ScenarioPayload }) {
                   ) : null}
                 </span>
                 <span className="min-w-0 flex-1 truncate text-[11px] text-app-text-soft">{constraint.name}</span>
-                <span className="mono text-[10px] tabular-nums" style={{ color }}>
+                <span className="mono shrink-0 text-[10px] tabular-nums" style={{ color }}>
                   {constraint.current} / {constraint.limit}
                 </span>
               </div>
@@ -90,10 +94,10 @@ export function LiveMetricsPanel({ data }: { data: ScenarioPayload }) {
 
 function MetricCell({ label, value, unit }: { label: string; value: string; unit: string }) {
   return (
-    <div className="border-b border-r border-app-border px-4 py-3 even:border-r-0 [&:nth-last-child(-n+2)]:border-b-0">
+    <div className="bg-app-surface px-5 py-3">
       <div className="panel-label mb-1.5">{label}</div>
       <div className="flex items-baseline gap-1">
-        <span className="stat-num text-[18px] leading-none text-app-text">{value}</span>
+        <span className="stat-num text-[20px] leading-none text-app-text">{value}</span>
         <span className="text-[10px] font-medium text-app-muted">{unit}</span>
       </div>
     </div>

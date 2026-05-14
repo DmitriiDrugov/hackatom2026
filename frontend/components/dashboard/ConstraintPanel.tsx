@@ -2,20 +2,22 @@ import clsx from "clsx";
 
 import type { ScenarioPayload } from "@/lib/domain";
 import { colorForStatus } from "@/lib/format";
-import { PanelHeader } from "@/components/dashboard/PanelHeader";
 
 export function ConstraintPanel({ data }: { data: ScenarioPayload }) {
   return (
-    <section className="flex min-h-0 flex-col overflow-hidden border-t border-app-border bg-app-surface">
-      <PanelHeader title="Safety constraints" accent="var(--rose)" />
-      <div className="grid min-h-0 flex-1 grid-cols-6">
+    <section className="dashboard-card flex min-h-0 flex-col overflow-hidden">
+      <div className="flex h-9 shrink-0 items-center gap-2 px-5">
+        <span aria-hidden className="h-3 w-[2px] rounded-full bg-app-rose" />
+        <span className="panel-title">Safety constraints</span>
+      </div>
+      <div className="grid min-h-0 flex-1 grid-cols-6 gap-px bg-app-border">
         {data.constraints.map((constraint) => {
           const color = colorForStatus(constraint.status);
           const pct = Math.min(100, constraint.pct);
           return (
             <div
               key={constraint.name}
-              className="relative flex min-w-0 flex-col gap-1.5 border-r border-app-border px-4 py-3 last:border-r-0"
+              className="relative flex min-w-0 flex-col gap-1.5 bg-app-surface px-4 py-2.5"
             >
               <div className="flex items-start justify-between gap-2">
                 <span className="panel-label text-[9px] leading-tight">{constraint.name}</span>
@@ -38,7 +40,7 @@ export function ConstraintPanel({ data }: { data: ScenarioPayload }) {
 
               <div className="flex min-w-0 items-baseline gap-1">
                 <span
-                  className="mono truncate text-[17px] font-medium leading-none tabular-nums"
+                  className="mono truncate text-[18px] font-medium leading-none tabular-nums"
                   style={{ color }}
                 >
                   {constraint.currentLabel}

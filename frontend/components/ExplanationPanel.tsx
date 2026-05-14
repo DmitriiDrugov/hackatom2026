@@ -25,8 +25,8 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
   return (
     <aside
-      className="fixed bottom-3 right-3 top-3 z-40 flex w-[332px] flex-col overflow-hidden rounded-xl border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
-      style={{ transform: explanationOpen ? "translateX(0)" : "translateX(calc(100% + 16px))" }}
+      className="fixed bottom-4 right-4 top-4 z-40 flex w-[332px] flex-col overflow-hidden rounded-[14px] border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
+      style={{ transform: explanationOpen ? "translateX(0)" : "translateX(calc(100% + 20px))" }}
       aria-hidden={!explanationOpen}
     >
       <div className="flex items-start justify-between border-b border-app-border bg-app-sunken/60 px-4 py-3.5">

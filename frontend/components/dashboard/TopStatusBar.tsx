@@ -84,7 +84,7 @@ export function TopStatusBar({
   const paksII = reactors.filter((unit) => unit.group === "Paks II");
 
   return (
-    <header className="grid h-[52px] grid-cols-[auto_1px_auto_1fr_auto_1px_auto] items-center gap-4 bg-app-surface px-5">
+    <header className="dashboard-card grid h-full grid-cols-[auto_1px_auto_1fr_auto_1px_auto] items-center gap-4 px-5">
       <div className="flex shrink-0 items-center gap-3">
         <span
           aria-hidden

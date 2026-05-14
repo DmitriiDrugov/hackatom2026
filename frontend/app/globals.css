@@ -160,6 +160,17 @@ svg {
     0 24px 60px -28px rgba(15, 23, 42, 0.18);
 }
 
+/* Floating panel card — used across the dashboard for the gapped-card layout. */
+.dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.025),
+    0 6px 16px -10px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+}
+
 .gridline-soft {
   background-image: linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
   background-size: 12.5% 100%;

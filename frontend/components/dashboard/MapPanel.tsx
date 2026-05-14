@@ -401,8 +401,8 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
     data.danube.status === "crit" ? "#ef4444" : data.danube.status === "warn" ? "#f59e0b" : "#0891b2";
 
   return (
-    <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
-      <PanelHeader title="Geographic allocation" value="MapLibre · Hungary · CET" />
+    <section className="dashboard-card flex min-h-0 flex-col">
+      <PanelHeader title="Geographic allocation" value="Hungary · CET" accent="var(--cyan)" />
       <div className="relative min-h-0 flex-1 overflow-hidden bg-[#e6ecf2]">
         <div ref={mapContainerRef} className="h-full w-full" aria-label="Hungary heat allocation map" />
 
@@ -461,7 +461,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
         </div>
       </div>
 
-      <div className="flex h-10 items-center gap-3 border-t border-app-border bg-app-sunken/40 px-4">
+      <div className="flex h-11 shrink-0 items-center gap-3 border-t border-app-border bg-app-sunken/40 px-5">
         <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-app-muted">Danube</span>
         <div className="relative h-[6px] min-w-0 flex-1 overflow-hidden rounded-full bg-app-elevated ring-1 ring-inset ring-app-border">
           <div
