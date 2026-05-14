@@ -37,18 +37,18 @@ export function formatPct(value: number, signed = false) {
   return `${prefix}${value.toFixed(0)}%`;
 }
 
-// Maps semantic safety status to the dashboard color system (light theme).
+// Maps semantic safety status to the dashboard color system (mint-aligned).
 export function colorForStatus(status: "ok" | "warn" | "crit" | "off") {
   if (status === "ok") return "#10b981";
   if (status === "warn") return "#f59e0b";
   if (status === "crit") return "#ef4444";
-  return "#94a3b8";
+  return "#9ca3af";
 }
 
-// Maps allocation channels to stable chart colors (light theme).
+// Maps allocation channels to stable chart colors (mint-aligned palette).
 export function colorForChannel(channel: string) {
   if (channel === "electricity") return "#2563eb";
-  if (channel === "heat") return "#059669";
-  if (channel === "hydrogen") return "#7c3aed";
+  if (channel === "heat") return "#10b981";
+  if (channel === "hydrogen") return "#8b5cf6";
   return "#0891b2";
 }

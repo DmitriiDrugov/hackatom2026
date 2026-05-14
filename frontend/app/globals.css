@@ -4,39 +4,42 @@
 
 :root {
   color-scheme: light;
-  /* Canvas behind the floating dashboard card. */
-  --bg: #eef2f7;
-  /* Primary panel surface. */
+  /* Background: very light mint gradient base. */
+  --bg: #ebfaf2;
+  --bg-deep: #d4f0e0;
+  /* Card surface. */
   --surface: #ffffff;
-  /* Subtle elevation for hover / chips / soft fills. */
-  --surface-elevated: #f4f7fb;
-  /* Slightly deeper neutral for panel headers and inset rails. */
-  --surface-sunken: #f1f5f9;
-  /* Hairline divider between panels. */
-  --border: #e3e8ef;
-  /* Stronger divider for emphasized seams. */
-  --border-strong: #cbd5e1;
-  /* Accents — calibrated for readability on white surfaces. */
-  --cyan: #0369a1;
+  --surface-elevated: #f5fbf7;
+  --surface-sunken: #f0f8f3;
+  /* Borders. */
+  --border: #dcebe1;
+  --border-strong: #c3decd;
+  /* Brand / primary — mint green. */
+  --primary: #10b981;
+  --primary-soft: #d1fae5;
+  --primary-softer: #ecfdf5;
+  --primary-strong: #047857;
+  /* Accents — tuned for warmth and harmony with mint. */
+  --cyan: #0e7490;
   --blue: #1d4ed8;
-  --emerald: #047857;
-  --amber: #b45309;
-  --rose: #b91c1c;
-  --purple: #6d28d9;
+  --emerald: #059669;
+  --amber: #c2740b;
+  --rose: #dc2626;
+  --purple: #7c3aed;
   /* Neutral text scale. */
-  --muted: #64748b;
-  --muted-strong: #475569;
+  --muted: #6b7280;
+  --muted-strong: #4b5563;
   --text: #0f172a;
-  --text-soft: #1e293b;
-  /* Channel & status visualization colors, optimized for light theme. */
+  --text-soft: #1f2937;
+  /* Channel and status visualization. */
   --c-electricity: #2563eb;
-  --c-heat: #059669;
-  --c-hydrogen: #7c3aed;
+  --c-heat: #10b981;
+  --c-hydrogen: #8b5cf6;
   --c-cooling: #0891b2;
   --s-ok: #10b981;
   --s-warn: #f59e0b;
   --s-crit: #ef4444;
-  --s-off: #94a3b8;
+  --s-off: #9ca3af;
 }
 
 * {
@@ -47,10 +50,9 @@ html,
 body {
   height: 100%;
   margin: 0;
-  background: var(--bg);
   color: var(--text);
-  font-family: var(--font-inter), Inter, -apple-system, system-ui, sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss03";
+  font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02", "cv11";
   font-variant-numeric: tabular-nums;
   letter-spacing: -0.005em;
   line-height: 1.4;
@@ -61,6 +63,11 @@ body {
 
 body {
   overflow: hidden;
+  background:
+    radial-gradient(1200px 700px at 0% 0%, rgba(16, 185, 129, 0.15), transparent 60%),
+    radial-gradient(900px 600px at 100% 100%, rgba(14, 165, 168, 0.10), transparent 55%),
+    linear-gradient(180deg, var(--bg-deep) 0%, var(--bg) 25%, #ffffff 75%, var(--bg) 100%);
+  background-attachment: fixed;
 }
 
 button,
@@ -86,12 +93,12 @@ svg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #cbd5d8;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #94a3a8;
 }
 
 .focus-ring {
@@ -99,24 +106,24 @@ svg {
 }
 
 .focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.45);
 }
 
-/* Compact uppercase eyebrow label used above values across the dashboard. */
+/* Compact uppercase eyebrow label. */
 .panel-label {
   color: var(--muted);
   font-size: 10px;
   font-weight: 600;
-  letter-spacing: 0.09em;
+  letter-spacing: 0.085em;
   text-transform: uppercase;
 }
 
-/* Panel section title — the dominant text inside a panel header. */
+/* Panel section title. */
 .panel-title {
   color: var(--text);
   font-size: 13px;
-  font-weight: 600;
-  letter-spacing: -0.005em;
+  font-weight: 700;
+  letter-spacing: -0.01em;
 }
 
 .panel-meta {
@@ -128,72 +135,46 @@ svg {
 
 .mono {
   font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
-  font-feature-settings: "ss01", "ss02", "zero", "tnum";
+  font-feature-settings: "tnum", "zero";
   letter-spacing: -0.01em;
 }
 
-/* Stat number — the dominant numeric display inside a metric tile. */
+/* Stat number — dominant numeric display. */
 .stat-num {
-  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-family: var(--font-sans), "Plus Jakarta Sans", sans-serif;
   font-feature-settings: "tnum", "zero";
   font-variant-numeric: tabular-nums;
-  font-weight: 500;
-  letter-spacing: -0.02em;
+  font-weight: 700;
+  letter-spacing: -0.025em;
   color: var(--text);
 }
 
 .skeleton {
   background: linear-gradient(
     90deg,
-    rgba(226, 232, 240, 0.6),
-    rgba(241, 245, 249, 0.95),
-    rgba(226, 232, 240, 0.6)
+    rgba(220, 235, 225, 0.6),
+    rgba(240, 250, 245, 0.95),
+    rgba(220, 235, 225, 0.6)
   );
   background-size: 180% 100%;
   animation: skeleton-pulse 1.2s ease-in-out infinite;
 }
 
-.dashboard-shell {
+/* Floating panel card — gapped-card layout. */
+.dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
   box-shadow:
-    0 1px 1px rgba(15, 23, 42, 0.04),
-    0 8px 24px rgba(15, 23, 42, 0.06),
-    0 24px 60px -28px rgba(15, 23, 42, 0.18);
-}
-
-.gridline-soft {
-  background-image: linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
-  background-size: 12.5% 100%;
-}
-
-.maplibregl-canvas {
-  outline: none;
-}
-
-.maplibregl-ctrl-top-left {
-  left: 12px;
-  top: 64px;
-}
-
-.maplibregl-ctrl-group {
+    0 1px 1px rgba(15, 23, 42, 0.025),
+    0 8px 22px -14px rgba(15, 23, 42, 0.12);
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow:
-    0 1px 2px rgba(15, 23, 42, 0.04),
-    0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
-.maplibregl-ctrl-group button {
-  width: 30px;
-  height: 30px;
-}
-
-.maplibregl-ctrl-attrib {
-  border-top-right-radius: 8px;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--muted);
-  font-size: 10px;
+.soft-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
 }
 
 @keyframes skeleton-pulse {
@@ -204,6 +185,16 @@ svg {
   100% {
     background-position: 0 0;
   }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -26;
+  }
+}
+
+.animate-flow {
+  animation: flow 1.8s linear infinite;
 }
 
 @media (max-width: 1279px) {

@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 import type { ForecastSeries, ScenarioPayload } from "@/lib/domain";
 import { colorForStatus } from "@/lib/format";
 
@@ -7,23 +9,67 @@ const chartColors = {
   heatDemand: "#0891b2",
 };
 
-export function ForecastStrip({ data }: { data: ScenarioPayload }) {
+export function ForecastStrip({
+  data,
+  expanded = false,
+}: {
+  data: ScenarioPayload;
+  expanded?: boolean;
+}) {
+  if (expanded) {
+    return (
+      <section className="grid h-full min-h-0 grid-cols-1 gap-3 overflow-hidden lg:grid-cols-3">
+        <div className="dashboard-card flex flex-col">
+          <ForecastPanel
+            series={data.forecasts.electricityPrice}
+            color={data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice}
+            expanded
+          />
+        </div>
+        <div className="dashboard-card flex flex-col">
+          <ForecastPanel
+            series={data.forecasts.danubeTemperature}
+            color={data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature}
+            expanded
+          />
+        </div>
+        <div className="dashboard-card flex flex-col">
+          <ForecastPanel
+            series={data.forecasts.heatDemand}
+            color={chartColors.heatDemand}
+            expanded
+          />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section className="grid min-h-0 grid-cols-3 overflow-hidden border-t border-app-border bg-app-surface">
+    <section className="dashboard-card grid min-h-0 grid-cols-[1fr_1px_1fr_1px_1fr] overflow-hidden">
       <ForecastPanel
         series={data.forecasts.electricityPrice}
         color={data.forecasts.electricityPrice.current < 0 ? "#ef4444" : chartColors.electricityPrice}
       />
+      <div aria-hidden className="w-px bg-app-border" />
       <ForecastPanel
         series={data.forecasts.danubeTemperature}
         color={data.danube.status === "crit" ? "#ef4444" : chartColors.danubeTemperature}
       />
+      <div aria-hidden className="w-px bg-app-border" />
       <ForecastPanel series={data.forecasts.heatDemand} color={chartColors.heatDemand} />
     </section>
   );
 }
 
-function ForecastPanel({ series, color }: { series: ForecastSeries; color: string }) {
+function ForecastPanel({
+  series,
+  color,
+  expanded = false,
+}: {
+  series: ForecastSeries;
+  color: string;
+  expanded?: boolean;
+}) {
   const values = series.points.map((point) => point.value);
   const min = Math.min(...values, series.limit ?? Number.POSITIVE_INFINITY);
   const max = Math.max(...values, series.limit ?? Number.NEGATIVE_INFINITY);
@@ -50,24 +96,35 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
   const statusColor = colorForStatus(series.status);
 
   return (
-    <div className="flex min-w-0 flex-col overflow-hidden border-r border-app-border last:border-r-0">
-      <div className="flex h-9 items-center justify-between border-b border-app-border bg-app-sunken/40 px-4">
+    <div className="flex min-w-0 flex-1 flex-col overflow-hidden">
+      <div
+        className="flex shrink-0 items-center justify-between gap-3 border-b border-app-border px-5"
+        style={{
+          backgroundColor: `${color}0d`,
+          height: expanded ? 48 : 40,
+        }}
+      >
         <div className="flex items-center gap-2">
-          <span aria-hidden className="h-3 w-[2px] rounded-full" style={{ backgroundColor: color }} />
-          <span className="panel-title text-[12px]">{series.label}</span>
+          <span aria-hidden className="h-3.5 w-[3px] rounded-full" style={{ backgroundColor: color }} />
+          <span className={clsx("panel-title", expanded ? "text-[13px]" : "text-[12px]")}>
+            {series.label}
+          </span>
         </div>
         <span
-          className="mono ml-3 shrink-0 text-[12px] font-medium tabular-nums"
+          className={clsx(
+            "mono shrink-0 font-bold tabular-nums",
+            expanded ? "text-[16px]" : "text-[13px]",
+          )}
           style={{ color: statusColor }}
         >
           {currentLabel}
         </span>
       </div>
-      <div className="min-h-0 flex-1 px-2 py-1.5">
+      <div className="min-h-0 flex-1 px-4 pb-4 pt-3">
         <svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none" className="h-full w-full">
           <defs>
             <linearGradient id={`fill-${slug}`} x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%" stopColor={color} stopOpacity="0.18" />
+              <stop offset="0%" stopColor={color} stopOpacity="0.22" />
               <stop offset="100%" stopColor={color} stopOpacity="0" />
             </linearGradient>
             <pattern id={`future-${slug}`} width="6" height="6" patternUnits="userSpaceOnUse">
@@ -75,7 +132,6 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             </pattern>
           </defs>
 
-          {/* Soft horizontal gridlines */}
           {[0.25, 0.5, 0.75].map((t) => (
             <line
               key={t}
@@ -83,13 +139,12 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
               x2={width}
               y1={height * t}
               y2={height * t}
-              stroke="rgba(148, 163, 184, 0.18)"
+              stroke="rgba(148, 163, 184, 0.22)"
               strokeWidth="1"
               strokeDasharray="2 4"
             />
           ))}
 
-          {/* Future-half hatch tint */}
           <rect x={markerX} y="0" width={width - markerX} height={height} fill={`url(#future-${slug})`} />
 
           <polygon points={area} fill={`url(#fill-${slug})`} />
@@ -107,13 +162,12 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             />
           ) : null}
 
-          {/* Now line */}
           <line
             x1={markerX}
             x2={markerX}
             y1="0"
             y2={height}
-            stroke="rgba(15,23,42,0.35)"
+            stroke="rgba(15,23,42,0.4)"
             strokeWidth="1"
           />
 
@@ -121,13 +175,12 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             points={points}
             fill="none"
             stroke={color}
-            strokeWidth="1.75"
+            strokeWidth="1.9"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
 
-          {/* Current marker */}
-          <circle cx={markerX} cy={markerY} r="4" fill={color} stroke="var(--surface)" strokeWidth="2" />
+          <circle cx={markerX} cy={markerY} r="4.5" fill={color} stroke="var(--surface)" strokeWidth="2.2" />
         </svg>
       </div>
     </div>
