@@ -1,0 +1,407 @@
+MeasureItem	MeasureItemCategoryID	MeasureItemID	Category	Country	Year	Representativity	ProvidedValue	CreationDate	ProvidedValueCode
+Net Generating Capacity	6	B01	Biomass	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	AL	2022	100	97.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	AL	2022	100	527.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	AL	2022	100	1676.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	AL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	AT	2022	100	482.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	AT	2022	100	4349.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	AT	2022	100	163.61	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	AT	2022	100	3503.28	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	AT	2022	100	5836.87	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	AT	2022	100	2474.95	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	AT	2022	100	954.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	AT	2022	100	2500.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	AT	2022	100	103.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	AT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	AT	2022	100	3500.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	BA	2022	100	1888.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	BA	2022	100	440.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	BA	2022	100	290.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	BA	2022	100	1456.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	BA	2022	100	134.60	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	BE	2022	100	700.47	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	BE	2022	100	6818.77	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	BE	2022	100	398.47	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	BE	2022	100	1308.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	BE	2022	100	184.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	BE	2022	100	5943.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	BE	2022	100	18.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	BE	2022	100	4787.56	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	BE	2022	100	383.64	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	BE	2022	100	2254.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	BE	2022	100	2786.65	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	BG	2022	100	74.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	BG	2022	100	4119.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	BG	2022	100	1305.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	BG	2022	100	356.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	BG	2022	100	864.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	BG	2022	100	540.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	BG	2022	100	1810.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	BG	2022	100	2080.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	BG	2022	100	1726.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	BG	2022	100	6.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	BG	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	BG	2022	100	705.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	CH	2022	100	6680.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	CH	2022	100	604.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	CH	2022	100	5588.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	CH	2022	100	2970.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	CZ	2022	100	410.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	CZ	2022	100	7250.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	CZ	2022	100	380.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	CZ	2022	100	1240.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	CZ	2022	100	1200.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	CZ	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	CZ	2022	100	1172.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	CZ	2022	100	356.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	CZ	2022	100	753.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	CZ	2022	100	4040.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	CZ	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	CZ	2022	100	410.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	CZ	2022	100	2053.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	CZ	2022	100	100.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	CZ	2022	100	339.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	DE	2022	100	8331.89	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	DE	2022	100	18544.29	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	DE	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	DE	2022	100	30552.72	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	DE	2022	100	18829.51	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	DE	2022	100	3966.28	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	DE	2022	100	50.90	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	DE	2022	100	9280.24	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	DE	2022	100	3659.53	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	DE	2022	100	1397.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	DE	2022	100	4056.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	DE	2022	100	1678.83	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	DE	2022	100	352.43	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	DE	2022	100	57744.29	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	DE	2022	100	1598.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	DE	2022	100	7786.82	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	DE	2022	100	55289.32	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	DK	2022	100	1870.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	DK	2022	100	1621.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	DK	2022	100	3165.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	DK	2022	100	997.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	DK	2022	100	7.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	DK	2022	100	137.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	DK	2022	100	1536.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	DK	2022	100	384.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	DK	2022	100	2305.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	DK	2022	100	4644.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	EE	2022	100	130.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	EE	2022	100	25.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	EE	2022	100	94.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	EE	2022	100	52.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	EE	2022	100	1371.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	EE	2022	100	4.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	EE	2022	100	13.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	EE	2022	100	370.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	EE	2022	100	17.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	EE	2022	100	326.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	ES	2022	100	702.30	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	ES	2022	100	29926.90	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	ES	2022	100	4641.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	ES	2022	100	669.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	ES	2022	100	5695.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	ES	2022	100	1154.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	ES	2022	100	19186.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	ES	2022	100	7117.20	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	ES	2022	100	118.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	ES	2022	100	271.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	ES	2022	100	14639.90	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	ES	2022	100	565.30	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	ES	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	ES	2022	100	27734.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	FI	2022	100	1895.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	FI	2022	100	1935.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	FI	2022	100	1682.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	FI	2022	100	1051.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	FI	2022	100	1116.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	FI	2022	100	3167.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	FI	2022	100	2794.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	FI	2022	100	462.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	FI	2022	100	322.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	FI	2022	100	7.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	FI	2022	100	114.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	FI	2022	100	3184.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	FR	2022	100	1300.89	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	FR	2022	100	13074.11	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	FR	2022	100	1815.81	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	FR	2022	100	2761.79	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	FR	2022	100	1.85	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	FR	2022	100	5049.96	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	FR	2022	100	11834.14	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	FR	2022	100	8785.22	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	FR	2022	100	242.81	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	FR	2022	100	61370.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	FR	2022	100	1156.69	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	FR	2022	100	13153.79	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	FR	2022	100	947.21	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	FR	2022	100	20.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	FR	2022	100	19515.54	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	GE	2022	100	1189.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	GE	2022	100	1058.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	GE	2022	100	2381.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	GE	2022	100	21.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	GR	2022	100	106.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	GR	2022	100	2001.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	GR	2022	100	5213.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	GR	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	GR	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	GR	2022	100	699.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	GR	2022	100	319.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	GR	2022	100	2403.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	GR	2022	100	109.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	GR	2022	100	3820.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	GR	2022	100	4150.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	HR	2022	100	111.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	HR	2022	100	750.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	HR	2022	100	217.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	HR	2022	100	75.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	HR	2022	100	10.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	HR	2022	100	281.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	HR	2022	100	428.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	HR	2022	100	1446.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	HR	2022	100	57.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	HR	2022	100	96.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	HR	2022	100	6.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	HR	2022	100	925.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	HU	2022	100	212.65	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	HU	2022	100	1006.53	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	HU	2022	100	3974.48	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	HU	2022	100	42.34	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	HU	2022	100	424.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	HU	2022	100	2.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	HU	2022	100	33.03	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	HU	2022	100	28.16	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	HU	2022	100	1915.60	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	HU	2022	100	69.60	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	HU	2022	100	2523.57	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	HU	2022	100	49.44	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	HU	2022	100	323.28	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	IE	2022	100	4265.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	IE	2022	100	855.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	IE	2022	100	1272.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	IE	2022	100	343.60	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	IE	2022	100	17.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	IE	2022	100	292.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	IE	2022	100	216.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	IE	2022	100	647.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	IE	2022	100	1918.73	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	IT	2022	100	1548.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	IT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	IT	2022	100	2041.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	IT	2022	100	41961.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	IT	2022	100	6376.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	IT	2022	100	1490.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	IT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	IT	2022	100	869.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	IT	2022	100	7256.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	IT	2022	100	10507.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	IT	2022	100	4441.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	IT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	IT	2022	100	825.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	IT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	IT	2022	100	5137.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	IT	2022	100	122.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	IT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	IT	2022	100	10658.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	LT	2022	100	95.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	LT	2022	100	1527.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	LT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	LT	2022	100	900.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	LT	2022	100	128.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	LT	2022	100	37.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	LT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	LT	2022	100	259.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	LT	2022	100	70.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	LT	2022	100	671.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	LU	2022	100	47.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	LU	2022	100	96.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	LU	2022	100	25.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	LU	2022	100	11.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	LU	2022	100	258.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	LU	2022	100	21.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	LU	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	LU	2022	100	167.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	LV	2022	100	164.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	LV	2022	100	1162.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	LV	2022	100	1588.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	LV	2022	100	14.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	LV	2022	100	87.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	ME	2022	100	210.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	ME	2022	100	307.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	ME	2022	100	342.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	ME	2022	100	118.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	MK	2022	100	7.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	MK	2022	100	824.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	MK	2022	100	251.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	MK	2022	100	644.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	MK	2022	100	22.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	MK	2022	100	37.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	NL	2022	100	572.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	NL	2022	100	18530.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	NL	2022	100	4006.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	NL	2022	100	38.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	NL	2022	100	486.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	NL	2022	100	1.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	NL	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	NL	2022	100	14911.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	NL	2022	100	763.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	NL	2022	100	2460.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	NL	2022	100	5310.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	NO	2022	100	638.94	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	NO	2022	100	1064.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	NO	2022	100	6676.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	NO	2022	100	26683.46	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	NO	2022	100	31.24	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	NO	2022	100	99.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	NO	2022	100	89.82	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	NO	2022	100	5105.20	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	PL	2022	100	646.69	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	PL	2022	100	7559.73	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	PL	2022	100	284.19	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	PL	2022	100	3807.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	PL	2022	100	19073.12	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	PL	2022	100	392.54	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	PL	2022	100	1591.21	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	PL	2022	100	320.84	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	PL	2022	100	464.43	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	PL	2022	100	1524.25	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	PL	2022	100	6664.08	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	PL	2022	100	7950.21	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	PT	2022	100	681.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	PT	2022	100	4519.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	PT	2022	100	2827.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	PT	2022	100	2856.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	PT	2022	100	1515.30	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	PT	2022	100	28.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	PT	2022	100	1031.90	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	PT	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	PT	2022	100	25.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	PT	2022	100	5328.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	RO	2022	100	116.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	RO	2022	100	2497.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	RO	2022	100	2218.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	RO	2022	100	176.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	RO	2022	100	2780.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	RO	2022	100	3357.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	RO	2022	100	1300.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	RO	2022	100	1160.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	RO	2022	100	2957.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	RS	2022	100	2.38	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	RS	2022	100	5660.50	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	RS	2022	100	485.71	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	RS	2022	100	642.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	RS	2022	100	2051.20	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	RS	2022	100	473.47	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	RS	2022	100	34.64	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	RS	2022	100	2.90	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	RS	2022	100	533.32	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	SE	2022	100	16300.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	SE	2022	100	6900.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	SE	2022	100	8400.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	SE	2022	100	12100.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	SI	2022	100	15.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	SI	2022	100	981.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B03	Fossil Coal-derived gas	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	SI	2022	100	548.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B06	Fossil Oil	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B07	Fossil Oil shale	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B08	Fossil Peat	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B09	Geothermal	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	SI	2022	100	180.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	SI	2022	100	1125.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B13	Marine	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	SI	2022	100	696.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B20	Other	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B15	Other renewable	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	SI	2022	100	459.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B17	Waste	SI	2022	100	4.40	27-06-2023 00:00:00	
+Net Generating Capacity	6	B18	Wind Offshore	SI	2022	100	0.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	SI	2022	100	3.30	27-06-2023 00:00:00	
+Net Generating Capacity	6	B01	Biomass	UA	2022	100	199.48	27-06-2023 00:00:00	
+Net Generating Capacity	6	B04	Fossil Gas	UA	2022	100	9359.51	27-06-2023 00:00:00	
+Net Generating Capacity	6	B05	Fossil Hard coal	UA	2022	100	18587.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B10	Hydro Pumped Storage	UA	2022	100	1487.80	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	UA	2022	100	192.05	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	UA	2022	100	4636.70	27-06-2023 00:00:00	
+Net Generating Capacity	6	B14	Nuclear	UA	2022	100	13835.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B16	Solar	UA	2022	100	5362.56	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	UA	2022	100	1111.15	27-06-2023 00:00:00	
+Net Generating Capacity	6	B02	Fossil Brown coal/Lignite	XK	2022	100	1288.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B11	Hydro Run-of-river and poundage	XK	2022	100	33.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B12	Hydro Water Reservoir	XK	2022	100	35.00	27-06-2023 00:00:00	
+Net Generating Capacity	6	B19	Wind Onshore	XK	2022	100	136.00	27-06-2023 00:00:00	

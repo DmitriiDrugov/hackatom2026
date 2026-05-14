@@ -1,0 +1,980 @@
+MeasureItem,MeasureItemCategoryID,MeasureItemID,Category,Country,Year,LengthOfCircuits,LengthOfRoutes,NumberOfUnits,ProvidedValue,CreationDate,ProvidedValueCode
+Inventory of Transmission,5,406,ACC_220kV_380kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,AL,2023,1735,1735,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,AL,2023,1250,1250,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,AL,2023,445,445,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,AL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,AL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,AL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,AL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,AL,2023,,,22,2450,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,AL,2023,,,2,300,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,AL,2023,,,5,1545,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,AL,2023,,,17,1711,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,AL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,AT,2023,8,7,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,AT,2023,54,54,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,AT,2023,10826,6146,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,AT,2023,3608,1847,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,AT,2023,3098,1434,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,AT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,AT,2023,,,,"110 kV cables: length of circuits 822 km, length of routh 759 km",22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,AT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,AT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,AT,2023,,,47,10260,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,AT,2023,,,23,6700,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,AT,2023,,,23,14930,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,AT,2023,,,6,2550,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,AT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,BA,2023,4037.08,,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,BA,2023,1520.09,,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,BA,2023,865.93,,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,BA,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,BA,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,BA,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,BA,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,BA,2023,,,14,2100,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,BA,2023,,,6,1800,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,BA,2023,,,7,2800,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,BA,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,BE,2023,162,72,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,BE,2023,41,10,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,BE,2023,3239,1904,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,BE,2023,470,301,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,BE,2023,1592,939,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,BE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,BE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,BE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,BE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,BE,2023,49,49,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,BE,2023,139,139,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,BE,2023,,,4,1275,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,BE,2023,,,37,18525.6,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,BE,2023,,,11,4500,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,BE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,BG,2023,10164,10164,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,BG,2023,2710,2710,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,BG,2023,3195,3195,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,BG,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,BG,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,BG,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,BG,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,BG,2023,,,40,7.94,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,BG,2023,,,21,4.782,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,BG,2023,,,7,6.144,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,BG,2023,,,25,4.46,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,BG,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,BG,2023,,,8,4.788,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,CY,2023,248,150,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,CY,2023,,,,,22/04/2024 12:00,Not Available
+Inventory of Transmission,5,400,ACL_110kV_220kV,CY,2023,950,475,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,CY,2023,88,44,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,CY,2023,,,,66kV power lines exist in the transmission network that do not fall in the above categories. Also 220kV Transmission Lines are operated at 132kV.,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,CY,2023,,,,132kV and 66kV ac cables exist in the transmission network that do not fall in the above categories.,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,CY,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,CY,2023,,,,"Power Transformers 15.75/132kV, 11/132kV, 11/66kV, Step Down Network Transformers 132/11kV, 132/6,6kV, 132/3,3kV, 66/3.3kV and interbus transformers 132/66kV exist in the transmission network that do not fall in the above categories.
+132/11KV - # 96 - 3139000kVA
+132/22-11KV - # 11 - 440000kVA
+66/11KV - # 15 - 191000kVA
+132/66KV - #6 - 288000kVA",22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,CY,2023,,,,,22/04/2024 12:00,Not Available
+Inventory of Transmission,5,408,DCC_220kV_380kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,CY,2023,,,128,4058,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,CY,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,CZ,2023,84,45,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,CZ,2023,1618,1126,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,CZ,2023,3940,3212,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,CZ,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,CZ,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,CZ,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,CZ,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,CZ,2023,,,20,4000,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,CZ,2023,,,51,17450,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,CZ,2023,,,8,5400,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,CZ,2023,,,14,4000,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,CZ,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,CZ,2023,,,29,22850,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,DE,2023,434.947,467.21,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,DE,2023,206.375,119.23,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,DE,2023,777.723,1156.35,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,DE,2023,10948.44,4473.56,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,DE,2023,23051.613,12963.89,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,DE,2023,,,,"Amprion: ""Selection of circuits and lines owned by Amprion. If there is more than one circuit on a line the highest voltage level is used.""",22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,DE,2023,,,,"Amprion: ""Filtered by cables outside substations""",22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,DE,2023,,,,"TenneT-DE: ""DC Interconenctor Nordlink (50% property TenneT and 50% Statnett; only TenneT property conted)""",22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,DE,2023,,,,"50Hertz: ""Compared to 2021 no spare units, as well as HVDC units, 3rd party units or units connected to FACTS are taken into account. 6 PST 400/400kV are included. Single phase units which are connected to a 3-phase unit are calculated only as 1 TFO.""
+TenneT-DE: ""For ""Of PU…"" only transformers to power plants not consumers (e.g. industry) is consiered.""",22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,DE,2023,200,200,,,22/04/2024 12:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,DE,2023,1375,1415.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,DE,2023,585,300,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,DE,2023,,,282,51356.7,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,DE,2023,,,16,10146,22/04/2024 12:00,
+Inventory of Transmission,5,418,Nw_330kV_220kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,DE,2023,,,430,114669,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,DE,2023,,,159,62725.9,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,DE,2023,,,23,19438,22/04/2024 12:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,DE,2023,,,82,13161.1,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,DE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,DE,2023,,,207,79169.9,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,DK,2023,620.9,366.359,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,DK,2023,250.7,222.1,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,DK,2023,2702.797,1687.9702,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,DK,2023,1369.4601,947.8,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,DK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,DK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,DK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,DK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,DK,2023,829.8,742.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,DK,2023,1565.627,1464.257,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,DK,2023,,,2,900,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,DK,2023,,,47,15813.2,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,DK,2023,,,4,1950,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,DK,2023,,,10,2130,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,DK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,DK,2023,,,67,21576.2,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,EE,2023,3353,3353,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,EE,2023,1608,1608,,,22/04/2024 12:00,
+Inventory of Transmission,5,404,ACL_380_400kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,EE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,EE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,EE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,EE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,EE,2023,54,54,,,22/04/2024 12:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,EE,2023,85,85,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,EE,2023,,,18,3.3,22/04/2024 12:00,
+Inventory of Transmission,5,418,Nw_330kV_220kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,EE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,ES,2023,555.615,485.26,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,ES,2023,55.05,22.8,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,ES,2023,363.771,365.501,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,ES,2023,19095.434,13631.03,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,ES,2023,21940.129,14498.96,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,ES,2023,,,,*Estimation of the Length of Routes. Includes RE assets on a national scope.,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,ES,2023,,,,*Estimation of the Length of Routes. Includes RE assets on a national scope.,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,ES,2023,,,,*Estimation of the Length of Routes. Includes RE assets on a national scope.,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,ES,2023,,,,*Includes RE assets on a national scope.,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,ES,2023,549.94,274.97,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,ES,2023,,,62,7.974,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,ES,2023,,,160,85.615,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,ES,2023,,,62,7.974,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,ES,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,ES,2023,,,160,85.615,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,FI,2023,16277,15138,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,FI,2023,1061,1017,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,FI,2023,5742,5316,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,FI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,FI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,FI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,FI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,FI,2023,53,53,,,22/04/2024 12:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,FI,2023,271,271,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,FI,2023,,,13,1840,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,FI,2023,,,66,26650,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,FI,2023,,,7,2000,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,FI,2023,,,13,1840,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,FI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,FI,2023,,,73,28650,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,FR,2023,1922.712,,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,FR,2023,9.015,,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,FR,2023,845,820,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,FR,2023,25535.35,21655.705,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,FR,2023,22063.672,13603.188,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,FR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,FR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,FR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,FR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,FR,2023,605.731,,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,FR,2023,,,884,99223,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,FR,2023,,,68,14430,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,FR,2023,,,236,122400,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,FR,2023,,,902,102331,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,FR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,FR,2023,,,313,143818,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,GR,2023,1425.1096,1425.1096,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,GR,2023,51.3456,51.3456,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,GR,2023,12887.158,8780.227,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,GR,2023,4852.7607,3012.1025,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,GR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,GR,2023,,,,The figures in cells H9 and I9 correspond to 150kV AC cables.,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,GR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,GR,2023,,,,The figures in cells J17 and K17 correspond to 150kV transformers.,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,GR,2023,,,3,100,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,GR,2023,,,65,17810,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,GR,2023,,,209,14603.7,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,GR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,GR,2023,,,21,8206,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,HR,2023,1,1,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,HR,2023,5335.24,4703.24,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,HR,2023,1267.45,1103.69,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,HR,2023,1246.28,1043.13,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,HR,2023,,,,"-These values include 110 kV AC cables
+-If they need to be subtracted, the sum of cable LoC/LoR is 186.16 km",22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,HR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,HR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,HR,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,HR,2023,,,25,3.77,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,HR,2023,,,8,2400,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,HR,2023,,,5,2000,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,HR,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,IE,2023,195.8,,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,IE,2023,1.5,1.5,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,IE,2023,4673,4207.8,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,IE,2023,1785.7,1835.2,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,IE,2023,97.04,48.52,,,22/04/2024 12:00,
+Inventory of Transmission,5,403,ACL_330kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,IE,2023,439.1,439.1,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,IE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,IE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,IE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,IE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,IE,2023,263,263,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,IE,2023,,,57,11614,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,IE,2023,,,3,1200,22/04/2024 12:00,
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,IE,2023,,,8,4050,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,IE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,IS,2023,1383.3,1383.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,IS,2023,1112.1,1112.1,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,IS,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,IS,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,IS,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,IS,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,IS,2023,,,15,1237,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,IS,2023,,,37,2217,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,IS,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,IT,2023,431,431,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,IT,2023,145,145,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,IT,2023,45053,41945,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,IT,2023,10668,8578,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,IT,2023,11210,10030,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,IT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,IT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,IT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,IT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,IT,2023,862,542,,,22/04/2024 12:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,IT,2023,95,95,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,IT,2023,1578,1578,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,IT,2023,,,145,28640,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,IT,2023,,,313,79900,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,IT,2023,,,65,26400,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,IT,2023,,,201,23523.5,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,IT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,IT,2023,,,222,69219,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,LT,2023,0.3,0.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,LT,2023,4992,4278,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,LT,2023,1896,1729,,,22/04/2024 12:00,
+Inventory of Transmission,5,404,ACL_380_400kV,LT,2023,102.7,51.35,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,LT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,LT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,LT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,LT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,LT,2023,147.17,147.17,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,LT,2023,,,23,4650,22/04/2024 12:00,
+Inventory of Transmission,5,418,Nw_330kV_220kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,LT,2023,,,3,1800,22/04/2024 12:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,LT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,LU,2023,28,17,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,401,ACL_220kV,LU,2023,286,148,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,LU,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,LU,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,LU,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,LU,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,LU,2023,,,16,2.84,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,LU,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,LV,2023,22.37,22.37,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,LV,2023,3728.8,3031.81,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,LV,2023,1719.78,1731.78,,,22/04/2024 12:00,
+Inventory of Transmission,5,404,ACL_380_400kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,LV,2023,,,,110 kV AC lines (3 728.80 km of them 83.75 km cable line); 330 kV AC lines (1 719.78 km of them 22.37 km cable lines),22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,LV,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,LV,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,LV,2023,,,,Transformers with highest voltage 330 kV (26 units with total power 3800 MVA); Transformers with highest voltage 110 kV (242 units with total power 5 099.8 MVA),22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,LV,2023,,,268,8899.8,22/04/2024 12:00,
+Inventory of Transmission,5,418,Nw_330kV_220kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,LV,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,NL,2023,631.65485,631.65485,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,NL,2023,103.75868,103.75868,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,NL,2023,5145.052,2540.4678,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,NL,2023,694.97986,319.57504,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,NL,2023,2379.0918,1158.2656,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,NL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,NL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,NL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,NL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,NL,2023,163,163,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,NL,2023,420,420,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,NL,2023,,,50,12.161,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,NL,2023,,,62,29.11,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,NL,2023,,,24,12.5,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,NL,2023,,,6,1.38,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,NL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,NL,2023,,,29,12.503,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,NO,2023,127.6,105.9,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,NO,2023,50.01,21.7,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,NO,2023,13162.5,12922.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,NO,2023,154.9,154.9,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,NO,2023,4235.8,4023.8,,,22/04/2024 12:00,
+Inventory of Transmission,5,403,ACL_330kV,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,NO,2023,4823.3,4795,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,NO,2023,,,,"We don,t have the distance between masts for the lentgh of route but we have removed the parallell lines to make an estimation. The lenght between masts would be shorter.  300 kV lines i represented in 275 kV, and 420 kV in 380-400 kV.",22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,NO,2023,,,,Lenght of route is without parallell cables.,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,NO,2023,,,,Lenght of route is without parallell cables.,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,NO,2023,,,,"We included the 300 kV transformers in the 275 kV overview because they don't fit in any of the other categories. 330 kV is too high voltage and 275 a bit too low, but they do have tap changers and most of the 275 kV transformers can be used in the 300 kV grid. The transformers reported for 275 kV are between 273 and 315 kV. Corrected for too many phaces for single phace transformes.",22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,NO,2023,911.7,657,,,22/04/2024 12:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,NO,2023,3846,1923.9,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,NO,2023,,,1,160,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,NO,2023,,,64,15138,22/04/2024 12:00,
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,NO,2023,,,1,727.8,22/04/2024 12:00,
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,NO,2023,,,46,12950,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,NO,2023,,,1,500,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,NO,2023,,,39,35573,22/04/2024 12:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,NO,2023,,,2,70,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,NO,2023,,,85,10429.9,22/04/2024 12:00,
+Inventory of Transmission,5,411,Of_PU_>330kV,NO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,NO,2023,,,35,7539,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,401,ACL_220kV,PL,2023,7537,6887,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,PL,2023,8037,6981,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,PL,2023,114,114,,,22/04/2024 12:00,
+Inventory of Transmission,5,424,Comments_1,PL,2023,,,,For ACL_750kV: 1 line works in AC 400 kV,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,PL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,PL,2023,,,,For DCC_Over_380kV: A half of total length of PL-SE cable,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,PL,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,PL,2023,127,127,,,22/04/2024 12:00,
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,PL,2023,,,138,24.64,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,PL,2023,,,67,21.74,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,PL,2023,,,30,14.198,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,PL,2023,,,51,13.688,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,PL,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,PL,2023,,,37,19.046,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,PT,2023,2480.6,1688,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,PT,2023,3848.8,2607,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,PT,2023,3079.8,2953,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,PT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,PT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,PT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,PT,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,PT,2023,,,5,830,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,PT,2023,,,16,6440,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,PT,2023,,,17,7650,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,PT,2023,,,72,5570,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,PT,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,PT,2023,,,33,7742,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,RO,2023,0.3,0.3,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,RO,2023,42.8,40.4,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,RO,2023,4701.2,3875.8,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,RO,2023,5468.6,5092.6,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,RO,2023,3.1,3.1,,,22/04/2024 12:00,
+Inventory of Transmission,5,424,Comments_1,RO,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,RO,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,RO,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,RO,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,RO,2023,,,90,18100,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,RO,2023,,,32,8000,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,RO,2023,,,23,9500,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,RO,2023,,,23,4026,22/04/2024 12:00,
+Inventory of Transmission,5,412,Of_PU_>275kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,RO,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,RO,2023,,,19,7405,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,SE,2023,19,19,,,22/04/2024 12:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,SE,2023,6,6,,,22/04/2024 12:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,SE,2023,3609,3534,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,SE,2023,11126,10798,,,22/04/2024 12:00,
+Inventory of Transmission,5,404,ACL_380_400kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,405,ACL_750kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,SE,2023,,,,"Only route line are given as the formal method to define circuit KM is under development for the next delivery, but it is expected route KM and circuit KM should not differ by any large quantity",22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,SE,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,SE,2023,,,,"HVDC lines neighboring lines are not included in DCC kilometres, these are instead given in the cross border lines table. ",22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,SE,2023,,,,"Only lines and transformers within operation of Svenska Kraftnät is included in this. The vast majority of power transformers in Sweden are opearated by generating or distributing parties and not the TSO in Sweden. TSO may have power transformers for use within the transmission network, for example between 400 and 220kV conversion.",22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,SE,2023,384,384,,,22/04/2024 12:00,
+Inventory of Transmission,5,409,DCC_Over_380kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,SE,2023,,,4,1269,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,SE,2023,,,1,200,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,SE,2023,,,34,19530,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,SE,2023,,,3,770,22/04/2024 12:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,SE,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,SI,2023,1957.8,1354.4,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,SI,2023,328.1,299.4,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,SI,2023,828,576.5,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,SI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,SI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,SI,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,SI,2023,,,,"The PST transformer is included in the cell line Of_PU_>400kV
+Transformer 400/51,5 kV for STATCOM is included in the cell line Nw_400kV_110kV_lower.",22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,SI,2023,,,8,1.2,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,SI,2023,,,13,3.75,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,SI,2023,,,2,0.8,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,SI,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,SI,2023,,,2,1.2,22/04/2024 12:00,
+Inventory of Transmission,5,406,ACC_220kV_380kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,SK,2023,79.802,40.028,,,22/04/2024 12:00,
+Inventory of Transmission,5,401,ACL_220kV,SK,2023,688.456,548.268,,,22/04/2024 12:00,
+Inventory of Transmission,5,402,ACL_275kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,SK,2023,2356.605,1865.069,,,22/04/2024 12:00,
+Inventory of Transmission,5,405,ACL_750kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,SK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,425,Comments_2,SK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,426,Comments_3,SK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,427,Comments_4,SK,2023,,,,,22/04/2024 12:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,SK,2023,,,6,1.2,22/04/2024 12:00,
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,SK,2023,,,31,9.23,22/04/2024 12:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,SK,2023,,,3,1.4,22/04/2024 12:00,
+Inventory of Transmission,5,415,Nw_400kV_330kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,SK,2023,,,,,22/04/2024 12:00,Not Expected
+Inventory of Transmission,5,400,ACL_110kV_220kV,CH,2022,65,,,,08/06/2023 12:43,
+Inventory of Transmission,5,401,ACL_220kV,CH,2022,4878.6,,,,08/06/2023 12:43,
+Inventory of Transmission,5,402,ACL_275kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,CH,2022,1916.4,,,,08/06/2023 12:43,
+Inventory of Transmission,5,405,ACL_750kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,CH,2022,40,,,,08/06/2023 12:43,
+Inventory of Transmission,5,407,ACC_Over_380kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,CH,2022,,,20,6373,08/06/2023 12:43,
+Inventory of Transmission,5,411,Of_PU_>330kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,CH,2022,,,93,8053.6,08/06/2023 12:43,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,CH,2022,,,23,14416,08/06/2023 12:43,
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,CH,2022,,,11,2390,08/06/2023 12:43,
+Inventory of Transmission,5,418,Nw_330kV_220kV,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,CH,2022,,,147,24001.8,08/06/2023 12:43,
+Inventory of Transmission,5,422,DCC_110kV_220V,CH,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,424,Comments_1,CH,2022,,,,Note that the provided values are valid as per 01.05.2023. ,08/06/2023 12:43,
+Inventory of Transmission,5,425,Comments_2,CH,2022,,,,Note that the provided values are valid as per 01.05.2023. ,08/06/2023 12:43,
+Inventory of Transmission,5,426,Comments_3,CH,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,427,Comments_4,CH,2022,,,,150kV is counted with 110kV_lower. Note that the provided values are valid as per 01.05.2023. ,08/06/2023 12:43,
+Inventory of Transmission,5,400,ACL_110kV_220kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,401,ACL_220kV,HU,2022,1394,1099,,,08/06/2023 12:43,
+Inventory of Transmission,5,402,ACL_275kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,HU,2022,3021,2322,,,08/06/2023 12:43,
+Inventory of Transmission,5,405,ACL_750kV,HU,2022,268,268,,,08/06/2023 12:43,
+Inventory of Transmission,5,406,ACC_220kV_380kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,HU,2022,,,1,1100,08/06/2023 12:43,
+Inventory of Transmission,5,415,Nw_400kV_330kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,HU,2022,,,3,1500,08/06/2023 12:43,
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,HU,2022,,,44,11000,08/06/2023 12:43,
+Inventory of Transmission,5,418,Nw_330kV_220kV,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,HU,2022,,,31,4960,08/06/2023 12:43,
+Inventory of Transmission,5,422,DCC_110kV_220V,HU,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,424,Comments_1,HU,2022,,,,For ACL_750kV: of which 249 km is operating on 400 kV,08/06/2023 12:43,
+Inventory of Transmission,5,425,Comments_2,HU,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,426,Comments_3,HU,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,427,Comments_4,HU,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,400,ACL_110kV_220kV,ME,2022,,747.55,,,08/06/2023 12:43,
+Inventory of Transmission,5,401,ACL_220kV,ME,2022,,372.7,,,08/06/2023 12:43,
+Inventory of Transmission,5,402,ACL_275kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,ME,2022,,355.3,,,08/06/2023 12:43,
+Inventory of Transmission,5,405,ACL_750kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,ME,2022,,,6,1850,08/06/2023 12:43,
+Inventory of Transmission,5,418,Nw_330kV_220kV,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,ME,2022,,,11,977.5,08/06/2023 12:43,
+Inventory of Transmission,5,422,DCC_110kV_220V,ME,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,424,Comments_1,ME,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,425,Comments_2,ME,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,426,Comments_3,ME,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,427,Comments_4,ME,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,400,ACL_110kV_220kV,MK,2022,,1545,,,08/06/2023 12:43,
+Inventory of Transmission,5,401,ACL_220kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,MK,2022,,577,,,08/06/2023 12:43,
+Inventory of Transmission,5,405,ACL_750kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,MK,2022,,,5,1.5,08/06/2023 12:43,
+Inventory of Transmission,5,418,Nw_330kV_220kV,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,MK,2022,,,73,,08/06/2023 12:43,
+Inventory of Transmission,5,422,DCC_110kV_220V,MK,2022,,,,,08/06/2023 12:43,Not Expected
+Inventory of Transmission,5,424,Comments_1,MK,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,425,Comments_2,MK,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,426,Comments_3,MK,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,427,Comments_4,MK,2022,,,,,08/06/2023 12:43,
+Inventory of Transmission,5,400,ACL_110kV_220kV,RS,2021,6057.065,5525.1724,,,28/03/2023 00:00,
+Inventory of Transmission,5,401,ACL_220kV,RS,2021,1752.6982,1701.1482,,,28/03/2023 00:00,
+Inventory of Transmission,5,402,ACL_275kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,RS,2021,1811.912,1716.3738,,,28/03/2023 00:00,
+Inventory of Transmission,5,405,ACL_750kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,407,ACC_Over_380kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,408,DCC_220kV_380kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,RS,2021,,,11,,28/03/2023 00:00,
+Inventory of Transmission,5,411,Of_PU_>330kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,RS,2021,,,18,,28/03/2023 00:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,416,Nw_400kV_220kV,RS,2021,,,9,,28/03/2023 00:00,
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,RS,2021,,,22,,28/03/2023 00:00,
+Inventory of Transmission,5,418,Nw_330kV_220kV,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,RS,2021,,,27,,28/03/2023 00:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,RS,2021,,,,,28/03/2023 00:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,RS,2021,,,,,28/03/2023 00:00,
+Inventory of Transmission,5,425,Comments_2,RS,2021,,,,,28/03/2023 00:00,
+Inventory of Transmission,5,426,Comments_3,RS,2021,,,,,28/03/2023 00:00,
+Inventory of Transmission,5,427,Comments_4,RS,2021,,,,,28/03/2023 00:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,401,ACL_220kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,402,ACL_275kV,GB,2018,7778,0,,,04/04/2019 00:00,
+Inventory of Transmission,5,403,ACL_330kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,GB,2018,12607,0,,,04/04/2019 00:00,
+Inventory of Transmission,5,405,ACL_750kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,GB,2018,839,0,,,04/04/2019 00:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,GB,2018,296,0,,,04/04/2019 00:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,GB,2018,327,0,,,04/04/2019 00:00,
+Inventory of Transmission,5,410,Of_PU_>400kV,GB,2018,,,343,80.07,04/04/2019 00:00,
+Inventory of Transmission,5,411,Of_PU_>330kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,GB,2018,,,537,99.71,04/04/2019 00:00,
+Inventory of Transmission,5,413,Of_PU_>220kV,GB,2018,,,60,126.39,04/04/2019 00:00,
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,GB,2018,,,124,97.94,04/04/2019 00:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,422,DCC_110kV_220V,GB,2018,,,,,04/04/2019 00:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,GB,2018,,,,,04/04/2019 00:00,
+Inventory of Transmission,5,425,Comments_2,GB,2018,,,,,04/04/2019 00:00,
+Inventory of Transmission,5,426,Comments_3,GB,2018,,,,,04/04/2019 00:00,
+Inventory of Transmission,5,427,Comments_4,GB,2018,,,,,04/04/2019 00:00,
+Inventory of Transmission,5,400,ACL_110kV_220kV,TR,2018,44369.34,34252.6,,,12/06/2019 00:00,
+Inventory of Transmission,5,401,ACL_220kV,TR,2018,84.82,84.82,,,12/06/2019 00:00,
+Inventory of Transmission,5,402,ACL_275kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,403,ACL_330kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,404,ACL_380_400kV,TR,2018,23159.16,21636.03,,,12/06/2019 00:00,
+Inventory of Transmission,5,405,ACL_750kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,406,ACC_220kV_380kV,TR,2018,391.12,160,,,12/06/2019 00:00,
+Inventory of Transmission,5,407,ACC_Over_380kV,TR,2018,89.68,89.68,,,12/06/2019 00:00,
+Inventory of Transmission,5,408,DCC_220kV_380kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,409,DCC_Over_380kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,410,Of_PU_>400kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,411,Of_PU_>330kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,412,Of_PU_>275kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,413,Of_PU_>220kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,414,Nw_750kV_400kV_lower,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,415,Nw_400kV_330kV,TR,2018,,,353,70652.16,12/06/2019 00:00,
+Inventory of Transmission,5,416,Nw_400kV_220kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,417,Nw_400kV_110kV_lower,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,418,Nw_330kV_220kV,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,419,Nw_330kV_110kV_lower,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,420,Nw_275kV_110kV_lower,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,421,Nw_220kV_110kV_lower,TR,2018,,,1432,100685.44,12/06/2019 00:00,
+Inventory of Transmission,5,422,DCC_110kV_220V,TR,2018,,,,,12/06/2019 00:00,Not Expected
+Inventory of Transmission,5,424,Comments_1,TR,2018,,,,,12/06/2019 00:00,
+Inventory of Transmission,5,425,Comments_2,TR,2018,,,,,12/06/2019 00:00,
+Inventory of Transmission,5,426,Comments_3,TR,2018,,,,,12/06/2019 00:00,
+Inventory of Transmission,5,427,Comments_4,TR,2018,,,,,12/06/2019 00:00,

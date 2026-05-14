@@ -1,0 +1,1207 @@
+{
+  "baseline_revenue": 623255054.4965788,
+  "optimized_revenue": 1918247226.9238489,
+  "revenue_uplift_percent": 207.77884801484245,
+  "logs": [
+    {
+      "timestamp": "2024-01-01 00:00:00",
+      "allocation": {
+        "elec": 1900.0,
+        "h2": 100.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 24.65 < H2 value 55.0",
+      "actual_price": 25.503879729505236,
+      "pred_price": 24.65074348449707
+    },
+    {
+      "timestamp": "2024-01-01 01:00:00",
+      "allocation": {
+        "elec": 1800.0,
+        "h2": 200.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 21.34 < H2 value 55.0",
+      "actual_price": 25.830312616050627,
+      "pred_price": 21.341100692749023
+    },
+    {
+      "timestamp": "2024-01-01 02:00:00",
+      "allocation": {
+        "elec": 1700.0,
+        "h2": 300.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 23.18 < H2 value 55.0",
+      "actual_price": 17.992583031276283,
+      "pred_price": 23.179174423217773
+    },
+    {
+      "timestamp": "2024-01-01 03:00:00",
+      "allocation": {
+        "elec": 1600.0,
+        "h2": 400.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 22.35 < H2 value 55.0",
+      "actual_price": 29.73161347374081,
+      "pred_price": 22.351280212402344
+    },
+    {
+      "timestamp": "2024-01-01 04:00:00",
+      "allocation": {
+        "elec": 1500.0,
+        "h2": 500.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 29.99 < H2 value 55.0",
+      "actual_price": 22.12432493389513,
+      "pred_price": 29.994098663330078
+    },
+    {
+      "timestamp": "2024-01-01 05:00:00",
+      "allocation": {
+        "elec": 1400.0,
+        "h2": 600.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.91 < H2 value 55.0",
+      "actual_price": 21.57801743077101,
+      "pred_price": 28.905757904052734
+    },
+    {
+      "timestamp": "2024-01-01 06:00:00",
+      "allocation": {
+        "elec": 1300.0,
+        "h2": 700.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.74 < H2 value 55.0",
+      "actual_price": 27.669953883794246,
+      "pred_price": 28.73629379272461
+    },
+    {
+      "timestamp": "2024-01-01 07:00:00",
+      "allocation": {
+        "elec": 1200.0,
+        "h2": 800.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 18.17 < H2 value 55.0",
+      "actual_price": 14.889454922617167,
+      "pred_price": 18.174936294555664
+    },
+    {
+      "timestamp": "2024-01-01 08:00:00",
+      "allocation": {
+        "elec": 1100.0,
+        "h2": 900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 16.16 < H2 value 55.0",
+      "actual_price": 16.970787167103378,
+      "pred_price": 16.156431198120117
+    },
+    {
+      "timestamp": "2024-01-01 09:00:00",
+      "allocation": {
+        "elec": 1000.0,
+        "h2": 1000.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 19.64 < H2 value 55.0",
+      "actual_price": 9.469567130915545,
+      "pred_price": 19.64219856262207
+    },
+    {
+      "timestamp": "2024-01-01 10:00:00",
+      "allocation": {
+        "elec": 900.0,
+        "h2": 1100.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 22.64 < H2 value 55.0",
+      "actual_price": 2.184957582952391,
+      "pred_price": 22.638166427612305
+    },
+    {
+      "timestamp": "2024-01-01 11:00:00",
+      "allocation": {
+        "elec": 800.0,
+        "h2": 1200.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 15.96 < H2 value 55.0",
+      "actual_price": -10.267729172351808,
+      "pred_price": 15.95768928527832
+    },
+    {
+      "timestamp": "2024-01-01 12:00:00",
+      "allocation": {
+        "elec": 700.0,
+        "h2": 1300.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 15.36 < H2 value 55.0",
+      "actual_price": -16.102587295621067,
+      "pred_price": 15.361979484558105
+    },
+    {
+      "timestamp": "2024-01-01 13:00:00",
+      "allocation": {
+        "elec": 600.0,
+        "h2": 1400.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 17.18 < H2 value 55.0",
+      "actual_price": -9.96204422094509,
+      "pred_price": 17.179523468017578
+    },
+    {
+      "timestamp": "2024-01-01 14:00:00",
+      "allocation": {
+        "elec": 500.0,
+        "h2": 1500.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 21.03 < H2 value 55.0",
+      "actual_price": -0.865434095472662,
+      "pred_price": 21.032608032226562
+    },
+    {
+      "timestamp": "2024-01-01 15:00:00",
+      "allocation": {
+        "elec": 400.0,
+        "h2": 1600.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 26.38 < H2 value 55.0",
+      "actual_price": 19.726345298313426,
+      "pred_price": 26.376754760742188
+    },
+    {
+      "timestamp": "2024-01-01 16:00:00",
+      "allocation": {
+        "elec": 300.0,
+        "h2": 1700.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.90 < H2 value 55.0",
+      "actual_price": 30.608001193236625,
+      "pred_price": 34.9022102355957
+    },
+    {
+      "timestamp": "2024-01-01 17:00:00",
+      "allocation": {
+        "elec": 200.0,
+        "h2": 1800.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 39.12 < H2 value 55.0",
+      "actual_price": 29.396974594158166,
+      "pred_price": 39.12359619140625
+    },
+    {
+      "timestamp": "2024-01-01 18:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 45.07 < H2 value 55.0",
+      "actual_price": 36.55971001259275,
+      "pred_price": 45.06711196899414
+    },
+    {
+      "timestamp": "2024-01-01 19:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 44.10 < H2 value 55.0",
+      "actual_price": 42.44271084762896,
+      "pred_price": 44.09809112548828
+    },
+    {
+      "timestamp": "2024-01-01 20:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 41.29 < H2 value 55.0",
+      "actual_price": 45.16005175105433,
+      "pred_price": 41.28519058227539
+    },
+    {
+      "timestamp": "2024-01-01 21:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 38.78 < H2 value 55.0",
+      "actual_price": 47.58915695995759,
+      "pred_price": 38.783226013183594
+    },
+    {
+      "timestamp": "2024-01-01 22:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 35.13 < H2 value 55.0",
+      "actual_price": 40.42225445594136,
+      "pred_price": 35.129737854003906
+    },
+    {
+      "timestamp": "2024-01-01 23:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 30.76 < H2 value 55.0",
+      "actual_price": 32.12818306302917,
+      "pred_price": 30.760698318481445
+    },
+    {
+      "timestamp": "2024-01-02 00:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 26.38 < H2 value 55.0",
+      "actual_price": 29.19966265556928,
+      "pred_price": 26.376689910888672
+    },
+    {
+      "timestamp": "2024-01-02 01:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 20.98 < H2 value 55.0",
+      "actual_price": 24.85584943127057,
+      "pred_price": 20.980655670166016
+    },
+    {
+      "timestamp": "2024-01-02 02:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 21.37 < H2 value 55.0",
+      "actual_price": 19.749846771457324,
+      "pred_price": 21.374113082885742
+    },
+    {
+      "timestamp": "2024-01-02 03:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 26.78 < H2 value 55.0",
+      "actual_price": 18.83180888729602,
+      "pred_price": 26.781530380249023
+    },
+    {
+      "timestamp": "2024-01-02 04:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 26.69 < H2 value 55.0",
+      "actual_price": 29.472629553360296,
+      "pred_price": 26.689250946044922
+    },
+    {
+      "timestamp": "2024-01-02 05:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 37.02 < H2 value 55.0",
+      "actual_price": 42.473248010656775,
+      "pred_price": 37.01567840576172
+    },
+    {
+      "timestamp": "2024-01-02 06:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 39.76 < H2 value 55.0",
+      "actual_price": 41.01448050640852,
+      "pred_price": 39.76435852050781
+    },
+    {
+      "timestamp": "2024-01-02 07:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 38.84 < H2 value 55.0",
+      "actual_price": 39.85020332566871,
+      "pred_price": 38.8405876159668
+    },
+    {
+      "timestamp": "2024-01-02 08:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 33.74 < H2 value 55.0",
+      "actual_price": 26.37760129798191,
+      "pred_price": 33.738895416259766
+    },
+    {
+      "timestamp": "2024-01-02 09:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.61 < H2 value 55.0",
+      "actual_price": 27.72849685293859,
+      "pred_price": 34.61492919921875
+    },
+    {
+      "timestamp": "2024-01-02 10:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.14 < H2 value 55.0",
+      "actual_price": 15.910545283271093,
+      "pred_price": 34.14275360107422
+    },
+    {
+      "timestamp": "2024-01-02 11:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.31 < H2 value 55.0",
+      "actual_price": 16.229970144296008,
+      "pred_price": 31.305362701416016
+    },
+    {
+      "timestamp": "2024-01-02 12:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.04 < H2 value 55.0",
+      "actual_price": 12.036927510389772,
+      "pred_price": 28.03780746459961
+    },
+    {
+      "timestamp": "2024-01-02 13:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.14 < H2 value 55.0",
+      "actual_price": 27.239925604872237,
+      "pred_price": 28.14349365234375
+    },
+    {
+      "timestamp": "2024-01-02 14:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 37.10 < H2 value 55.0",
+      "actual_price": 16.252333801718144,
+      "pred_price": 37.10331344604492
+    },
+    {
+      "timestamp": "2024-01-02 15:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 36.25 < H2 value 55.0",
+      "actual_price": 35.11848917827447,
+      "pred_price": 36.24796676635742
+    },
+    {
+      "timestamp": "2024-01-02 16:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 47.95 < H2 value 55.0",
+      "actual_price": 31.630902705398228,
+      "pred_price": 47.947998046875
+    },
+    {
+      "timestamp": "2024-01-02 17:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 45.78 < H2 value 55.0",
+      "actual_price": 41.38304981851402,
+      "pred_price": 45.77973175048828
+    },
+    {
+      "timestamp": "2024-01-02 18:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 54.66 < H2 value 55.0",
+      "actual_price": 52.28634049092228,
+      "pred_price": 54.66310501098633
+    },
+    {
+      "timestamp": "2024-01-02 19:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Market parity",
+      "actual_price": 58.5564851565842,
+      "pred_price": 55.405128479003906
+    },
+    {
+      "timestamp": "2024-01-02 20:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 53.86 < H2 value 55.0",
+      "actual_price": 55.44993420547706,
+      "pred_price": 53.86491012573242
+    },
+    {
+      "timestamp": "2024-01-02 21:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 49.82 < H2 value 55.0",
+      "actual_price": 50.82009570487751,
+      "pred_price": 49.81524658203125
+    },
+    {
+      "timestamp": "2024-01-02 22:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 42.28 < H2 value 55.0",
+      "actual_price": 41.05262869063278,
+      "pred_price": 42.28204345703125
+    },
+    {
+      "timestamp": "2024-01-02 23:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 36.80 < H2 value 55.0",
+      "actual_price": 37.05988338455594,
+      "pred_price": 36.79640579223633
+    },
+    {
+      "timestamp": "2024-01-03 00:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.87 < H2 value 55.0",
+      "actual_price": 33.010470080894564,
+      "pred_price": 31.87184715270996
+    },
+    {
+      "timestamp": "2024-01-03 01:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 29.38 < H2 value 55.0",
+      "actual_price": 30.04760198379441,
+      "pred_price": 29.378873825073242
+    },
+    {
+      "timestamp": "2024-01-03 02:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 27.82 < H2 value 55.0",
+      "actual_price": 27.179847635965064,
+      "pred_price": 27.819231033325195
+    },
+    {
+      "timestamp": "2024-01-03 03:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.18 < H2 value 55.0",
+      "actual_price": 33.338352104922286,
+      "pred_price": 28.18284797668457
+    },
+    {
+      "timestamp": "2024-01-03 04:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 37.45 < H2 value 55.0",
+      "actual_price": 36.58523485075471,
+      "pred_price": 37.45240020751953
+    },
+    {
+      "timestamp": "2024-01-03 05:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 48.90 < H2 value 55.0",
+      "actual_price": 47.52222983810806,
+      "pred_price": 48.902610778808594
+    },
+    {
+      "timestamp": "2024-01-03 06:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 48.38 < H2 value 55.0",
+      "actual_price": 52.533288258442425,
+      "pred_price": 48.37808609008789
+    },
+    {
+      "timestamp": "2024-01-03 07:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 49.75 < H2 value 55.0",
+      "actual_price": 42.42724733942765,
+      "pred_price": 49.75194549560547
+    },
+    {
+      "timestamp": "2024-01-03 08:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 49.08 < H2 value 55.0",
+      "actual_price": 38.40385772460064,
+      "pred_price": 49.08237838745117
+    },
+    {
+      "timestamp": "2024-01-03 09:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 46.50 < H2 value 55.0",
+      "actual_price": 33.440021267412575,
+      "pred_price": 46.50218963623047
+    },
+    {
+      "timestamp": "2024-01-03 10:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 32.46 < H2 value 55.0",
+      "actual_price": 22.269743447706716,
+      "pred_price": 32.461421966552734
+    },
+    {
+      "timestamp": "2024-01-03 11:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.39 < H2 value 55.0",
+      "actual_price": 13.576148778317114,
+      "pred_price": 31.3934383392334
+    },
+    {
+      "timestamp": "2024-01-03 12:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.44 < H2 value 55.0",
+      "actual_price": 20.274529104160685,
+      "pred_price": 28.43573760986328
+    },
+    {
+      "timestamp": "2024-01-03 13:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 38.40 < H2 value 55.0",
+      "actual_price": 15.52404363609787,
+      "pred_price": 38.3984375
+    },
+    {
+      "timestamp": "2024-01-03 14:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 35.95 < H2 value 55.0",
+      "actual_price": 26.745338386792504,
+      "pred_price": 35.94552993774414
+    },
+    {
+      "timestamp": "2024-01-03 15:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 42.98 < H2 value 55.0",
+      "actual_price": 30.746457969573832,
+      "pred_price": 42.98139572143555
+    },
+    {
+      "timestamp": "2024-01-03 16:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 48.23 < H2 value 55.0",
+      "actual_price": 41.16792324673474,
+      "pred_price": 48.22509765625
+    },
+    {
+      "timestamp": "2024-01-03 17:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 50.10 < H2 value 55.0",
+      "actual_price": 43.03077638781652,
+      "pred_price": 50.10296630859375
+    },
+    {
+      "timestamp": "2024-01-03 18:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Market parity",
+      "actual_price": 50.62334449014808,
+      "pred_price": 56.81292724609375
+    },
+    {
+      "timestamp": "2024-01-03 19:00:00",
+      "allocation": {
+        "elec": 200.0,
+        "h2": 1800.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Market parity",
+      "actual_price": 51.06697316452132,
+      "pred_price": 57.523033142089844
+    },
+    {
+      "timestamp": "2024-01-03 20:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 53.50 < H2 value 55.0",
+      "actual_price": 58.0706240958058,
+      "pred_price": 53.50262451171875
+    },
+    {
+      "timestamp": "2024-01-03 21:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 47.78 < H2 value 55.0",
+      "actual_price": 52.42399817410169,
+      "pred_price": 47.78138732910156
+    },
+    {
+      "timestamp": "2024-01-03 22:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 43.01 < H2 value 55.0",
+      "actual_price": 46.75866358130472,
+      "pred_price": 43.012901306152344
+    },
+    {
+      "timestamp": "2024-01-03 23:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 38.25 < H2 value 55.0",
+      "actual_price": 39.81475280565905,
+      "pred_price": 38.251495361328125
+    },
+    {
+      "timestamp": "2024-01-04 00:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 35.94 < H2 value 55.0",
+      "actual_price": 29.971349833383485,
+      "pred_price": 35.936397552490234
+    },
+    {
+      "timestamp": "2024-01-04 01:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 30.13 < H2 value 55.0",
+      "actual_price": 34.908096322467905,
+      "pred_price": 30.129602432250977
+    },
+    {
+      "timestamp": "2024-01-04 02:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.21 < H2 value 55.0",
+      "actual_price": 33.82719650046135,
+      "pred_price": 31.2147216796875
+    },
+    {
+      "timestamp": "2024-01-04 03:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 28.75 < H2 value 55.0",
+      "actual_price": 27.66796267414709,
+      "pred_price": 28.7503662109375
+    },
+    {
+      "timestamp": "2024-01-04 04:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 37.50 < H2 value 55.0",
+      "actual_price": 40.51471995674979,
+      "pred_price": 37.49521255493164
+    },
+    {
+      "timestamp": "2024-01-04 05:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 47.72 < H2 value 55.0",
+      "actual_price": 53.55900592683989,
+      "pred_price": 47.72399139404297
+    },
+    {
+      "timestamp": "2024-01-04 06:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 54.34 < H2 value 55.0",
+      "actual_price": 54.3851586332814,
+      "pred_price": 54.341922760009766
+    },
+    {
+      "timestamp": "2024-01-04 07:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 47.73 < H2 value 55.0",
+      "actual_price": 45.03752852627799,
+      "pred_price": 47.7296142578125
+    },
+    {
+      "timestamp": "2024-01-04 08:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 44.78 < H2 value 55.0",
+      "actual_price": 35.21963011199721,
+      "pred_price": 44.776554107666016
+    },
+    {
+      "timestamp": "2024-01-04 09:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.38 < H2 value 55.0",
+      "actual_price": 14.741242200526376,
+      "pred_price": 34.377891540527344
+    },
+    {
+      "timestamp": "2024-01-04 10:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 29.92 < H2 value 55.0",
+      "actual_price": 12.707351186384638,
+      "pred_price": 29.92352867126465
+    },
+    {
+      "timestamp": "2024-01-04 11:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 30.04 < H2 value 55.0",
+      "actual_price": 12.705593445043274,
+      "pred_price": 30.044239044189453
+    },
+    {
+      "timestamp": "2024-01-04 12:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.63 < H2 value 55.0",
+      "actual_price": 8.419247150940183,
+      "pred_price": 31.627527236938477
+    },
+    {
+      "timestamp": "2024-01-04 13:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.99 < H2 value 55.0",
+      "actual_price": 24.436227846005064,
+      "pred_price": 31.991809844970703
+    },
+    {
+      "timestamp": "2024-01-04 14:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 38.50 < H2 value 55.0",
+      "actual_price": 15.435909413432745,
+      "pred_price": 38.495052337646484
+    },
+    {
+      "timestamp": "2024-01-04 15:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 39.94 < H2 value 55.0",
+      "actual_price": 35.925090611211466,
+      "pred_price": 39.94007110595703
+    },
+    {
+      "timestamp": "2024-01-04 16:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 49.99 < H2 value 55.0",
+      "actual_price": 44.67590802137398,
+      "pred_price": 49.99143600463867
+    },
+    {
+      "timestamp": "2024-01-04 17:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 48.35 < H2 value 55.0",
+      "actual_price": 45.31968329887193,
+      "pred_price": 48.348480224609375
+    },
+    {
+      "timestamp": "2024-01-04 18:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Market parity",
+      "actual_price": 51.04106884884353,
+      "pred_price": 55.36809158325195
+    },
+    {
+      "timestamp": "2024-01-04 19:00:00",
+      "allocation": {
+        "elec": 200.0,
+        "h2": 1800.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Market parity",
+      "actual_price": 61.5843622536832,
+      "pred_price": 56.279090881347656
+    },
+    {
+      "timestamp": "2024-01-04 20:00:00",
+      "allocation": {
+        "elec": 100.0,
+        "h2": 1900.0,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 53.73 < H2 value 55.0",
+      "actual_price": 56.87286500297242,
+      "pred_price": 53.725223541259766
+    },
+    {
+      "timestamp": "2024-01-04 21:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 52.65 < H2 value 55.0",
+      "actual_price": 57.19072431208207,
+      "pred_price": 52.64923095703125
+    },
+    {
+      "timestamp": "2024-01-04 22:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 43.19 < H2 value 55.0",
+      "actual_price": 33.31319429801021,
+      "pred_price": 43.185062408447266
+    },
+    {
+      "timestamp": "2024-01-04 23:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 40.66 < H2 value 55.0",
+      "actual_price": 35.91591261925936,
+      "pred_price": 40.6583366394043
+    },
+    {
+      "timestamp": "2024-01-05 00:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 33.64 < H2 value 55.0",
+      "actual_price": 39.22213441958026,
+      "pred_price": 33.63859176635742
+    },
+    {
+      "timestamp": "2024-01-05 01:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.94 < H2 value 55.0",
+      "actual_price": 32.86373721387229,
+      "pred_price": 34.94403076171875
+    },
+    {
+      "timestamp": "2024-01-05 02:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 31.77 < H2 value 55.0",
+      "actual_price": 35.33487079598433,
+      "pred_price": 31.76836585998535
+    },
+    {
+      "timestamp": "2024-01-05 03:00:00",
+      "allocation": {
+        "elec": 0,
+        "h2": 2000,
+        "heat": 0,
+        "cooling": 0
+      },
+      "reason": "Diverted to Hydrogen. Reason: Predicted price 34.45 < H2 value 55.0",
+      "actual_price": 35.1871998811983,
+      "pred_price": 34.45152282714844
+    }
+  ]
+}
