@@ -13,9 +13,6 @@ const scenarioButtons: Array<{
   Icon: typeof Sun;
 }> = [
   { key: "live", label: "🔴 Live Ticker", Icon: Activity },
-  { key: "summer_negative_price", label: "Summer afternoon", Icon: Sun },
-  { key: "winter_peak_demand", label: "Winter morning", Icon: Snowflake },
-  { key: "danube_overheating", label: "Heatwave crisis", Icon: Flame },
 ];
 
 function Clock() {

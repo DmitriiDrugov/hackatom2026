@@ -1,17 +1,17 @@
 {
-  "timestamp": "2026-05-14T21:34:40.245157",
+  "timestamp": "2026-05-14T23:05:30.656898",
   "live_metrics": {
-    "current_price_eur": 41.69,
-    "current_load_mw": 5031.93,
-    "danube_temp_c": 18.2,
-    "predicted_next_price_eur": 31.33
+    "current_price_eur": 42.79,
+    "current_load_mw": 4980.29,
+    "danube_temp_c": 16.0,
+    "predicted_next_price_eur": 32.24
   },
   "recommendation": {
-    "elec": 400.0,
-    "h2": 1600.0,
+    "elec": 0,
+    "h2": 2000,
     "heat": 0,
     "cooling": 0
   },
-  "revenue_gain_eur_per_hour": 21297.68,
-  "ai_explanation": "Price dip predicted (\u20ac31.33/MWh); shifting 1600.0MW to Hydrogen. | Fulfilling remaining capacity with Electricity (400.0MW)."
+  "revenue_gain_eur_per_hour": 24428.1,
+  "ai_explanation": "Price dip predicted (\u20ac32.24/MWh); shifting 2000.0MW to Hydrogen."
 }

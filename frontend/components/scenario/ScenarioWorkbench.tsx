@@ -13,7 +13,7 @@ const channels: ChannelKey[] = ["electricity", "heat", "hydrogen", "danubeCoolin
 
 // Renders the operator what-if controls and side-by-side scenario comparison.
 export function ScenarioWorkbench() {
-  const baselineQuery = useScenarioQuery("summer_negative_price");
+  const baselineQuery = useScenarioQuery("live");
   const scenarioMutation = useScenarioMutation();
   const [reactorsOnline, setReactorsOnline] = useState<string[]>([]);
   const [priceMultiplier, setPriceMultiplier] = useState(0.82);
