@@ -11,8 +11,9 @@ import { colorForChannel, colorForStatus, formatPct, formatSignedEuro } from "@/
 
 const channels: ChannelKey[] = ["electricity", "heat", "hydrogen", "danubeCooling"];
 
+// Renders the operator what-if controls and side-by-side scenario comparison.
 export function ScenarioWorkbench() {
-  const baselineQuery = useScenarioQuery("summer");
+  const baselineQuery = useScenarioQuery("summer_negative_price");
   const scenarioMutation = useScenarioMutation();
   const [reactorsOnline, setReactorsOnline] = useState<string[]>([]);
   const [priceMultiplier, setPriceMultiplier] = useState(0.82);
@@ -30,15 +31,21 @@ export function ScenarioWorkbench() {
 
   const inputs: ScenarioInputs = useMemo(
     () => ({
-      baseScenario: "summer",
-      priceMultiplier,
-      danubeLimitC,
-      demandMultiplier,
-      reactorsOnline,
+      overrides: {
+        price_multiplier: priceMultiplier,
+        danube_temp_limit: danubeLimitC,
+        demand_multiplier: demandMultiplier,
+        reactor_offline:
+          baselineQuery.data?.reactors
+            .filter((reactor) => reactor.status !== "off" && !reactorsOnline.includes(reactor.id))
+            .map((reactor) => reactor.id) ?? [],
+      },
+      horizon_hours: 48,
     }),
-    [danubeLimitC, demandMultiplier, priceMultiplier, reactorsOnline],
+    [baselineQuery.data?.reactors, danubeLimitC, demandMultiplier, priceMultiplier, reactorsOnline],
   );
 
+  // Sends the current overrides to the scenario endpoint and displays the recomputed plan.
   const handleRecompute = async () => {
     const result = await scenarioMutation.mutateAsync(inputs);
     setComparison(result);
@@ -177,6 +184,7 @@ export function ScenarioWorkbench() {
   );
 }
 
+// Renders one numeric operator override slider.
 function SliderControl({
   label,
   value,
@@ -213,6 +221,7 @@ function SliderControl({
   );
 }
 
+// Toggles whether a reactor unit is included in the scenario override.
 function ReactorToggle({
   reactor,
   active,
@@ -242,6 +251,7 @@ function ReactorToggle({
   );
 }
 
+// Displays compact revenue and operating-state metrics above a comparison chart.
 function SummaryBlock({ title, data }: { title: string; data: ScenarioPayload }) {
   return (
     <div className="border-r border-app-border px-4 py-3 last:border-r-0">
@@ -256,6 +266,7 @@ function SummaryBlock({ title, data }: { title: string; data: ScenarioPayload })
   );
 }
 
+// Renders one compact metric value inside the scenario summary strip.
 function SummaryMetric({ label, value, unit }: { label: string; value: string; unit: string }) {
   return (
     <div>
@@ -268,6 +279,7 @@ function SummaryMetric({ label, value, unit }: { label: string; value: string; u
   );
 }
 
+// Draws the stacked 48-hour plan chart used in side-by-side comparison.
 function TimelineComparison({ title, data }: { title: string; data: ScenarioPayload }) {
   const maxTotal = Math.max(
     ...data.timeline.map((hour) =>

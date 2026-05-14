@@ -12,11 +12,12 @@ const scenarioButtons: Array<{
   label: string;
   Icon: typeof Sun;
 }> = [
-  { key: "summer", label: "Summer afternoon", Icon: Sun },
-  { key: "winter", label: "Winter morning", Icon: Snowflake },
-  { key: "heatwave", label: "Heatwave crisis", Icon: Flame },
+  { key: "summer_negative_price", label: "Summer afternoon", Icon: Sun },
+  { key: "winter_peak_demand", label: "Winter morning", Icon: Snowflake },
+  { key: "danube_overheating", label: "Heatwave crisis", Icon: Flame },
 ];
 
+// Renders the Budapest-time operator clock in the top status bar.
 function Clock() {
   const [clock, setClock] = useState("--:--:-- CET");
 
