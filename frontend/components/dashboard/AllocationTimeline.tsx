@@ -32,10 +32,19 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
 
   return (
     <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
-      <PanelHeader title="48-hour allocation timeline" value="MW / hour" />
+      <PanelHeader title="48-hour allocation" value="MW / hour" />
 
-      <div className="relative min-h-0 flex-1 px-3 pt-3">
-        <div className="flex h-full items-end gap-[1.5px]">
+      <div className="relative min-h-0 flex-1 px-4 pt-4">
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-x-4 top-4 bottom-4 grid grid-rows-4"
+        >
+          {[0, 1, 2, 3].map((row) => (
+            <div key={row} className="border-t border-dashed border-app-border/70" />
+          ))}
+        </div>
+
+        <div className="relative flex h-full items-end gap-[2px]">
           {data.timeline.map((hour) => {
             const total = Object.values(hour.allocations).reduce((sum, value) => sum + value, 0);
             const heightPct = (total / maxTotal) * 100;
@@ -47,9 +56,9 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
                 key={hour.hourIndex}
                 type="button"
                 className={clsx(
-                  "focus-ring flex min-h-[24px] flex-1 cursor-pointer flex-col-reverse overflow-hidden rounded-t-[1px] transition-opacity hover:opacity-85",
-                  isCurrent && "outline outline-[1.5px] outline-offset-1 outline-app-cyan",
-                  isSelected && !isCurrent && "outline outline-1 outline-offset-1 outline-[#c8d3e2]",
+                  "focus-ring relative flex min-h-[24px] flex-1 cursor-pointer flex-col-reverse overflow-hidden rounded-t-[2px] transition-all hover:brightness-110",
+                  isCurrent && "ring-1 ring-app-blue ring-offset-1 ring-offset-app-surface",
+                  isSelected && !isCurrent && "ring-1 ring-app-border-strong ring-offset-1 ring-offset-app-surface",
                 )}
                 style={{ height: `${heightPct}%` }}
                 onMouseEnter={(event) =>
@@ -81,25 +90,36 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
 
         {hovered ? (
           <div
-            className="pointer-events-none absolute top-3 z-20 w-[178px] rounded border border-app-border bg-app-elevated px-2.5 py-2 text-[11px]"
+            className="pointer-events-none absolute top-3 z-20 w-[188px] rounded-lg border border-app-border bg-app-surface px-3 py-2.5 text-[11px] shadow-soft-pop"
             style={{
-              left: `min(max(${hovered.left - 89}px, 4px), calc(100% - 182px))`,
+              left: `min(max(${hovered.left - 94}px, 4px), calc(100% - 192px))`,
             }}
           >
-            <div className="mb-1.5 text-[10px] font-semibold text-app-cyan">
-              {hovered.hour.label} {hovered.hour.hourIndex < 24 ? "today" : "tomorrow"}
+            <div className="mb-2 flex items-center justify-between text-[10px] font-semibold uppercase tracking-[0.06em]">
+              <span className="text-app-text">{hovered.hour.label}</span>
+              <span className="text-app-muted">
+                {hovered.hour.hourIndex < 24 ? "Today" : "Tomorrow"}
+              </span>
             </div>
             {channels.map((channel) => (
-              <div key={channel.key} className="flex justify-between gap-4">
-                <span style={{ color: colorForChannel(channel.key) }}>{channel.label}</span>
-                <span className="mono text-app-text">{formatMw(hovered.hour.allocations[channel.key])}</span>
+              <div key={channel.key} className="flex items-baseline justify-between gap-3 py-0.5">
+                <span className="flex items-center gap-1.5 text-app-text-soft">
+                  <span
+                    className="h-1.5 w-1.5 rounded-sm"
+                    style={{ backgroundColor: colorForChannel(channel.key) }}
+                  />
+                  {channel.label}
+                </span>
+                <span className="mono tabular-nums text-app-text">
+                  {formatMw(hovered.hour.allocations[channel.key])}
+                </span>
               </div>
             ))}
           </div>
         ) : null}
       </div>
 
-      <div className="mono flex h-[21px] px-3 pt-1 text-[9px] text-app-muted">
+      <div className="mono flex h-[22px] px-4 pt-1 text-[9px] font-medium uppercase tracking-wide text-app-muted">
         {["00:00", "06:00", "12:00", "18:00", "+24h", "06:00", "12:00", "18:00", "+48h"].map(
           (label, index, labels) => (
             <span
@@ -107,6 +127,7 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
               className={clsx(
                 "flex-1",
                 index === 0 ? "text-left" : index === labels.length - 1 ? "text-right" : "text-center",
+                label.startsWith("+") ? "text-app-text-soft" : "",
               )}
             >
               {label}
@@ -115,9 +136,9 @@ export function AllocationTimeline({ data }: { data: ScenarioPayload }) {
         )}
       </div>
 
-      <div className="flex h-9 items-center gap-4 border-t border-app-border px-3">
+      <div className="flex h-10 items-center gap-4 border-t border-app-border bg-app-sunken/40 px-4">
         {channels.map((channel) => (
-          <div key={channel.key} className="flex items-center gap-1.5 text-[11px] text-app-muted">
+          <div key={channel.key} className="flex items-center gap-1.5 text-[11px] text-app-text-soft">
             <span
               className="h-2 w-2 rounded-[2px]"
               style={{ backgroundColor: colorForChannel(channel.key) }}

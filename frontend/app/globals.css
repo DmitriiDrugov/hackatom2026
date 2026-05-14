@@ -4,18 +4,39 @@
 
 :root {
   color-scheme: light;
-  --bg: #edf2f7;
+  /* Canvas behind the floating dashboard card. */
+  --bg: #eef2f7;
+  /* Primary panel surface. */
   --surface: #ffffff;
-  --surface-elevated: #f3f7fb;
-  --border: #d8e2ee;
-  --cyan: #0ea5c6;
-  --emerald: #12a872;
-  --amber: #d89a10;
-  --rose: #dc4c64;
-  --purple: #7c5cff;
+  /* Subtle elevation for hover / chips / soft fills. */
+  --surface-elevated: #f4f7fb;
+  /* Slightly deeper neutral for panel headers and inset rails. */
+  --surface-sunken: #f1f5f9;
+  /* Hairline divider between panels. */
+  --border: #e3e8ef;
+  /* Stronger divider for emphasized seams. */
+  --border-strong: #cbd5e1;
+  /* Accents — calibrated for readability on white surfaces. */
+  --cyan: #0369a1;
+  --blue: #1d4ed8;
+  --emerald: #047857;
+  --amber: #b45309;
+  --rose: #b91c1c;
+  --purple: #6d28d9;
+  /* Neutral text scale. */
   --muted: #64748b;
-  --text: #071018;
-  --text-soft: #334155;
+  --muted-strong: #475569;
+  --text: #0f172a;
+  --text-soft: #1e293b;
+  /* Channel & status visualization colors, optimized for light theme. */
+  --c-electricity: #2563eb;
+  --c-heat: #059669;
+  --c-hydrogen: #7c3aed;
+  --c-cooling: #0891b2;
+  --s-ok: #10b981;
+  --s-warn: #f59e0b;
+  --s-crit: #ef4444;
+  --s-off: #94a3b8;
 }
 
 * {
@@ -28,9 +49,11 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: var(--font-inter), Inter, sans-serif;
-  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-  line-height: 1.35;
+  font-family: var(--font-inter), Inter, -apple-system, system-ui, sans-serif;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11", "ss01", "ss03";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.005em;
+  line-height: 1.4;
   text-rendering: geometricPrecision;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -54,8 +77,8 @@ svg {
 }
 
 ::-webkit-scrollbar {
-  width: 4px;
-  height: 4px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -63,8 +86,12 @@ svg {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #344258;
+  background: #cbd5e1;
   border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
 }
 
 .focus-ring {
@@ -72,25 +99,70 @@ svg {
 }
 
 .focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px rgba(76, 201, 240, 0.55);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.35);
 }
 
+/* Compact uppercase eyebrow label used above values across the dashboard. */
 .panel-label {
-  color: #9fb0c7;
+  color: var(--muted);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-weight: 600;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
+/* Panel section title — the dominant text inside a panel header. */
+.panel-title {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+
+.panel-meta {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
 .mono {
-  font-family: var(--font-mono), "JetBrains Mono", monospace;
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "ss01", "ss02", "zero", "tnum";
+  letter-spacing: -0.01em;
+}
+
+/* Stat number — the dominant numeric display inside a metric tile. */
+.stat-num {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "tnum", "zero";
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .skeleton {
-  background: linear-gradient(90deg, rgba(226, 234, 244, 0.9), rgba(244, 247, 251, 0.95), rgba(226, 234, 244, 0.9));
+  background: linear-gradient(
+    90deg,
+    rgba(226, 232, 240, 0.6),
+    rgba(241, 245, 249, 0.95),
+    rgba(226, 232, 240, 0.6)
+  );
   background-size: 180% 100%;
   animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+.dashboard-shell {
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.04),
+    0 8px 24px rgba(15, 23, 42, 0.06),
+    0 24px 60px -28px rgba(15, 23, 42, 0.18);
+}
+
+.gridline-soft {
+  background-image: linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
+  background-size: 12.5% 100%;
 }
 
 .maplibregl-canvas {
@@ -99,15 +171,17 @@ svg {
 
 .maplibregl-ctrl-top-left {
   left: 12px;
-  top: 58px;
+  top: 64px;
 }
 
 .maplibregl-ctrl-group {
   overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.12);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.94);
-  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 1px 2px rgba(15, 23, 42, 0.04),
+    0 8px 18px rgba(15, 23, 42, 0.08);
 }
 
 .maplibregl-ctrl-group button {
@@ -116,9 +190,9 @@ svg {
 }
 
 .maplibregl-ctrl-attrib {
-  border-top-right-radius: 6px;
-  background: rgba(255, 255, 255, 0.8);
-  color: #475569;
+  border-top-right-radius: 8px;
+  background: rgba(255, 255, 255, 0.85);
+  color: var(--muted);
   font-size: 10px;
 }
 

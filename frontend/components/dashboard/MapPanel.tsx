@@ -11,9 +11,9 @@ import { useDashboardStore } from "@/lib/store/dashboard-store";
 import { PanelHeader } from "@/components/dashboard/PanelHeader";
 
 const colorMap = {
-  cyan: "#4cc9f0",
-  emerald: "#3ddc97",
-  purple: "#b78cff",
+  cyan: "#2563eb",
+  emerald: "#059669",
+  purple: "#7c3aed",
 };
 
 const baseMapStyle: maplibregl.StyleSpecification = {
@@ -230,8 +230,8 @@ function addAllocationLayers(map: MapLibreMap, data: ScenarioPayload, selectedCi
     paint: {
       "circle-radius": ["case", ["==", ["get", "kind"], "source"], 5.5, 4.5],
       "circle-color": ["get", "color"],
-      "circle-stroke-color": "#071018",
-      "circle-stroke-width": 1.5,
+      "circle-stroke-color": "#ffffff",
+      "circle-stroke-width": 1.75,
     },
   });
 
@@ -295,7 +295,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
   const mapRef = useRef<MapLibreMap | null>(null);
   const mapLoadedRef = useRef(false);
   const riverColor =
-    data.danube.status === "crit" ? "#ff6b7a" : data.danube.status === "warn" ? "#2f8faf" : "#22647f";
+    data.danube.status === "crit" ? "#ef4444" : data.danube.status === "warn" ? "#0891b2" : "#0e7490";
   const latestMapDataRef = useRef({ data, selectedCityId, riverColor });
   const fittedCitySignatureRef = useRef<string | null>(null);
   const [labelPositions, setLabelPositions] = useState<LabelPosition[]>([]);
@@ -397,10 +397,13 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
     }
   }, [citySignature, data.cities, paks, riverColor, selectedCityId]);
 
+  const danubeStatusColor =
+    data.danube.status === "crit" ? "#ef4444" : data.danube.status === "warn" ? "#f59e0b" : "#0891b2";
+
   return (
     <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
       <PanelHeader title="Geographic allocation" value="MapLibre · Hungary · CET" />
-      <div className="relative min-h-0 flex-1 overflow-hidden bg-[#dfe8e7]">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-[#e6ecf2]">
         <div ref={mapContainerRef} className="h-full w-full" aria-label="Hungary heat allocation map" />
 
         <div className="pointer-events-none absolute inset-0 z-10">
@@ -408,62 +411,76 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
             <div
               key={label.id}
               className={clsx(
-                "absolute left-0 top-0 max-w-[132px] rounded-md border px-2 py-1 text-[10px] leading-tight shadow-[0_8px_20px_rgba(15,23,42,0.15)]",
+                "absolute left-0 top-0 max-w-[140px] rounded-md border px-2 py-1 text-[10px] leading-tight shadow-soft-pop",
                 label.selected
-                  ? "border-slate-950/15 bg-slate-950 text-white"
-                  : "border-white/80 bg-white/95 text-[#071018]",
+                  ? "border-app-text/15 bg-app-text text-white"
+                  : "border-app-border bg-white text-app-text",
               )}
               style={{ transform: `translate(${label.x}px, ${label.y}px)` }}
             >
-              <div className="truncate font-semibold">{label.kind === "source" ? "Paks NPP" : label.name}</div>
-              <div className={clsx("mono mt-0.5 text-[9px]", label.selected ? "text-slate-300" : "text-slate-500")}>
+              <div className="truncate font-semibold tracking-tight">
+                {label.kind === "source" ? "Paks NPP" : label.name}
+              </div>
+              <div
+                className={clsx(
+                  "mono mt-0.5 text-[9px] tabular-nums",
+                  label.selected ? "text-slate-300" : "text-app-muted",
+                )}
+              >
                 {formatMw(label.heatMw)}
               </div>
             </div>
           ))}
         </div>
 
-        <div className="pointer-events-none absolute left-3 top-3 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-[#071018] shadow-[0_10px_24px_rgba(15,23,42,0.18)]">
-          <div className="text-[12px] font-semibold">Paks cogeneration network</div>
-          <div className="mono mt-0.5 text-[10px] text-slate-500">{flowSummary}</div>
+        <div className="pointer-events-none absolute left-3 top-3 rounded-lg border border-app-border bg-white/95 px-3 py-2 text-app-text shadow-soft-pop backdrop-blur-sm">
+          <div className="text-[12px] font-semibold tracking-tight">Paks cogeneration network</div>
+          <div className="mono mt-0.5 text-[10px] tabular-nums text-app-muted">{flowSummary}</div>
         </div>
 
-        <div className="absolute right-3 top-3 w-[196px] rounded-md border border-slate-900/10 bg-[#071018]/95 p-3 text-white shadow-[0_12px_28px_rgba(15,23,42,0.32)]">
-          <div className="mb-2 truncate text-[13px] font-semibold">{selectedCity.name}</div>
+        <div className="absolute right-3 top-3 w-[204px] rounded-lg border border-app-text/10 bg-app-text/95 p-3 text-white shadow-soft-pop backdrop-blur-sm">
+          <div className="mb-2 flex items-center justify-between gap-2">
+            <span className="truncate text-[13px] font-semibold tracking-tight">{selectedCity.name}</span>
+            <span className="rounded-sm border border-white/15 px-1.5 py-0.5 text-[9px] font-medium uppercase tracking-[0.08em] text-slate-300">
+              {selectedCity.kind === "source" ? "Source" : "Sink"}
+            </span>
+          </div>
           <div className="space-y-1.5">
             <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} />
-            <CityRow label="Distance" value={selectedCity.distanceKm == null ? "-" : `${selectedCity.distanceKm} km`} />
+            <CityRow label="Distance" value={selectedCity.distanceKm == null ? "—" : `${selectedCity.distanceKm} km`} />
             <CityRow
               label="Pipeline loss"
-              value={selectedCity.pipelineLossPct == null ? "-" : `${selectedCity.pipelineLossPct.toFixed(1)}%`}
+              value={selectedCity.pipelineLossPct == null ? "—" : `${selectedCity.pipelineLossPct.toFixed(1)}%`}
             />
             <CityRow
               label="Demand coverage"
-              value={selectedCity.demandCoveragePct == null ? "-" : `${selectedCity.demandCoveragePct}%`}
+              value={selectedCity.demandCoveragePct == null ? "—" : `${selectedCity.demandCoveragePct}%`}
               status={selectedCity.demandCoveragePct && selectedCity.demandCoveragePct > 90 ? "ok" : undefined}
             />
           </div>
         </div>
       </div>
 
-      <div className="flex h-9 items-center gap-2 border-t border-app-border px-3">
-        <span className="w-14 shrink-0 text-[10px] text-app-muted">Danube temp</span>
-        <div className="h-[5px] min-w-0 flex-1 overflow-hidden rounded-full bg-app-elevated">
+      <div className="flex h-10 items-center gap-3 border-t border-app-border bg-app-sunken/40 px-4">
+        <span className="text-[10px] font-semibold uppercase tracking-[0.08em] text-app-muted">Danube</span>
+        <div className="relative h-[6px] min-w-0 flex-1 overflow-hidden rounded-full bg-app-elevated ring-1 ring-inset ring-app-border">
           <div
-            className={clsx(
-              "h-full rounded-full",
-              data.danube.status === "crit" ? "bg-app-rose" : "bg-gradient-to-r from-app-cyan to-app-amber",
-            )}
-            style={{ width: `${data.danube.pctOfLimit}%` }}
+            className="h-full rounded-full transition-[width] duration-300"
+            style={{
+              width: `${Math.min(100, data.danube.pctOfLimit)}%`,
+              backgroundColor: danubeStatusColor,
+            }}
           />
         </div>
         <span
-          className="mono w-[54px] shrink-0 text-right text-[11px]"
-          style={{ color: data.danube.status === "crit" ? "#ff6b7a" : data.danube.status === "warn" ? "#f5c451" : "#4cc9f0" }}
+          className="mono w-[60px] shrink-0 text-right text-[12px] font-medium tabular-nums"
+          style={{ color: danubeStatusColor }}
         >
           {formatTemp(data.danube.currentTempC)}
         </span>
-        <span className="shrink-0 text-[10px] text-app-muted">/ {formatTemp(data.danube.limitTempC)} limit</span>
+        <span className="shrink-0 text-[10px] text-app-muted">
+          / {formatTemp(data.danube.limitTempC)} limit
+        </span>
       </div>
     </section>
   );
@@ -474,7 +491,14 @@ function CityRow({ label, value, status }: { label: string; value: string; statu
   return (
     <div className="flex items-baseline justify-between gap-3">
       <span className="text-[11px] text-slate-300">{label}</span>
-      <span className={clsx("mono text-[11px]", status === "ok" ? "text-app-emerald" : "text-white")}>{value}</span>
+      <span
+        className={clsx(
+          "mono text-[11px] tabular-nums",
+          status === "ok" ? "text-emerald-300" : "text-white",
+        )}
+      >
+        {value}
+      </span>
     </div>
   );
 }
