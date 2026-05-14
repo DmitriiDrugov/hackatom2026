@@ -1,6 +1,9 @@
 "use client";
 
 import clsx from "clsx";
+import maplibregl, { type GeoJSONSource, type Map as MapLibreMap } from "maplibre-gl";
+import { useEffect, useMemo, useRef, useState } from "react";
+import type { Feature, FeatureCollection, LineString, Point } from "geojson";
 
 import type { CityAllocation, ScenarioPayload } from "@/lib/domain";
 import { formatMw, formatTemp } from "@/lib/format";
@@ -13,112 +16,421 @@ const colorMap = {
   purple: "#b78cff",
 };
 
-function CityMarker({
-  city,
-  active,
-  onSelect,
-}: {
-  city: CityAllocation;
-  active: boolean;
-  onSelect: () => void;
-}) {
-  const color = colorMap[city.color];
+const baseMapStyle: maplibregl.StyleSpecification = {
+  version: 8,
+  glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+  sources: {
+    carto: {
+      type: "raster",
+      tiles: [
+        "https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+        "https://b.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+        "https://c.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png",
+      ],
+      tileSize: 256,
+      attribution: "&copy; OpenStreetMap contributors &copy; CARTO",
+    },
+  },
+  layers: [
+    {
+      id: "carto-light",
+      type: "raster",
+      source: "carto",
+      paint: {
+        "raster-opacity": 0.96,
+        "raster-saturation": -0.18,
+        "raster-contrast": 0.08,
+      },
+    },
+  ],
+};
 
-  return (
-    <g
-      transform={`translate(${city.x},${city.y})`}
-      onClick={onSelect}
-      className="cursor-pointer"
-      role="button"
-      tabIndex={0}
-      aria-label={city.name}
-    >
-      <circle r={city.kind === "source" ? 14 : 10} fill={`${color}14`} stroke={`${color}88`} strokeWidth="1.5" />
-      <circle r={city.kind === "source" ? 5 : 4} fill={`${color}66`} />
-      <circle r="2" fill={color} />
-      {active ? <circle r={city.kind === "source" ? 18 : 14} fill="none" stroke={color} strokeWidth="1" /> : null}
-      <text
-        y={city.kind === "source" ? 24 : -13}
-        textAnchor="middle"
-        fill="#c6d3e4"
-        fontFamily="Inter"
-        fontSize="9"
-        fontWeight="600"
-      >
-        {city.name}
-      </text>
-      <text
-        y={city.kind === "source" ? 33 : -4}
-        textAnchor="middle"
-        fill="#7f91aa"
-        fontFamily="JetBrains Mono"
-        fontSize="8"
-      >
-        {city.kind === "source" ? "1980 MW" : `${city.heatMw} MW`}
-      </text>
-    </g>
-  );
+type CityFeatureProps = {
+  id: string;
+  name: string;
+  kind: "source" | "sink";
+  color: string;
+  heatMw: number;
+  selected: boolean;
+};
+
+type FlowFeatureProps = {
+  color: string;
+  width: number;
+};
+
+type LabelPosition = {
+  id: string;
+  name: string;
+  heatMw: number;
+  kind: CityAllocation["kind"];
+  selected: boolean;
+  x: number;
+  y: number;
+};
+
+// Converts dashboard city data into map point features.
+function buildCityFeatures(
+  cities: CityAllocation[],
+  selectedCityId: string,
+): FeatureCollection<Point, CityFeatureProps> {
+  return {
+    type: "FeatureCollection",
+    features: cities.map((city) => ({
+      type: "Feature",
+      properties: {
+        id: city.id,
+        name: city.name,
+        kind: city.kind,
+        color: colorMap[city.color],
+        heatMw: city.heatMw,
+        selected: city.id === selectedCityId,
+      },
+      geometry: {
+        type: "Point",
+        coordinates: [city.longitude, city.latitude],
+      },
+    })),
+  };
 }
 
+// Builds allocation flow lines from Paks to each served location.
+function buildFlowFeatures(
+  cities: CityAllocation[],
+  paks: CityAllocation,
+): FeatureCollection<LineString, FlowFeatureProps> {
+  return {
+    type: "FeatureCollection",
+    features: cities
+      .filter((city) => city.kind === "sink")
+      .map((city) => ({
+        type: "Feature",
+        properties: {
+          color: colorMap[city.color],
+          width: Math.max(2.4, Math.min(6, city.heatMw / 70)),
+        },
+        geometry: {
+          type: "LineString",
+          coordinates: [
+            [paks.longitude, paks.latitude],
+            [city.longitude, city.latitude],
+          ],
+        },
+      })),
+  };
+}
+
+// Builds an approximate Danube segment through the demo locations.
+function buildDanubeFeature(): Feature<LineString, Record<string, never>> {
+  return {
+    type: "Feature",
+    properties: {},
+    geometry: {
+      type: "LineString",
+      coordinates: [
+        [19.055, 47.5],
+        [18.985, 47.23],
+        [18.935, 46.962],
+        [18.854, 46.572],
+        [18.74, 46.34],
+      ],
+    },
+  };
+}
+
+// Fits the map to all known locations while leaving room for floating cards.
+function fitMapToCities(map: MapLibreMap, cities: CityAllocation[]) {
+  if (cities.length === 0) {
+    return;
+  }
+
+  const bounds = new maplibregl.LngLatBounds();
+  cities.forEach((city) => bounds.extend([city.longitude, city.latitude]));
+  map.fitBounds(bounds, {
+    padding: { top: 86, right: 242, bottom: 56, left: 64 },
+    maxZoom: 8.7,
+    duration: 0,
+  });
+}
+
+// Creates a compact coordinate signature so zoom fitting only runs when locations change.
+function getCitySignature(cities: CityAllocation[]) {
+  return cities.map((city) => `${city.id}:${city.longitude},${city.latitude}`).join("|");
+}
+
+// Updates a GeoJSON source if it already exists on the map.
+function setSourceData<TGeometry extends Point | LineString, TProps extends object>(
+  map: MapLibreMap,
+  sourceId: string,
+  data: FeatureCollection<TGeometry, TProps> | Feature<TGeometry, TProps>,
+) {
+  const source = map.getSource(sourceId) as GeoJSONSource | undefined;
+  source?.setData(data);
+}
+
+// Adds all dashboard overlay sources and layers to the base map.
+function addAllocationLayers(map: MapLibreMap, data: ScenarioPayload, selectedCityId: string, riverColor: string) {
+  const paks = data.cities.find((city) => city.id === "paks") ?? data.cities[0];
+
+  map.addSource("danube", {
+    type: "geojson",
+    data: buildDanubeFeature(),
+  });
+  map.addSource("flows", {
+    type: "geojson",
+    data: buildFlowFeatures(data.cities, paks),
+  });
+  map.addSource("cities", {
+    type: "geojson",
+    data: buildCityFeatures(data.cities, selectedCityId),
+  });
+
+  map.addLayer({
+    id: "danube-line",
+    type: "line",
+    source: "danube",
+    paint: {
+      "line-color": riverColor,
+      "line-width": 5,
+      "line-opacity": 0.8,
+      "line-blur": 0.2,
+    },
+  });
+
+  map.addLayer({
+    id: "flow-lines",
+    type: "line",
+    source: "flows",
+    paint: {
+      "line-color": ["get", "color"],
+      "line-width": ["get", "width"],
+      "line-opacity": 0.76,
+      "line-dasharray": [1.2, 1.2],
+    },
+  });
+
+  map.addLayer({
+    id: "city-halo",
+    type: "circle",
+    source: "cities",
+    paint: {
+      "circle-radius": ["case", ["get", "selected"], 15, ["==", ["get", "kind"], "source"], 12, 9],
+      "circle-color": ["get", "color"],
+      "circle-opacity": 0.2,
+      "circle-stroke-color": ["get", "color"],
+      "circle-stroke-width": ["case", ["get", "selected"], 2, 1],
+      "circle-stroke-opacity": 0.9,
+    },
+  });
+
+  map.addLayer({
+    id: "city-core",
+    type: "circle",
+    source: "cities",
+    paint: {
+      "circle-radius": ["case", ["==", ["get", "kind"], "source"], 5.5, 4.5],
+      "circle-color": ["get", "color"],
+      "circle-stroke-color": "#071018",
+      "circle-stroke-width": 1.5,
+    },
+  });
+
+  map.addLayer({
+    id: "city-click-area",
+    type: "circle",
+    source: "cities",
+    paint: {
+      "circle-radius": 18,
+      "circle-color": "#000000",
+      "circle-opacity": 0,
+    },
+  });
+}
+
+// Projects city coordinates into stable overlay-label positions.
+function buildLabelPositions(
+  map: MapLibreMap,
+  cities: CityAllocation[],
+  selectedCityId: string,
+): LabelPosition[] {
+  return cities.map((city) => {
+    const point = map.project([city.longitude, city.latitude]);
+    const offset = getLabelOffset(city.id);
+
+    return {
+      id: city.id,
+      name: city.name,
+      heatMw: city.heatMw,
+      kind: city.kind,
+      selected: city.id === selectedCityId,
+      x: point.x + offset.x,
+      y: point.y + offset.y,
+    };
+  });
+}
+
+// Keeps location labels out of the main flow lines and city markers.
+function getLabelOffset(cityId: string) {
+  switch (cityId) {
+    case "budapest":
+      return { x: 12, y: -34 };
+    case "dunaujvaros":
+      return { x: 18, y: -22 };
+    case "paks":
+      return { x: 18, y: 8 };
+    case "szekszard":
+      return { x: 18, y: -2 };
+    default:
+      return { x: 16, y: -18 };
+  }
+}
+
+// Renders the geographic allocation panel with real map tiles and scalable location overlays.
 export function MapPanel({ data }: { data: ScenarioPayload }) {
   const selectedCityId = useDashboardStore((state) => state.selectedCityId);
   const setSelectedCityId = useDashboardStore((state) => state.setSelectedCityId);
   const selectedCity = data.cities.find((city) => city.id === selectedCityId) ?? data.cities[0];
   const paks = data.cities.find((city) => city.id === "paks") ?? data.cities[0];
-  const riverStatus =
+  const mapContainerRef = useRef<HTMLDivElement | null>(null);
+  const mapRef = useRef<MapLibreMap | null>(null);
+  const mapLoadedRef = useRef(false);
+  const riverColor =
     data.danube.status === "crit" ? "#ff6b7a" : data.danube.status === "warn" ? "#2f8faf" : "#22647f";
+  const latestMapDataRef = useRef({ data, selectedCityId, riverColor });
+  const fittedCitySignatureRef = useRef<string | null>(null);
+  const [labelPositions, setLabelPositions] = useState<LabelPosition[]>([]);
+  const citySignature = useMemo(() => getCitySignature(data.cities), [data.cities]);
+
+  const flowSummary = useMemo(() => {
+    const servedCities = data.cities.filter((city) => city.kind === "sink").length;
+    return `${servedCities} heat corridors · ${data.cities.length} nodes`;
+  }, [data.cities]);
+
+  useEffect(() => {
+    latestMapDataRef.current = { data, selectedCityId, riverColor };
+  }, [data, selectedCityId, riverColor]);
+
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) {
+      return;
+    }
+
+    const map = new maplibregl.Map({
+      container: mapContainerRef.current,
+      style: baseMapStyle,
+      center: [18.92, 46.88],
+      zoom: 8.05,
+      minZoom: 6.5,
+      maxZoom: 12.5,
+      attributionControl: false,
+      dragRotate: false,
+      pitchWithRotate: false,
+    });
+
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-left");
+    map.addControl(new maplibregl.AttributionControl({ compact: true }), "bottom-left");
+
+    const updateLabels = () => {
+      const latest = latestMapDataRef.current;
+      setLabelPositions(buildLabelPositions(map, latest.data.cities, latest.selectedCityId));
+    };
+
+    map.on("load", () => {
+      const latest = latestMapDataRef.current;
+
+      mapLoadedRef.current = true;
+      map.resize();
+      addAllocationLayers(map, latest.data, latest.selectedCityId, latest.riverColor);
+      fitMapToCities(map, latest.data.cities);
+      fittedCitySignatureRef.current = getCitySignature(latest.data.cities);
+      updateLabels();
+    });
+
+    map.on("move", updateLabels);
+    map.on("zoom", updateLabels);
+    map.on("resize", updateLabels);
+
+    map.on("click", "city-click-area", (event) => {
+      const feature = event.features?.[0];
+      const id = feature?.properties?.id;
+
+      if (typeof id === "string") {
+        setSelectedCityId(id);
+      }
+    });
+
+    map.on("mouseenter", "city-click-area", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+    map.on("mouseleave", "city-click-area", () => {
+      map.getCanvas().style.cursor = "";
+    });
+
+    mapRef.current = map;
+
+    return () => {
+      mapLoadedRef.current = false;
+      setLabelPositions([]);
+      mapRef.current?.remove();
+      mapRef.current = null;
+    };
+  }, [setSelectedCityId]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+
+    if (!map || !mapLoadedRef.current) {
+      return;
+    }
+
+    setSourceData(map, "danube", buildDanubeFeature());
+    setSourceData(map, "flows", buildFlowFeatures(data.cities, paks));
+    setSourceData(map, "cities", buildCityFeatures(data.cities, selectedCityId));
+    map.setPaintProperty("danube-line", "line-color", riverColor);
+    setLabelPositions(buildLabelPositions(map, data.cities, selectedCityId));
+
+    if (fittedCitySignatureRef.current !== citySignature) {
+      map.resize();
+      fitMapToCities(map, data.cities);
+      fittedCitySignatureRef.current = citySignature;
+      setLabelPositions(buildLabelPositions(map, data.cities, selectedCityId));
+    }
+  }, [citySignature, data.cities, paks, riverColor, selectedCityId]);
 
   return (
     <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
-      <PanelHeader title="Geographic allocation" value="Hungary · CET" />
-      <div className="relative min-h-0 flex-1 overflow-hidden">
-        <svg viewBox="0 0 600 360" className="h-full w-full" aria-label="Hungary heat allocation map">
-          <polygon
-            points="88,108 110,88 150,76 195,72 238,80 285,72 322,78 355,85 385,98 410,88 440,95 468,110 482,130 478,152 465,170 472,195 458,215 438,232 415,245 388,248 358,250 320,255 288,248 262,258 235,262 205,255 175,258 150,252 128,240 110,225 95,208 82,190 78,168 82,148 88,128"
-            fill="#0f1824"
-            stroke="#30445f"
-            strokeWidth="1.5"
-          />
-          <path
-            d="M285,72 Q298,110 310,148 Q318,185 322,215 Q325,235 320,255"
-            fill="none"
-            stroke={riverStatus}
-            strokeWidth="4"
-            strokeLinecap="round"
-          />
-          {data.cities
-            .filter((city) => city.kind === "sink")
-            .map((city) => {
-              const width = Math.max(2.4, Math.min(6, city.heatMw / 70));
-              return (
-                <line
-                  key={city.id}
-                  x1={paks.x}
-                  y1={paks.y}
-                  x2={city.x}
-                  y2={city.y}
-                  stroke={colorMap[city.color]}
-                  strokeWidth={width}
-                  opacity="0.78"
-                  strokeDasharray="7 5"
-                  className="animate-flow"
-                />
-              );
-            })}
+      <PanelHeader title="Geographic allocation" value="MapLibre · Hungary · CET" />
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-[#dfe8e7]">
+        <div ref={mapContainerRef} className="h-full w-full" aria-label="Hungary heat allocation map" />
 
-          {data.cities.map((city) => (
-            <CityMarker
-              key={city.id}
-              city={city}
-              active={city.id === selectedCity.id}
-              onSelect={() => setSelectedCityId(city.id)}
-            />
+        <div className="pointer-events-none absolute inset-0 z-10">
+          {labelPositions.map((label) => (
+            <div
+              key={label.id}
+              className={clsx(
+                "absolute left-0 top-0 max-w-[132px] rounded-md border px-2 py-1 text-[10px] leading-tight shadow-[0_8px_20px_rgba(15,23,42,0.15)]",
+                label.selected
+                  ? "border-slate-950/15 bg-slate-950 text-white"
+                  : "border-white/80 bg-white/95 text-[#071018]",
+              )}
+              style={{ transform: `translate(${label.x}px, ${label.y}px)` }}
+            >
+              <div className="truncate font-semibold">{label.kind === "source" ? "Paks NPP" : label.name}</div>
+              <div className={clsx("mono mt-0.5 text-[9px]", label.selected ? "text-slate-300" : "text-slate-500")}>
+                {formatMw(label.heatMw)}
+              </div>
+            </div>
           ))}
-        </svg>
+        </div>
 
-        <div className="absolute right-3 top-3 w-44 rounded-md border border-app-border bg-app-elevated/95 p-3 shadow-[0_10px_24px_rgba(0,0,0,0.26)]">
-          <div className="mb-2 text-[12px] font-semibold text-app-text">{selectedCity.name}</div>
-          <div className="space-y-1">
+        <div className="pointer-events-none absolute left-3 top-3 rounded-md border border-white/70 bg-white/90 px-3 py-2 text-[#071018] shadow-[0_10px_24px_rgba(15,23,42,0.18)]">
+          <div className="text-[12px] font-semibold">Paks cogeneration network</div>
+          <div className="mono mt-0.5 text-[10px] text-slate-500">{flowSummary}</div>
+        </div>
+
+        <div className="absolute right-3 top-3 w-[196px] rounded-md border border-slate-900/10 bg-[#071018]/95 p-3 text-white shadow-[0_12px_28px_rgba(15,23,42,0.32)]">
+          <div className="mb-2 truncate text-[13px] font-semibold">{selectedCity.name}</div>
+          <div className="space-y-1.5">
             <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} />
             <CityRow label="Distance" value={selectedCity.distanceKm == null ? "-" : `${selectedCity.distanceKm} km`} />
             <CityRow
@@ -157,11 +469,12 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
   );
 }
 
+// Renders one compact city detail row inside the selected-city card.
 function CityRow({ label, value, status }: { label: string; value: string; status?: "ok" }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
-      <span className="text-[11px] text-app-muted">{label}</span>
-      <span className={clsx("mono text-[11px]", status === "ok" ? "text-app-emerald" : "text-app-text")}>{value}</span>
+      <span className="text-[11px] text-slate-300">{label}</span>
+      <span className={clsx("mono text-[11px]", status === "ok" ? "text-app-emerald" : "text-white")}>{value}</span>
     </div>
   );
 }

@@ -24,7 +24,7 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
   return (
     <aside
-      className="fixed bottom-0 right-0 top-12 z-40 flex w-80 flex-col overflow-hidden border-l border-app-border bg-app-surface shadow-[-8px_0_30px_rgba(0,0,0,0.38)] transition-transform duration-[220ms] ease-in-out"
+      className="fixed bottom-0 right-0 top-12 z-40 flex w-80 flex-col overflow-hidden border-l border-app-border bg-app-surface shadow-[-18px_0_42px_rgba(15,23,42,0.18)] transition-transform duration-[220ms] ease-in-out"
       style={{ transform: explanationOpen ? "translateX(0)" : "translateX(100%)" }}
       aria-hidden={!explanationOpen}
     >
@@ -136,7 +136,7 @@ function AllocationRow({
       <div className="h-[7px] min-w-0 flex-1 rounded-full bg-app-elevated">
         <div className="h-full rounded-full" style={{ width: `${width}%`, backgroundColor: color }} />
       </div>
-      <span className="mono w-[58px] shrink-0 text-right text-[11px]" style={{ color: valueColor ?? "#f2f6fb" }}>
+      <span className="mono w-[58px] shrink-0 text-right text-[11px]" style={{ color: valueColor ?? "var(--text)" }}>
         {value}
       </span>
     </div>
