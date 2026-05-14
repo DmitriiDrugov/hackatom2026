@@ -29,33 +29,33 @@ const HUNGARY_BORDER: Array<[number, number]> = [
   [18.55, 47.83], // toward Esztergom
   [18.74, 47.79], // Esztergom
   [18.97, 47.81], // Szob
-  [19.45, 48.00], // Balassagyarmat
-  [19.81, 48.10], // Salgótarján
+  [19.45, 48.0], // Balassagyarmat
+  [19.81, 48.1], // Salgótarján
   [20.38, 48.18], // N of Eger
   [20.95, 48.35], // Slovak border bulge
   [21.41, 48.43], // Tokaj area
-  [21.85, 48.50], // NE bulge
+  [21.85, 48.5], // NE bulge
   [22.17, 48.42], // Záhony
-  [22.55, 48.30], // toward Vásárosnamény
+  [22.55, 48.3], // toward Vásárosnamény
   [22.85, 48.05], // Tiszabecs E corner
   [22.55, 47.78], // E with Romania
-  [22.35, 47.40], // toward Létavértes
-  [22.10, 47.05], // Berettyóújfalu E
+  [22.35, 47.4], // toward Létavértes
+  [22.1, 47.05], // Berettyóújfalu E
   [21.65, 46.78], // toward Gyula
-  [21.30, 46.55], // E of Békéscsaba
+  [21.3, 46.55], // E of Békéscsaba
   [21.02, 46.29], // Battonya SE
-  [20.50, 46.18], // S of Szeged
-  [19.90, 46.20], // Mórahalom
+  [20.5, 46.18], // S of Szeged
+  [19.9, 46.2], // Mórahalom
   [19.45, 46.13], // Bácsalmás
   [18.93, 45.96], // Hercegszántó S corner
   [18.68, 45.99], // Mohács
-  [18.20, 45.79], // Drávaszabolcs
+  [18.2, 45.79], // Drávaszabolcs
   [17.62, 45.85], // S
   [17.05, 45.97], // toward Barcs
-  [16.78, 46.20], // SW indent
+  [16.78, 46.2], // SW indent
   [16.55, 46.43], // Letenye SW corner
   [16.32, 46.65], // W with Slovenia
-  [16.10, 46.92], // Szentgotthárd
+  [16.1, 46.92], // Szentgotthárd
   [16.27, 47.18], // back N
   [16.45, 47.39], // Kőszeg
   [16.59, 47.68], // close
@@ -72,7 +72,7 @@ const DANUBE_POINTS: Array<[number, number]> = [
   [19.04, 47.5], // Budapest
   [18.94, 47.2], // S of Budapest
   [18.94, 46.96], // Dunaújváros
-  [18.85, 46.57], // Paks
+  [18.85, 46.57],
   [18.95, 46.18], // Baja
   [18.68, 45.99], // Mohács
 ];
@@ -105,7 +105,10 @@ const colorMap: Record<CityAllocation["color"], string> = {
 function toPath(points: Array<[number, number]>, closed = false): string {
   if (points.length === 0) return "";
   const d = points
-    .map((p, i) => `${i === 0 ? "M" : "L"} ${projectX(p[0]).toFixed(1)},${projectY(p[1]).toFixed(1)}`)
+    .map(
+      (p, i) =>
+        `${i === 0 ? "M" : "L"} ${projectX(p[0]).toFixed(1)},${projectY(p[1]).toFixed(1)}`,
+    )
     .join(" ");
   return closed ? `${d} Z` : d;
 }
@@ -146,7 +149,7 @@ export function HungaryMap({
   danubeStatus: "ok" | "warn" | "crit";
   onSelectCity: (id: string) => void;
 }) {
-  const paks = cities.find((city) => city.kind === "source") ?? cities[0];
+  const source = cities.find((city) => city.kind === "source") ?? cities[0];
   const sinks = useMemo(() => cities.filter((city) => city.kind === "sink"), [cities]);
 
   const outlinePath = useMemo(() => smoothPath(HUNGARY_BORDER, 0.18), []);
@@ -170,11 +173,30 @@ export function HungaryMap({
       aria-label="Hungary heat allocation map"
     >
       <defs>
-        <pattern id="grid-dots" x="0" y="0" width="22" height="22" patternUnits="userSpaceOnUse">
+        <pattern
+          id="grid-dots"
+          x="0"
+          y="0"
+          width="22"
+          height="22"
+          patternUnits="userSpaceOnUse"
+        >
           <circle cx="11" cy="11" r="0.6" fill="#cbd5e1" opacity="0.65" />
         </pattern>
-        <pattern id="grid-cross" x="0" y="0" width="36" height="36" patternUnits="userSpaceOnUse">
-          <path d="M18 14 L18 22 M14 18 L22 18" stroke="#94a3b8" strokeWidth="0.55" opacity="0.35" />
+        <pattern
+          id="grid-cross"
+          x="0"
+          y="0"
+          width="36"
+          height="36"
+          patternUnits="userSpaceOnUse"
+        >
+          <path
+            d="M18 14 L18 22 M14 18 L22 18"
+            stroke="#94a3b8"
+            strokeWidth="0.55"
+            opacity="0.35"
+          />
         </pattern>
         <linearGradient id="land-fill" x1="0" y1="0" x2="0" y2="1">
           <stop offset="0%" stopColor="#dde7f1" />
@@ -194,18 +216,44 @@ export function HungaryMap({
 
       {/* Coordinate ticks for a tactical feel */}
       <g fill="#94a3b8" fontSize="9" fontFamily="JetBrains Mono, monospace" opacity="0.55">
-        <text x="6" y="14">48.6°N</text>
-        <text x="6" y={MAP_HEIGHT - 8}>45.7°N</text>
-        <text x={MAP_WIDTH - 6} y={14} textAnchor="end">22.9°E</text>
-        <text x={MAP_WIDTH - 6} y={MAP_HEIGHT - 8} textAnchor="end">16.1°E</text>
+        <text x="6" y="14">
+          48.6°N
+        </text>
+        <text x="6" y={MAP_HEIGHT - 8}>
+          45.7°N
+        </text>
+        <text x={MAP_WIDTH - 6} y={14} textAnchor="end">
+          22.9°E
+        </text>
+        <text x={MAP_WIDTH - 6} y={MAP_HEIGHT - 8} textAnchor="end">
+          16.1°E
+        </text>
       </g>
 
       {/* Hungary landmass: gradient fill, crosshatch overlay, dark outline */}
       <g>
         <path d={outlinePath} fill="url(#land-fill)" />
-        <rect width={MAP_WIDTH} height={MAP_HEIGHT} fill="url(#grid-cross)" clipPath="url(#hungary-clip)" />
-        <path d={outlinePath} fill="none" stroke="#475569" strokeWidth="1.6" strokeLinejoin="round" />
-        <path d={outlinePath} fill="none" stroke="#0e7490" strokeWidth="0.5" strokeLinejoin="round" opacity="0.4" />
+        <rect
+          width={MAP_WIDTH}
+          height={MAP_HEIGHT}
+          fill="url(#grid-cross)"
+          clipPath="url(#hungary-clip)"
+        />
+        <path
+          d={outlinePath}
+          fill="none"
+          stroke="#475569"
+          strokeWidth="1.6"
+          strokeLinejoin="round"
+        />
+        <path
+          d={outlinePath}
+          fill="none"
+          stroke="#0e7490"
+          strokeWidth="0.5"
+          strokeLinejoin="round"
+          opacity="0.4"
+        />
       </g>
 
       {/* Lake Balaton */}
@@ -232,14 +280,42 @@ export function HungaryMap({
 
       {/* Tisza */}
       <g>
-        <path d={tiszaPath} fill="none" stroke={danubeColor} strokeWidth="2" strokeLinecap="round" opacity="0.18" />
-        <path d={tiszaPath} fill="none" stroke={danubeColor} strokeWidth="1.1" strokeLinecap="round" opacity="0.7" />
+        <path
+          d={tiszaPath}
+          fill="none"
+          stroke={danubeColor}
+          strokeWidth="2"
+          strokeLinecap="round"
+          opacity="0.18"
+        />
+        <path
+          d={tiszaPath}
+          fill="none"
+          stroke={danubeColor}
+          strokeWidth="1.1"
+          strokeLinecap="round"
+          opacity="0.7"
+        />
       </g>
 
       {/* Danube — the strategic axis */}
       <g>
-        <path d={danubePath} fill="none" stroke={danubeColor} strokeWidth="4.5" strokeLinecap="round" opacity="0.16" />
-        <path d={danubePath} fill="none" stroke={danubeColor} strokeWidth="1.9" strokeLinecap="round" opacity="0.9" />
+        <path
+          d={danubePath}
+          fill="none"
+          stroke={danubeColor}
+          strokeWidth="4.5"
+          strokeLinecap="round"
+          opacity="0.16"
+        />
+        <path
+          d={danubePath}
+          fill="none"
+          stroke={danubeColor}
+          strokeWidth="1.9"
+          strokeLinecap="round"
+          opacity="0.9"
+        />
         <path
           d={danubePath}
           fill="none"
@@ -258,8 +334,8 @@ export function HungaryMap({
         {sinks.map((city) => {
           const color = colorMap[city.color];
           const w = Math.max(1.4, Math.min(3.0, city.heatMw / 110));
-          const x1 = projectX(paks.longitude);
-          const y1 = projectY(paks.latitude);
+          const x1 = projectX(source.longitude);
+          const y1 = projectY(source.latitude);
           const x2 = projectX(city.longitude);
           const y2 = projectY(city.latitude);
           return (
@@ -300,11 +376,7 @@ export function HungaryMap({
           const isSelected = city.id === selectedCityId;
 
           return (
-            <g
-              key={city.id}
-              className="cursor-pointer"
-              onClick={() => onSelectCity(city.id)}
-            >
+            <g key={city.id} className="cursor-pointer" onClick={() => onSelectCity(city.id)}>
               {/* Hover ring on selected */}
               {isSelected ? (
                 <circle
@@ -354,7 +426,7 @@ export function HungaryMap({
 
               {/* Click hit area */}
               <circle cx={cx} cy={cy} r="22" fill="transparent">
-                <title>{`${city.name}`}</title>
+                <title>{city.kind === "source" ? "Energy Hub" : city.name}</title>
               </circle>
 
               {/* Core dot */}

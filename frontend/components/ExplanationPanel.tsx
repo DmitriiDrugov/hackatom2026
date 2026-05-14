@@ -25,13 +25,13 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
   return (
     <aside
-      className="fixed bottom-3 right-3 top-3 z-40 flex w-[332px] flex-col overflow-hidden rounded-[20px] border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
+      className="fixed bottom-3 right-3 top-3 z-40 flex w-[min(332px,calc(100vw-24px))] flex-col overflow-hidden rounded-lg border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
       style={{ transform: explanationOpen ? "translateX(0)" : "translateX(calc(100% + 24px))" }}
       aria-hidden={!explanationOpen}
     >
       <div className="flex items-start justify-between border-b border-app-border bg-app-sunken/60 px-4 py-3.5">
         <div>
-          <div className="text-[10px] font-semibold uppercase tracking-[0.08em] text-app-muted">
+          <div className="text-[10px] font-semibold uppercase text-app-muted">
             Hour explanation
           </div>
           <div className="mono mt-0.5 text-[18px] font-medium tabular-nums text-app-text">
@@ -51,7 +51,7 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
       <div className="flex-1 overflow-y-auto">
         <PanelSection title="Optimization gain">
-          <div className="rounded-xl bg-gradient-to-br from-app-primary-soft to-app-primary-softer px-4 py-3 text-center">
+          <div className="rounded-lg bg-gradient-to-br from-app-primary-soft to-app-primary-softer px-4 py-3 text-center">
             <div className="stat-num text-[26px] leading-none text-app-primary-strong">
               {formatSignedEuro(hour.savingsVsElectricEuro)}
             </div>

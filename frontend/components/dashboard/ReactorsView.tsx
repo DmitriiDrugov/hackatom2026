@@ -5,8 +5,7 @@ import type { ReactorUnit, ScenarioPayload } from "@/lib/domain";
 import { colorForStatus } from "@/lib/format";
 import { PanelHeader } from "@/components/dashboard/PanelHeader";
 
-// Renders a focused reactor-status view. Only Paks I units actually run;
-// Paks II is hidden from the active view to match operational reality.
+// Renders a focused unit-status view. Only the active fleet is shown here.
 export function ReactorsView({ data }: { data: ScenarioPayload }) {
   const operating = data.reactors.filter((unit) => unit.group === "Paks I");
   const totalOutput = operating.reduce((sum, unit) => sum + unit.outputMw, 0);
@@ -14,7 +13,7 @@ export function ReactorsView({ data }: { data: ScenarioPayload }) {
   return (
     <section className="dashboard-card flex h-full min-h-0 flex-col">
       <PanelHeader
-        title="Reactor fleet"
+        title="Unit fleet"
         value={`${operating.length} units · ${totalOutput.toLocaleString("en-US")} MW total`}
         accent="var(--primary)"
       />
@@ -50,13 +49,13 @@ function ReactorCard({ unit }: { unit: ReactorUnit }) {
       />
       <div className="mb-4 flex items-start justify-between gap-2">
         <div>
-          <div className="text-[10px] font-semibold uppercase tracking-[0.08em] text-app-muted">
-            {unit.group}
+          <div className="text-[10px] font-semibold uppercase text-app-muted">
+            {displayReactorGroup(unit.group)}
           </div>
-          <div className="mt-0.5 text-[15px] font-bold tracking-tight text-app-text">{unit.label}</div>
+          <div className="mt-0.5 text-[15px] font-bold text-app-text">{unit.label}</div>
         </div>
         <span
-          className="grid h-9 w-9 place-items-center rounded-xl"
+          className="grid h-9 w-9 place-items-center rounded-lg"
           style={{ backgroundColor: `${color}1a`, color }}
         >
           <Zap size={16} strokeWidth={2.2} />
@@ -77,4 +76,8 @@ function ReactorCard({ unit }: { unit: ReactorUnit }) {
       </div>
     </div>
   );
+}
+
+function displayReactorGroup(group: ReactorUnit["group"]) {
+  return group === "Paks I" ? "Fleet A" : "Fleet B";
 }

@@ -60,22 +60,22 @@ export function Sidebar({
   alerts: number;
 }) {
   return (
-    <aside className="dashboard-card flex h-full w-[232px] shrink-0 flex-col">
+    <aside className="dashboard-card flex min-w-0 flex-col xl:h-full xl:w-[232px] xl:shrink-0">
       {/* Brand */}
-      <div className="flex items-center gap-3 px-5 py-5">
-        <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-app-primary to-emerald-400 text-white shadow-soft-pop">
+      <div className="flex items-center gap-3 px-4 py-3 xl:px-5 xl:py-5">
+        <span className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-app-primary to-emerald-400 text-white shadow-soft-pop">
           <Zap size={18} strokeWidth={2.4} fill="currentColor" stroke="white" />
         </span>
         <div className="flex flex-col leading-tight">
-          <span className="text-[15px] font-bold tracking-tight text-app-text">Paks NPP</span>
-          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-app-muted">
-            Thermal Optimizer
+          <span className="text-[15px] font-bold text-app-text">ThermalOps</span>
+          <span className="text-[10px] font-semibold uppercase text-app-muted">
+            Allocation Optimizer
           </span>
         </div>
       </div>
 
       {/* Status pill */}
-      <div className="mx-4 mb-5 flex items-center justify-between gap-2 rounded-xl border border-app-border bg-app-primary-softer px-3 py-2">
+      <div className="mx-4 mb-3 flex items-center justify-between gap-2 rounded-lg border border-app-border bg-app-primary-softer px-3 py-2 xl:mb-5">
         <div className="flex items-center gap-2">
           <span className="relative inline-flex h-2 w-2 items-center justify-center">
             <span className="h-1.5 w-1.5 rounded-full bg-app-primary" />
@@ -87,10 +87,10 @@ export function Sidebar({
       </div>
 
       {/* Nav groups */}
-      <nav className="flex-1 overflow-y-auto px-3">
+      <nav className="grid min-w-0 grid-cols-1 gap-3 px-3 pb-3 sm:grid-cols-2 lg:grid-cols-4 xl:block xl:flex-1 xl:overflow-y-auto xl:pb-0">
         {navGroups.map((group) => (
-          <div key={group.label} className="mb-5 last:mb-0">
-            <div className="mb-1.5 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-app-muted">
+          <div key={group.label} className="min-w-0 xl:mb-5 xl:last:mb-0">
+            <div className="mb-1.5 px-2 text-[10px] font-semibold uppercase text-app-muted">
               {group.label}
             </div>
             <div className="flex flex-col gap-0.5">
@@ -104,7 +104,7 @@ export function Sidebar({
                     type="button"
                     onClick={() => onSelectView(item.id)}
                     className={clsx(
-                      "focus-ring group flex h-9 items-center gap-2.5 rounded-lg px-2 text-[13px] font-medium transition-colors",
+                      "focus-ring group flex h-9 w-full items-center gap-2.5 rounded-md px-2 text-[13px] font-medium transition-colors",
                       active
                         ? "bg-app-primary-soft text-app-primary-strong"
                         : "text-app-muted-strong hover:bg-app-sunken hover:text-app-text",
@@ -112,7 +112,7 @@ export function Sidebar({
                   >
                     <span
                       className={clsx(
-                        "grid h-6 w-6 shrink-0 place-items-center rounded-md transition-colors",
+                        "grid h-6 w-6 shrink-0 place-items-center rounded transition-colors",
                         active
                           ? "bg-white text-app-primary-strong shadow-sm"
                           : "text-app-muted group-hover:text-app-text-soft",
@@ -134,35 +134,35 @@ export function Sidebar({
         ))}
 
         {/* Scenario workbench — external route */}
-        <div className="mb-5">
-          <div className="mb-1.5 px-2 text-[10px] font-semibold uppercase tracking-[0.12em] text-app-muted">
+        <div className="min-w-0 xl:mb-5">
+          <div className="mb-1.5 px-2 text-[10px] font-semibold uppercase text-app-muted">
             Planning
           </div>
           <Link
             href="/scenario"
-            className="focus-ring group flex h-9 items-center gap-2.5 rounded-lg px-2 text-[13px] font-medium text-app-muted-strong transition-colors hover:bg-app-sunken hover:text-app-text"
+            className="focus-ring group flex h-9 items-center gap-2.5 rounded-md px-2 text-[13px] font-medium text-app-muted-strong transition-colors hover:bg-app-sunken hover:text-app-text"
           >
-            <span className="grid h-6 w-6 shrink-0 place-items-center rounded-md text-app-muted group-hover:text-app-text-soft">
+            <span className="grid h-6 w-6 shrink-0 place-items-center rounded text-app-muted group-hover:text-app-text-soft">
               <GitCompareArrows size={14} strokeWidth={2} />
             </span>
-            <span className="flex-1 text-left">Scenario workbench</span>
+            <span className="min-w-0 flex-1 truncate text-left">Scenario workbench</span>
           </Link>
         </div>
       </nav>
 
       {/* Footer */}
-      <div className="border-t border-app-border bg-app-sunken/50 px-3 py-3">
+      <div className="hidden border-t border-app-border bg-app-sunken/50 px-3 py-3 xl:block">
         <div className="flex items-center gap-0.5">
           <button
             type="button"
-            className="focus-ring flex h-8 flex-1 items-center gap-2 rounded-lg px-2 text-[12px] font-medium text-app-muted-strong transition-colors hover:bg-white hover:text-app-text"
+            className="focus-ring flex h-8 flex-1 items-center gap-2 rounded-md px-2 text-[12px] font-medium text-app-muted-strong transition-colors hover:bg-white hover:text-app-text"
           >
             <Settings size={14} strokeWidth={2} />
             <span>Settings</span>
           </button>
           <button
             type="button"
-            className="focus-ring grid h-8 w-8 place-items-center rounded-lg text-app-muted transition-colors hover:bg-white hover:text-app-rose"
+            className="focus-ring grid h-8 w-8 place-items-center rounded-md text-app-muted transition-colors hover:bg-white hover:text-app-rose"
             title="Sign out"
           >
             <LogOut size={14} strokeWidth={2} />

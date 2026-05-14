@@ -28,12 +28,15 @@ export function Dashboard() {
 
   if (query.isError || !query.data) {
     return (
-      <div className="flex h-screen min-h-[720px] items-center justify-center p-8 text-app-text">
-        <div className="dashboard-card w-[380px] p-5">
-          <div className="mb-1 text-[15px] font-bold text-app-text">Scenario data unavailable</div>
+      <div className="flex min-h-screen items-center justify-center p-8 text-app-text">
+        <div className="dashboard-card w-full max-w-[380px] p-5">
+          <div className="mb-1 text-[15px] font-bold text-app-text">
+            Scenario data unavailable
+          </div>
           <p className="mb-4 text-[12px] leading-relaxed text-app-muted">
-            Mock mode should serve local data from <span className="mono text-app-text-soft">/api/mock</span>. Retry
-            once the dev server is ready.
+            Mock mode should serve local data from{" "}
+            <span className="mono text-app-text-soft">/api/mock</span>. Retry once the dev
+            server is ready.
           </p>
           <button
             type="button"
@@ -51,10 +54,10 @@ export function Dashboard() {
   const data = query.data;
 
   return (
-    <div className="grid h-screen min-h-[680px] min-w-[1280px] grid-cols-[232px_minmax(0,1fr)] gap-3 p-3 text-[13px] text-app-text">
+    <div className="grid min-h-screen grid-rows-[auto_minmax(0,1fr)] gap-3 p-2 text-[13px] text-app-text sm:p-3 xl:h-screen xl:min-h-[720px] xl:grid-cols-[232px_minmax(0,1fr)] xl:grid-rows-1">
       <Sidebar activeView={activeView} onSelectView={setActiveView} alerts={data.alerts} />
 
-      <main className="grid h-full min-w-0 grid-rows-[52px_minmax(0,1fr)] gap-3 overflow-hidden">
+      <main className="grid min-h-0 min-w-0 grid-rows-[auto_minmax(0,1fr)] gap-3 overflow-visible xl:h-full xl:overflow-hidden">
         <TopStatusBar
           activeScenario={activeScenario}
           reactors={data.reactors}
@@ -62,7 +65,7 @@ export function Dashboard() {
           onScenarioChange={setActiveScenario}
         />
 
-        <div className="min-h-0 overflow-hidden">
+        <div className="min-h-0 overflow-visible xl:overflow-hidden">
           {activeView === "overview" && <OverviewView data={data} />}
           {activeView === "geographic" && <GeographicView data={data} />}
           {activeView === "allocation" && <AllocationView data={data} />}
@@ -80,13 +83,17 @@ export function Dashboard() {
 // Default operator view — map + timeline + live metrics + forecasts + constraints in a balanced grid.
 function OverviewView({ data }: { data: ScenarioPayload }) {
   return (
-    <div className="grid h-full grid-rows-[minmax(0,1fr)_148px_92px] gap-3 overflow-hidden">
-      <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-3 overflow-hidden">
-        <MapPanel data={data} />
-        <AllocationTimeline data={data} />
-        <LiveMetricsPanel data={data} />
+    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-rows-[minmax(0,1fr)_108px] xl:overflow-hidden">
+      <div className="grid min-h-0 gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] xl:overflow-hidden 2xl:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
+        <div className="grid min-h-0 gap-3 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:overflow-hidden">
+          <MapPanel data={data} />
+          <AllocationTimeline data={data} />
+        </div>
+        <div className="grid min-h-0 gap-3 xl:grid-rows-[260px_minmax(236px,1fr)] xl:overflow-hidden">
+          <LiveMetricsPanel data={data} compact />
+          <ForecastStrip data={data} />
+        </div>
       </div>
-      <ForecastStrip data={data} />
       <ConstraintPanel data={data} />
     </div>
   );
@@ -95,7 +102,7 @@ function OverviewView({ data }: { data: ScenarioPayload }) {
 // Focused map view — map fills available space, live metrics on the right.
 function GeographicView({ data }: { data: ScenarioPayload }) {
   return (
-    <div className="grid h-full grid-cols-[1fr_340px] gap-3 overflow-hidden">
+    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-cols-[minmax(0,1fr)_340px] xl:overflow-hidden">
       <MapPanel data={data} />
       <LiveMetricsPanel data={data} />
     </div>
@@ -105,7 +112,7 @@ function GeographicView({ data }: { data: ScenarioPayload }) {
 // Focused 48-hour timeline view with constraints below.
 function AllocationView({ data }: { data: ScenarioPayload }) {
   return (
-    <div className="grid h-full grid-rows-[minmax(0,1fr)_120px] gap-3 overflow-hidden">
+    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-rows-[minmax(0,1fr)_120px] xl:overflow-hidden">
       <AllocationTimeline data={data} />
       <ConstraintPanel data={data} />
     </div>
@@ -115,7 +122,7 @@ function AllocationView({ data }: { data: ScenarioPayload }) {
 // Forecasts only — all three series stretch to the full panel height.
 function ForecastsView({ data }: { data: ScenarioPayload }) {
   return (
-    <div className="h-full overflow-hidden">
+    <div className="min-h-0 xl:h-full xl:overflow-hidden">
       <ForecastStrip data={data} expanded />
     </div>
   );
@@ -124,7 +131,7 @@ function ForecastsView({ data }: { data: ScenarioPayload }) {
 // Constraints only — bigger cells with extra room.
 function ConstraintsView({ data }: { data: ScenarioPayload }) {
   return (
-    <div className="h-full overflow-hidden">
+    <div className="min-h-0 xl:h-full xl:overflow-hidden">
       <ConstraintPanel data={data} expanded />
     </div>
   );
@@ -132,9 +139,9 @@ function ConstraintsView({ data }: { data: ScenarioPayload }) {
 
 function DashboardSkeleton() {
   return (
-    <div className="grid h-screen min-h-[680px] min-w-[1280px] grid-cols-[232px_minmax(0,1fr)] gap-3 p-3">
+    <div className="grid min-h-screen grid-rows-[auto_minmax(0,1fr)] gap-3 p-3 xl:h-screen xl:grid-cols-[232px_minmax(0,1fr)] xl:grid-rows-1">
       <div className="dashboard-card" />
-      <main className="grid h-full grid-rows-[52px_minmax(0,1fr)] gap-3 overflow-hidden">
+      <main className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-3 xl:h-full xl:overflow-hidden">
         <div className="dashboard-card flex items-center px-5">
           <div className="skeleton h-5 w-64 rounded" />
         </div>

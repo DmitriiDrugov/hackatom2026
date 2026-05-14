@@ -12,12 +12,14 @@ export function ConstraintPanel({
   expanded?: boolean;
 }) {
   return (
-    <section className="dashboard-card flex min-h-0 flex-col overflow-hidden">
+    <section className="dashboard-card flex min-h-[180px] flex-col overflow-hidden xl:min-h-0">
       <PanelHeader title="Safety constraints" accent="var(--rose)" />
       <div
         className={clsx(
           "grid min-h-0 flex-1 gap-px bg-app-border",
-          expanded ? "grid-cols-3 lg:grid-cols-6" : "grid-cols-6",
+          expanded
+            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-6"
+            : "grid-cols-2 sm:grid-cols-3 xl:grid-cols-6",
         )}
       >
         {data.constraints.map((constraint) => {

@@ -16,8 +16,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Paks NPP Thermal Optimizer",
-  description: "Thermal allocation dashboard for the Paks NPP hackathon project.",
+  title: "Thermal Allocation Optimizer",
+  description: "Neutral thermal allocation dashboard for operational planning.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
