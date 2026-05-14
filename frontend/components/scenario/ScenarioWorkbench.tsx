@@ -144,14 +144,14 @@ export function ScenarioWorkbench() {
             type="button"
             onClick={handleRecompute}
             disabled={scenarioMutation.isPending}
-            className="focus-ring mt-6 flex h-9 w-full items-center justify-center gap-2 rounded border border-cyan-400/40 bg-app-elevated text-[12px] font-medium text-app-cyan disabled:cursor-not-allowed disabled:opacity-60"
+            className="focus-ring mt-6 flex h-9 w-full items-center justify-center gap-2 rounded border border-app-cyan/45 bg-app-elevated text-[12px] font-medium text-app-cyan disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RotateCw size={14} strokeWidth={1.8} className={scenarioMutation.isPending ? "animate-spin" : ""} />
             Recompute
           </button>
 
           {scenarioMutation.isError ? (
-            <div className="mt-3 rounded border border-rose-400/30 bg-rose-400/10 px-3 py-2 text-[12px] text-app-rose">
+            <div className="mt-3 rounded border border-app-rose/35 bg-app-rose/10 px-3 py-2 text-[12px] text-app-rose">
               Scenario request failed. Retry when the API is available.
             </div>
           ) : null}
@@ -238,11 +238,11 @@ function ReactorToggle({
       className={clsx(
         "focus-ring flex h-11 items-center gap-2 rounded border px-2 text-left transition-colors",
         active
-          ? "border-emerald-400/30 bg-emerald-400/10 text-app-text"
+          ? "border-app-emerald/35 bg-app-emerald/10 text-app-text"
           : "border-app-border bg-transparent text-app-muted",
       )}
     >
-      <Power size={14} strokeWidth={1.8} style={{ color: active ? "#34d399" : colorForStatus("off") }} />
+      <Power size={14} strokeWidth={1.8} style={{ color: active ? "#3ddc97" : colorForStatus("off") }} />
       <span className="min-w-0">
         <span className="block truncate text-[12px]">{reactor.label}</span>
         <span className="mono block text-[10px] text-app-muted">{reactor.outputMw} MW</span>

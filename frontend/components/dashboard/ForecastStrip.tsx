@@ -2,16 +2,16 @@ import type { ForecastSeries, ScenarioPayload } from "@/lib/domain";
 import { colorForStatus } from "@/lib/format";
 
 const chartColors = {
-  electricityPrice: "#38bdf8",
-  danubeTemperature: "#fbbf24",
-  heatDemand: "#38bdf8",
+  electricityPrice: "#4cc9f0",
+  danubeTemperature: "#f5c451",
+  heatDemand: "#4cc9f0",
 };
 
 export function ForecastStrip({ data }: { data: ScenarioPayload }) {
   return (
     <section className="grid min-h-0 grid-cols-3 overflow-hidden border-t border-app-border bg-app-surface">
-      <ForecastPanel series={data.forecasts.electricityPrice} color={data.forecasts.electricityPrice.current < 0 ? "#fb7185" : chartColors.electricityPrice} />
-      <ForecastPanel series={data.forecasts.danubeTemperature} color={data.danube.status === "crit" ? "#fb7185" : chartColors.danubeTemperature} />
+      <ForecastPanel series={data.forecasts.electricityPrice} color={data.forecasts.electricityPrice.current < 0 ? "#ff6b7a" : chartColors.electricityPrice} />
+      <ForecastPanel series={data.forecasts.danubeTemperature} color={data.danube.status === "crit" ? "#ff6b7a" : chartColors.danubeTemperature} />
       <ForecastPanel series={data.forecasts.heatDemand} color={chartColors.heatDemand} />
     </section>
   );
@@ -59,13 +59,13 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
               x2={width}
               y1={y(series.limit)}
               y2={y(series.limit)}
-              stroke="#fb7185"
+              stroke="#ff6b7a"
               strokeWidth="1"
               strokeDasharray="4 4"
               opacity="0.75"
             />
           ) : null}
-          <line x1={markerX} x2={markerX} y1="0" y2={height} stroke="#64748b" strokeWidth="1" opacity="0.55" />
+          <line x1={markerX} x2={markerX} y1="0" y2={height} stroke="#8fa1b8" strokeWidth="1" opacity="0.55" />
           <polyline
             points={points}
             fill="none"
@@ -74,7 +74,7 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx={markerX} cy={y(series.points[24].value)} r="3" fill={color} stroke="#111827" strokeWidth="1.5" />
+          <circle cx={markerX} cy={y(series.points[24].value)} r="3" fill={color} stroke="#101722" strokeWidth="1.5" />
         </svg>
       </div>
     </div>
