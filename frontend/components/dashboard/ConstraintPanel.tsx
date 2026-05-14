@@ -14,12 +14,24 @@ export function ConstraintPanel({ data }: { data: ScenarioPayload }) {
         {data.constraints.map((constraint) => {
           const color = colorForStatus(constraint.status);
           const pct = Math.min(100, constraint.pct);
+          const tintBg =
+            constraint.status === "crit"
+              ? "rgba(239, 68, 68, 0.05)"
+              : constraint.status === "warn"
+                ? "rgba(245, 158, 11, 0.05)"
+                : "rgba(16, 185, 129, 0.04)";
           return (
             <div
               key={constraint.name}
               className="relative flex min-w-0 flex-col gap-1.5 bg-app-surface px-4 py-2.5"
+              style={{ backgroundColor: tintBg }}
             >
-              <div className="flex items-start justify-between gap-2">
+              <span
+                aria-hidden
+                className="absolute inset-y-2.5 left-0 w-[2px] rounded-r-full"
+                style={{ backgroundColor: color }}
+              />
+              <div className="flex items-start justify-between gap-2 pl-1.5">
                 <span className="panel-label text-[9px] leading-tight">{constraint.name}</span>
                 <span className="relative inline-flex h-2 w-2 shrink-0 items-center justify-center">
                   <span
@@ -38,9 +50,9 @@ export function ConstraintPanel({ data }: { data: ScenarioPayload }) {
                 </span>
               </div>
 
-              <div className="flex min-w-0 items-baseline gap-1">
+              <div className="flex min-w-0 items-baseline gap-1 pl-1.5">
                 <span
-                  className="mono truncate text-[18px] font-medium leading-none tabular-nums"
+                  className="mono truncate text-[17px] font-medium leading-none tabular-nums"
                   style={{ color }}
                 >
                   {constraint.currentLabel}
@@ -50,7 +62,7 @@ export function ConstraintPanel({ data }: { data: ScenarioPayload }) {
                 </span>
               </div>
 
-              <div className="mt-auto h-1 overflow-hidden rounded-full bg-app-elevated ring-1 ring-inset ring-app-border">
+              <div className="mt-auto ml-1.5 h-1 overflow-hidden rounded-full bg-app-elevated ring-1 ring-inset ring-app-border">
                 <div
                   className="h-full rounded-full transition-[width] duration-300"
                   style={{

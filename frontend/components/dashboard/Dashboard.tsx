@@ -46,15 +46,15 @@ export function Dashboard() {
   const data = query.data;
 
   return (
-    <div className="h-screen min-h-[760px] min-w-[1280px] bg-app-bg p-4 text-[13px] text-app-text">
-      <main className="grid h-full grid-rows-[56px_minmax(0,1fr)_172px_104px] gap-3 overflow-hidden">
+    <div className="h-screen min-h-[680px] min-w-[1280px] bg-app-bg p-3 text-[13px] text-app-text">
+      <main className="grid h-full grid-rows-[52px_minmax(0,1fr)_148px_92px] gap-2.5 overflow-hidden">
         <TopStatusBar
           activeScenario={activeScenario}
           reactors={data.reactors}
           alerts={data.alerts}
           onScenarioChange={setActiveScenario}
         />
-        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-3 overflow-hidden">
+        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-2.5 overflow-hidden">
           <MapPanel data={data} />
           <AllocationTimeline data={data} />
           <LiveMetricsPanel data={data} />
@@ -69,12 +69,12 @@ export function Dashboard() {
 
 function DashboardSkeleton() {
   return (
-    <div className="h-screen min-h-[760px] min-w-[1280px] bg-app-bg p-4">
-      <main className="grid h-full grid-rows-[56px_minmax(0,1fr)_172px_104px] gap-3 overflow-hidden">
+    <div className="h-screen min-h-[680px] min-w-[1280px] bg-app-bg p-3">
+      <main className="grid h-full grid-rows-[52px_minmax(0,1fr)_148px_92px] gap-2.5 overflow-hidden">
         <div className="dashboard-card flex items-center px-5">
           <div className="skeleton h-5 w-64 rounded" />
         </div>
-        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-3">
+        <div className="grid min-h-0 grid-cols-[1.55fr_1.05fr_0.85fr] gap-2.5">
           <div className="dashboard-card p-4">
             <div className="skeleton h-full rounded-md" />
           </div>

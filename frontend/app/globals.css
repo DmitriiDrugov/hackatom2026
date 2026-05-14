@@ -4,14 +4,14 @@
 
 :root {
   color-scheme: light;
-  /* Canvas behind the floating dashboard card. */
-  --bg: #eef2f7;
+  /* Canvas behind the floating dashboard cards — cool slate so white panels pop. */
+  --bg: #dde6f0;
   /* Primary panel surface. */
   --surface: #ffffff;
   /* Subtle elevation for hover / chips / soft fills. */
-  --surface-elevated: #f4f7fb;
+  --surface-elevated: #f1f5fa;
   /* Slightly deeper neutral for panel headers and inset rails. */
-  --surface-sunken: #f1f5f9;
+  --surface-sunken: #eef3f8;
   /* Hairline divider between panels. */
   --border: #e3e8ef;
   /* Stronger divider for emphasized seams. */
@@ -164,47 +164,29 @@ svg {
 .dashboard-card {
   background: var(--surface);
   border: 1px solid var(--border);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow:
-    0 1px 1px rgba(15, 23, 42, 0.025),
-    0 6px 16px -10px rgba(15, 23, 42, 0.08);
+    0 1px 1px rgba(15, 23, 42, 0.03),
+    0 8px 22px -14px rgba(15, 23, 42, 0.18);
   overflow: hidden;
+}
+
+/* Top-strip accent — a 2px colored rule along the top of a card. */
+.card-accent::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 2px;
+  border-radius: 0 0 2px 2px;
+  background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+  opacity: 0.7;
 }
 
 .gridline-soft {
   background-image: linear-gradient(to right, rgba(148, 163, 184, 0.12) 1px, transparent 1px);
   background-size: 12.5% 100%;
-}
-
-.maplibregl-canvas {
-  outline: none;
-}
-
-.maplibregl-ctrl-top-left {
-  left: 12px;
-  top: 64px;
-}
-
-.maplibregl-ctrl-group {
-  overflow: hidden;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.96);
-  box-shadow:
-    0 1px 2px rgba(15, 23, 42, 0.04),
-    0 8px 18px rgba(15, 23, 42, 0.08);
-}
-
-.maplibregl-ctrl-group button {
-  width: 30px;
-  height: 30px;
-}
-
-.maplibregl-ctrl-attrib {
-  border-top-right-radius: 8px;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--muted);
-  font-size: 10px;
 }
 
 @keyframes skeleton-pulse {

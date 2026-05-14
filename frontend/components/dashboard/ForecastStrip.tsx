@@ -53,10 +53,13 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
 
   return (
     <div className="flex min-w-0 flex-col overflow-hidden">
-      <div className="flex h-11 shrink-0 items-center justify-between gap-3 px-5">
+      <div
+        className="flex h-10 shrink-0 items-center justify-between gap-3 border-b border-app-border px-5"
+        style={{ backgroundColor: `${color}0d` }}
+      >
         <div className="flex items-center gap-2">
-          <span aria-hidden className="h-3.5 w-[2px] rounded-full" style={{ backgroundColor: color }} />
-          <span className="panel-title">{series.label}</span>
+          <span aria-hidden className="h-3 w-[2px] rounded-full" style={{ backgroundColor: color }} />
+          <span className="panel-title text-[12px]">{series.label}</span>
         </div>
         <span
           className="mono shrink-0 text-[13px] font-medium tabular-nums"
