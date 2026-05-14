@@ -24,17 +24,18 @@ export function Dashboard() {
   if (query.isError || !query.data) {
     return (
       <div className="flex h-screen min-h-[720px] items-center justify-center bg-app-bg p-8 text-app-text">
-        <div className="w-[360px] rounded border border-app-border bg-app-surface p-4">
-          <div className="mb-2 text-[14px] font-semibold">Scenario data failed to load</div>
-          <p className="mb-4 text-[12px] text-app-muted">
-            Mock mode should serve local data from /api/mock. Retry once the dev server is ready.
+        <div className="dashboard-shell w-[380px] rounded-xl border border-app-border bg-app-surface p-5">
+          <div className="mb-1 text-[15px] font-semibold text-app-text">Scenario data unavailable</div>
+          <p className="mb-4 text-[12px] leading-relaxed text-app-muted">
+            Mock mode should serve local data from <span className="mono text-app-text-soft">/api/mock</span>. Retry
+            once the dev server is ready.
           </p>
           <button
             type="button"
             onClick={() => query.refetch()}
-            className="focus-ring inline-flex h-8 items-center gap-2 rounded border border-app-cyan/45 bg-app-elevated px-3 text-[12px] text-app-cyan"
+            className="focus-ring inline-flex h-8 items-center gap-2 rounded-md border border-app-border bg-app-elevated px-3 text-[12px] font-medium text-app-text-soft transition-colors hover:border-app-border-strong hover:bg-app-sunken"
           >
-            <RotateCw size={14} strokeWidth={1.8} />
+            <RotateCw size={13} strokeWidth={1.8} />
             Retry
           </button>
         </div>
@@ -45,56 +46,60 @@ export function Dashboard() {
   const data = query.data;
 
   return (
-    <main className="grid h-screen min-h-[720px] min-w-[1280px] grid-rows-[48px_minmax(0,1fr)_160px_104px] overflow-hidden bg-app-bg text-[13px] text-app-text">
-      <TopStatusBar
-        activeScenario={activeScenario}
-        reactors={data.reactors}
-        alerts={data.alerts}
-        onScenarioChange={setActiveScenario}
-      />
-      <div className="grid min-h-0 grid-cols-[47%_31%_22%] overflow-hidden">
-        <MapPanel data={data} />
-        <AllocationTimeline data={data} />
-        <LiveMetricsPanel data={data} />
-      </div>
-      <ForecastStrip data={data} />
-      <ConstraintPanel data={data} />
-      <ExplanationPanel data={data} />
-    </main>
+    <div className="h-screen min-h-[720px] min-w-[1280px] bg-app-bg p-3">
+      <main className="dashboard-shell relative grid h-full grid-rows-[52px_minmax(0,1fr)_168px_108px] overflow-hidden rounded-xl border border-app-border bg-app-surface text-[13px] text-app-text">
+        <TopStatusBar
+          activeScenario={activeScenario}
+          reactors={data.reactors}
+          alerts={data.alerts}
+          onScenarioChange={setActiveScenario}
+        />
+        <div className="grid min-h-0 grid-cols-[47%_31%_22%] overflow-hidden border-t border-app-border">
+          <MapPanel data={data} />
+          <AllocationTimeline data={data} />
+          <LiveMetricsPanel data={data} />
+        </div>
+        <ForecastStrip data={data} />
+        <ConstraintPanel data={data} />
+        <ExplanationPanel data={data} />
+      </main>
+    </div>
   );
 }
 
 function DashboardSkeleton() {
   return (
-    <main className="grid h-screen min-h-[720px] min-w-[1280px] grid-rows-[48px_minmax(0,1fr)_160px_104px] overflow-hidden bg-app-bg">
-      <div className="border-b border-app-border bg-app-surface px-4 py-3">
-        <div className="skeleton h-5 w-64 rounded" />
-      </div>
-      <div className="grid min-h-0 grid-cols-[47%_31%_22%]">
-        <div className="border-r border-app-border bg-app-surface p-3">
-          <div className="skeleton h-full rounded" />
+    <div className="h-screen min-h-[720px] min-w-[1280px] bg-app-bg p-3">
+      <main className="dashboard-shell grid h-full grid-rows-[52px_minmax(0,1fr)_168px_108px] overflow-hidden rounded-xl border border-app-border bg-app-surface">
+        <div className="border-b border-app-border bg-app-surface px-4 py-3">
+          <div className="skeleton h-5 w-64 rounded" />
         </div>
-        <div className="border-r border-app-border bg-app-surface p-3">
-          <div className="skeleton h-full rounded" />
+        <div className="grid min-h-0 grid-cols-[47%_31%_22%]">
+          <div className="border-r border-app-border bg-app-surface p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
+          <div className="border-r border-app-border bg-app-surface p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
+          <div className="bg-app-surface p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
         </div>
-        <div className="bg-app-surface p-3">
-          <div className="skeleton h-full rounded" />
+        <div className="grid grid-cols-3 border-t border-app-border bg-app-surface">
+          <div className="border-r border-app-border p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
+          <div className="border-r border-app-border p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
+          <div className="p-4">
+            <div className="skeleton h-full rounded-md" />
+          </div>
         </div>
-      </div>
-      <div className="grid grid-cols-3 border-t border-app-border bg-app-surface">
-        <div className="border-r border-app-border p-3">
-          <div className="skeleton h-full rounded" />
+        <div className="border-t border-app-border bg-app-surface p-4">
+          <div className="skeleton h-full rounded-md" />
         </div>
-        <div className="border-r border-app-border p-3">
-          <div className="skeleton h-full rounded" />
-        </div>
-        <div className="p-3">
-          <div className="skeleton h-full rounded" />
-        </div>
-      </div>
-      <div className="border-t border-app-border bg-app-surface p-3">
-        <div className="skeleton h-full rounded" />
-      </div>
-    </main>
+      </main>
+    </div>
   );
 }

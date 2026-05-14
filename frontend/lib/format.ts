@@ -22,7 +22,7 @@ export function formatEuro(value: number) {
 
 // Formats signed euro deltas for optimization gains and scenario deltas.
 export function formatSignedEuro(value: number) {
-  const sign = value >= 0 ? "+" : "-";
+  const sign = value >= 0 ? "+" : "−";
   return `${sign}€${euroFormatter.format(Math.abs(value))}`;
 }
 
@@ -37,18 +37,18 @@ export function formatPct(value: number, signed = false) {
   return `${prefix}${value.toFixed(0)}%`;
 }
 
-// Maps semantic safety status to the dashboard color system.
+// Maps semantic safety status to the dashboard color system (light theme).
 export function colorForStatus(status: "ok" | "warn" | "crit" | "off") {
-  if (status === "ok") return "#3ddc97";
-  if (status === "warn") return "#f5c451";
-  if (status === "crit") return "#ff6b7a";
-  return "#3a4558";
+  if (status === "ok") return "#10b981";
+  if (status === "warn") return "#f59e0b";
+  if (status === "crit") return "#ef4444";
+  return "#94a3b8";
 }
 
-// Maps allocation channels to stable chart colors.
+// Maps allocation channels to stable chart colors (light theme).
 export function colorForChannel(channel: string) {
-  if (channel === "electricity") return "#4cc9f0";
-  if (channel === "heat") return "#3ddc97";
-  if (channel === "hydrogen") return "#b78cff";
-  return "#52677f";
+  if (channel === "electricity") return "#2563eb";
+  if (channel === "heat") return "#059669";
+  if (channel === "hydrogen") return "#7c3aed";
+  return "#0891b2";
 }
