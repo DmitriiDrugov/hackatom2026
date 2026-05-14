@@ -1,0 +1,777 @@
+openapi: 3.0.3
+info:
+  title: Hackatom Thermal Optimizer API
+  version: 0.1.0
+  description: Shared API contract for the Paks NPP thermal optimizer hackathon monorepo.
+servers:
+  - url: http://localhost:8000
+    description: Local backend
+paths:
+  /api/health:
+    get:
+      operationId: getHealth
+      summary: Health check
+      responses:
+        "200":
+          description: Service health status.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthResponse"
+              examples:
+                ok:
+                  value:
+                    status: ok
+                    version: 0.1.0
+                    timestamp: "2026-05-14T12:00:00Z"
+  /api/state/current:
+    get:
+      operationId: getCurrentState
+      summary: Current plant and market state
+      responses:
+        "200":
+          description: Current state snapshot.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CurrentStateResponse"
+              examples:
+                current:
+                  value:
+                    reactors:
+                      - id: paks-1
+                        type: VVER-440
+                        thermal_mw: 1485
+                        electric_mw: 500
+                        status: online
+                      - id: paks-2
+                        type: VVER-440
+                        thermal_mw: 1485
+                        electric_mw: 500
+                        status: limited
+                    prices:
+                      current_eur_mwh: -18
+                      next_hour: -12
+                    danube:
+                      temperature_c: 26.3
+                      flow_m3s: 2400
+                    heat_demand:
+                      paks_mw: 80
+                      szekszard_mw: 95
+                      dunaujvaros_mw: 185
+                    timestamp: "2026-05-14T12:00:00Z"
+  /api/forecasts/{variable}:
+    get:
+      operationId: getForecast
+      summary: Forecast series by variable
+      parameters:
+        - name: variable
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/ForecastVariable"
+      responses:
+        "200":
+          description: Forecast points for the selected variable.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ForecastResponse"
+              examples:
+                electricity_price:
+                  value:
+                    variable: electricity_price
+                    horizon_hours: 48
+                    model_version: forecast-baseline-0.1.0
+                    points:
+                      - timestamp: "2026-05-14T12:00:00Z"
+                        value: -18
+                        lower_bound: -24
+                        upper_bound: -9
+                      - timestamp: "2026-05-14T13:00:00Z"
+                        value: -12
+                        lower_bound: -19
+                        upper_bound: -3
+  /api/plan/current:
+    get:
+      operationId: getCurrentPlan
+      summary: Current optimized allocation plan
+      responses:
+        "200":
+          description: Current plan.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanResponse"
+              examples:
+                plan:
+                  $ref: "#/components/examples/PlanResponseExample"
+  /api/plan/{plan_id}/explain/{hour_index}:
+    get:
+      operationId: explainPlanHour
+      summary: Explain one hour of a plan
+      parameters:
+        - name: plan_id
+          in: path
+          required: true
+          schema:
+            type: string
+            format: uuid
+        - name: hour_index
+          in: path
+          required: true
+          schema:
+            type: integer
+            minimum: 0
+            maximum: 47
+      responses:
+        "200":
+          description: Hour-level optimization explanation.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExplainResponse"
+              examples:
+                explain:
+                  value:
+                    hour_index: 14
+                    allocation:
+                      p_elec_to_grid_mw: 620
+                      p_heat_paks_mw: 80
+                      p_heat_szekszard_mw: 95
+                      p_heat_dunaujvaros_mw: 185
+                      p_h2_elec_mw: 360
+                      p_danube_mw: 140
+                    marginal_revenue_per_mw:
+                      electricity: -18
+                      heat: 42
+                      hydrogen: 58
+                      danube: 0
+                    binding_constraints:
+                      - name: Hydrogen electrolyzer capacity
+                        value: 360
+                        limit: 360
+                        margin: 0
+                        units: MW
+                        description: Hydrogen channel is at maximum conversion capacity.
+                    slack_constraints:
+                      - name: Danube temperature
+                        value: 26.3
+                        limit: 30
+                        margin: 3.7
+                        units: C
+                        description: River temperature is below the regulatory limit.
+                    comparison_to_baseline:
+                      baseline_action: full_electricity_output
+                      baseline_revenue_eur: 12600
+                      optimized_revenue_eur: 32000
+                      improvement_eur: 19400
+  /api/scenario:
+    post:
+      operationId: runScenario
+      summary: Run a scenario with operator overrides
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ScenarioRequest"
+            examples:
+              heatwave:
+                value:
+                  overrides:
+                    price_multiplier: 0.8
+                    danube_temp_limit: 30
+                    demand_multiplier: 1.1
+                    reactor_offline:
+                      - paks-3
+                  horizon_hours: 48
+      responses:
+        "200":
+          description: Scenario optimized plan.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanResponse"
+              examples:
+                scenario_plan:
+                  $ref: "#/components/examples/PlanResponseExample"
+  /api/constraints/status:
+    get:
+      operationId: getConstraintsStatus
+      summary: Current safety and regulatory constraint status
+      responses:
+        "200":
+          description: Constraint status list.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConstraintsStatusResponse"
+              examples:
+                constraints:
+                  value:
+                    constraints:
+                      - name: Danube temperature
+                        description: Maximum allowed river outlet temperature.
+                        regulatory_source: demo_safety_policy
+                        current_value: 26.3
+                        limit_value: 30
+                        safety_margin: 3.7
+                        units: C
+                        status: warning
+  /api/history/runs:
+    get:
+      operationId: getHistoryRuns
+      summary: Recent optimizer runs
+      responses:
+        "200":
+          description: Recent optimizer run history.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HistoryRunsResponse"
+              examples:
+                history:
+                  value:
+                    runs:
+                      - run_id: run-20260514-120000
+                        started_at: "2026-05-14T12:00:00Z"
+                        solver_status: optimal
+                        objective_value: 3200000
+                        solve_time_ms: 420
+                        fallback_level: none
+  /api/mock/scenario/{scenario_name}:
+    get:
+      operationId: getMockScenario
+      summary: Load a predefined demo scenario
+      parameters:
+        - name: scenario_name
+          in: path
+          required: true
+          schema:
+            $ref: "#/components/schemas/ScenarioName"
+      responses:
+        "200":
+          description: Mock scenario optimized plan.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PlanResponse"
+              examples:
+                summer_negative_price:
+                  $ref: "#/components/examples/PlanResponseExample"
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+        - version
+        - timestamp
+      properties:
+        status:
+          type: string
+          enum:
+            - ok
+          example: ok
+        version:
+          type: string
+          example: 0.1.0
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-05-14T12:00:00Z"
+    Reactor:
+      type: object
+      required:
+        - id
+        - type
+        - thermal_mw
+        - electric_mw
+        - status
+      properties:
+        id:
+          type: string
+          example: paks-1
+        type:
+          type: string
+          example: VVER-440
+        thermal_mw:
+          type: number
+          example: 1485
+        electric_mw:
+          type: number
+          example: 500
+        status:
+          type: string
+          enum:
+            - online
+            - offline
+            - maintenance
+            - limited
+          example: online
+    CurrentStateResponse:
+      type: object
+      required:
+        - reactors
+        - prices
+        - danube
+        - heat_demand
+        - timestamp
+      properties:
+        reactors:
+          type: array
+          items:
+            $ref: "#/components/schemas/Reactor"
+        prices:
+          type: object
+          required:
+            - current_eur_mwh
+            - next_hour
+          properties:
+            current_eur_mwh:
+              type: number
+              example: -18
+            next_hour:
+              type: number
+              example: -12
+        danube:
+          type: object
+          required:
+            - temperature_c
+            - flow_m3s
+          properties:
+            temperature_c:
+              type: number
+              example: 26.3
+            flow_m3s:
+              type: number
+              example: 2400
+        heat_demand:
+          type: object
+          required:
+            - paks_mw
+            - szekszard_mw
+            - dunaujvaros_mw
+          properties:
+            paks_mw:
+              type: number
+              example: 80
+            szekszard_mw:
+              type: number
+              example: 95
+            dunaujvaros_mw:
+              type: number
+              example: 185
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-05-14T12:00:00Z"
+    ForecastVariable:
+      type: string
+      enum:
+        - electricity_price
+        - danube_temp
+        - heat_demand_paks
+        - heat_demand_szekszard
+        - heat_demand_dunaujvaros
+    ForecastPoint:
+      type: object
+      required:
+        - timestamp
+        - value
+        - lower_bound
+        - upper_bound
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-05-14T12:00:00Z"
+        value:
+          type: number
+          example: -18
+        lower_bound:
+          type: number
+          example: -24
+        upper_bound:
+          type: number
+          example: -9
+    ForecastResponse:
+      type: object
+      required:
+        - variable
+        - horizon_hours
+        - points
+        - model_version
+      properties:
+        variable:
+          type: string
+          example: electricity_price
+        horizon_hours:
+          type: integer
+          example: 48
+        points:
+          type: array
+          items:
+            $ref: "#/components/schemas/ForecastPoint"
+        model_version:
+          type: string
+          example: forecast-baseline-0.1.0
+    Allocation:
+      type: object
+      required:
+        - p_elec_to_grid_mw
+        - p_heat_paks_mw
+        - p_heat_szekszard_mw
+        - p_heat_dunaujvaros_mw
+        - p_h2_elec_mw
+        - p_danube_mw
+      properties:
+        p_elec_to_grid_mw:
+          type: number
+          example: 620
+        p_heat_paks_mw:
+          type: number
+          example: 80
+        p_heat_szekszard_mw:
+          type: number
+          example: 95
+        p_heat_dunaujvaros_mw:
+          type: number
+          example: 185
+        p_h2_elec_mw:
+          type: number
+          example: 360
+        p_danube_mw:
+          type: number
+          example: 140
+    MarginalRevenue:
+      type: object
+      required:
+        - electricity
+        - heat
+        - hydrogen
+        - danube
+      properties:
+        electricity:
+          type: number
+          example: -18
+        heat:
+          type: number
+          example: 42
+        hydrogen:
+          type: number
+          example: 58
+        danube:
+          type: number
+          example: 0
+    PerReactorAllocation:
+      type: object
+      required:
+        - reactor_id
+        - allocation
+      properties:
+        reactor_id:
+          type: string
+          example: paks-1
+        allocation:
+          $ref: "#/components/schemas/Allocation"
+    PlanHour:
+      type: object
+      required:
+        - hour_index
+        - timestamp
+        - allocation
+        - per_reactor
+        - binding_constraints
+        - marginal_revenue
+        - expected_revenue_eur
+      properties:
+        hour_index:
+          type: integer
+          example: 14
+        timestamp:
+          type: string
+          format: date-time
+          example: "2026-05-14T14:00:00Z"
+        allocation:
+          $ref: "#/components/schemas/Allocation"
+        per_reactor:
+          type: array
+          items:
+            $ref: "#/components/schemas/PerReactorAllocation"
+        binding_constraints:
+          type: array
+          items:
+            type: string
+          example:
+            - hydrogen_capacity
+            - negative_electricity_price
+        marginal_revenue:
+          $ref: "#/components/schemas/MarginalRevenue"
+        expected_revenue_eur:
+          type: number
+          example: 32000
+    PlanResponse:
+      type: object
+      required:
+        - plan_id
+        - generated_at
+        - horizon_hours
+        - hours
+        - total_revenue_eur
+        - solver_status
+      properties:
+        plan_id:
+          type: string
+          format: uuid
+          example: 3f6e6d8e-9d55-4a2c-9f3f-37d9bc1e1f4a
+        generated_at:
+          type: string
+          format: date-time
+          example: "2026-05-14T12:00:00Z"
+        horizon_hours:
+          type: integer
+          example: 48
+        hours:
+          type: array
+          items:
+            $ref: "#/components/schemas/PlanHour"
+        total_revenue_eur:
+          type: number
+          example: 3200000
+        solver_status:
+          type: string
+          enum:
+            - optimal
+            - fallback_greedy
+            - fallback_safe
+          example: optimal
+    ConstraintExplanation:
+      type: object
+      required:
+        - name
+        - value
+        - limit
+        - margin
+        - units
+        - description
+      properties:
+        name:
+          type: string
+          example: Danube temperature
+        value:
+          type: number
+          example: 26.3
+        limit:
+          type: number
+          example: 30
+        margin:
+          type: number
+          example: 3.7
+        units:
+          type: string
+          example: C
+        description:
+          type: string
+          example: River temperature is below the regulatory limit.
+    ExplainResponse:
+      type: object
+      required:
+        - hour_index
+        - allocation
+        - marginal_revenue_per_mw
+        - binding_constraints
+        - slack_constraints
+        - comparison_to_baseline
+      properties:
+        hour_index:
+          type: integer
+          example: 14
+        allocation:
+          $ref: "#/components/schemas/Allocation"
+        marginal_revenue_per_mw:
+          $ref: "#/components/schemas/MarginalRevenue"
+        binding_constraints:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConstraintExplanation"
+        slack_constraints:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConstraintExplanation"
+        comparison_to_baseline:
+          type: object
+          required:
+            - baseline_action
+            - baseline_revenue_eur
+            - optimized_revenue_eur
+            - improvement_eur
+          properties:
+            baseline_action:
+              type: string
+              example: full_electricity_output
+            baseline_revenue_eur:
+              type: number
+              example: 12600
+            optimized_revenue_eur:
+              type: number
+              example: 32000
+            improvement_eur:
+              type: number
+              example: 19400
+    ScenarioRequest:
+      type: object
+      properties:
+        overrides:
+          type: object
+          properties:
+            price_multiplier:
+              type: number
+              example: 0.8
+            danube_temp_limit:
+              type: number
+              example: 30
+            demand_multiplier:
+              type: number
+              example: 1.1
+            reactor_offline:
+              type: array
+              items:
+                type: string
+              example:
+                - paks-3
+        horizon_hours:
+          type: integer
+          minimum: 1
+          maximum: 168
+          example: 48
+    ConstraintStatus:
+      type: object
+      required:
+        - name
+        - description
+        - regulatory_source
+        - current_value
+        - limit_value
+        - safety_margin
+        - units
+        - status
+      properties:
+        name:
+          type: string
+          example: Danube temperature
+        description:
+          type: string
+          example: Maximum allowed river outlet temperature.
+        regulatory_source:
+          type: string
+          example: demo_safety_policy
+        current_value:
+          type: number
+          example: 26.3
+        limit_value:
+          type: number
+          example: 30
+        safety_margin:
+          type: number
+          example: 3.7
+        units:
+          type: string
+          example: C
+        status:
+          type: string
+          enum:
+            - safe
+            - warning
+            - violation
+          example: warning
+    ConstraintsStatusResponse:
+      type: object
+      required:
+        - constraints
+      properties:
+        constraints:
+          type: array
+          items:
+            $ref: "#/components/schemas/ConstraintStatus"
+    HistoryRun:
+      type: object
+      required:
+        - run_id
+        - started_at
+        - solver_status
+        - objective_value
+        - solve_time_ms
+        - fallback_level
+      properties:
+        run_id:
+          type: string
+          example: run-20260514-120000
+        started_at:
+          type: string
+          format: date-time
+          example: "2026-05-14T12:00:00Z"
+        solver_status:
+          type: string
+          example: optimal
+        objective_value:
+          type: number
+          example: 3200000
+        solve_time_ms:
+          type: number
+          example: 420
+        fallback_level:
+          type: string
+          example: none
+    HistoryRunsResponse:
+      type: object
+      required:
+        - runs
+      properties:
+        runs:
+          type: array
+          items:
+            $ref: "#/components/schemas/HistoryRun"
+    ScenarioName:
+      type: string
+      enum:
+        - summer_negative_price
+        - winter_peak_demand
+        - danube_overheating
+  examples:
+    PlanResponseExample:
+      value:
+        plan_id: 3f6e6d8e-9d55-4a2c-9f3f-37d9bc1e1f4a
+        generated_at: "2026-05-14T12:00:00Z"
+        horizon_hours: 48
+        total_revenue_eur: 3200000
+        solver_status: optimal
+        hours:
+          - hour_index: 14
+            timestamp: "2026-05-14T14:00:00Z"
+            allocation:
+              p_elec_to_grid_mw: 620
+              p_heat_paks_mw: 80
+              p_heat_szekszard_mw: 95
+              p_heat_dunaujvaros_mw: 185
+              p_h2_elec_mw: 360
+              p_danube_mw: 140
+            per_reactor:
+              - reactor_id: paks-1
+                allocation:
+                  p_elec_to_grid_mw: 155
+                  p_heat_paks_mw: 20
+                  p_heat_szekszard_mw: 24
+                  p_heat_dunaujvaros_mw: 46
+                  p_h2_elec_mw: 90
+                  p_danube_mw: 35
+            binding_constraints:
+              - hydrogen_capacity
+              - negative_electricity_price
+            marginal_revenue:
+              electricity: -18
+              heat: 42
+              hydrogen: 58
+              danube: 0
+            expected_revenue_eur: 32000

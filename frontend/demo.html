@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Paks NPP — Thermal Optimizer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+:root {
+  --bg:        #0b1120;
+  --surface:   #111827;
+  --surface2:  #1a2540;
+  --border:    #1f2d45;
+  --cyan:      #38bdf8;
+  --emerald:   #34d399;
+  --amber:     #fbbf24;
+  --rose:      #fb7185;
+  --purple:    #c084fc;
+  --text:      #e2e8f0;
+  --muted:     #64748b;
+  --font:      'Inter', sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 13px;
+  overflow: hidden;
+}
+
+/* ── LAYOUT ─────────────────────────────────────── */
+#app {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 48px 1fr 160px 104px;
+}
+
+/* ── TOP BAR ────────────────────────────────────── */
+#topbar {
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 20px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.brand {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: .01em;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.brand-sub {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--muted);
+  margin-left: 6px;
+}
+
+.sep { width: 1px; height: 24px; background: var(--border); flex-shrink: 0; }
+
+/* reactor status */
+.reactors {
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+}
+.r-label { font-size: 11px; color: var(--muted); }
+.r-dot {
+  width: 9px; height: 9px; border-radius: 50%;
+  flex-shrink: 0;
+}
+.r-dot.ok   { background: var(--emerald); }
+.r-dot.warn { background: var(--amber); }
+.r-dot.off  { background: #2d3748; }
+
+/* alerts */
+.alerts {
+  display: flex; align-items: center; gap: 5px;
+  font-size: 11px; color: var(--rose);
+  border: 1px solid rgba(251,113,133,.3);
+  border-radius: 4px; padding: 2px 8px;
+  flex-shrink: 0;
+}
+.alert-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--rose); animation: blink 1.4s step-end infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* scenario switcher */
+.scenarios {
+  display: flex; align-items: center; gap: 6px;
+  margin-left: auto; flex-shrink: 0;
+}
+.sc-label { font-size: 11px; color: var(--muted); }
+.sc-btn {
+  font-family: var(--font); font-size: 11px; font-weight: 500;
+  padding: 4px 10px; border-radius: 4px; cursor: pointer;
+  background: transparent; color: var(--muted);
+  border: 1px solid var(--border); transition: all .15s;
+  white-space: nowrap;
+}
+.sc-btn:hover { color: var(--text); border-color: #334155; background: var(--surface2); }
+.sc-btn.active {
+  background: var(--surface2); color: var(--cyan);
+  border-color: rgba(56,189,248,.4);
+}
+
+/* clock */
+.clock {
+  font-family: var(--mono); font-size: 12px; color: var(--muted);
+  letter-spacing: .04em; flex-shrink: 0;
+}
+
+/* ── MAIN ROW ───────────────────────────────────── */
+#main {
+  display: grid;
+  grid-template-columns: 38% 37% 25%;
+  overflow: hidden;
+}
+
+/* shared panel border */
+#main > *, #forecast > *, #constraints {
+  border-right: 1px solid var(--border);
+}
+#main > *:last-child, #forecast > *:last-child { border-right: none; }
+
+/* ── PANEL HEADER ───────────────────────────────── */
+.ph {
+  display: flex; align-items: center; gap: 8px;
+  padding: 7px 14px;
+  border-bottom: 1px solid var(--border);
+}
+.ph-title {
+  font-size: 10px; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; color: var(--muted);
+}
+.ph-value {
+  margin-left: auto; font-family: var(--mono); font-size: 11px; color: var(--muted);
+}
+
+/* ── MAP ────────────────────────────────────────── */
+#map-panel {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface);
+}
+#map-body {
+  flex: 1; position: relative; overflow: hidden;
+}
+#map-body svg { width: 100%; height: 100%; }
+
+.flow-line {
+  stroke-dasharray: 8 5;
+  animation: flow 1.8s linear infinite;
+}
+@keyframes flow { to { stroke-dashoffset: -26; } }
+
+/* city tooltip card */
+#city-card {
+  position: absolute; right: 12px; top: 10px;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: 6px; padding: 10px 12px; width: 160px;
+}
+.cc-name { font-size: 12px; font-weight: 600; color: var(--text); margin-bottom: 7px; }
+.cc-row  { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 3px; }
+.cc-lbl  { font-size: 11px; color: var(--muted); }
+.cc-val  { font-family: var(--mono); font-size: 11px; color: var(--text); }
+
+/* danube bar */
+#danube-strip {
+  display: flex; align-items: center; gap: 8px;
+  padding: 6px 14px; border-top: 1px solid var(--border);
+  background: var(--surface);
+}
+.ds-label { font-size: 10px; color: var(--muted); width: 52px; flex-shrink: 0; }
+.ds-bar   { flex: 1; height: 5px; background: var(--surface2); border-radius: 3px; overflow: hidden; }
+.ds-fill  { height: 100%; border-radius: 3px; background: linear-gradient(90deg, #0ea5e9, #fbbf24); transition: width .4s; }
+.ds-val   { font-family: var(--mono); font-size: 11px; flex-shrink: 0; width: 50px; text-align: right; }
+.ds-lim   { font-size: 10px; color: var(--muted); flex-shrink: 0; }
+
+/* ── TIMELINE ───────────────────────────────────── */
+#timeline-panel {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface);
+}
+#chart-wrap {
+  flex: 1; overflow: hidden; position: relative; padding: 10px 14px 0;
+}
+.chart-area {
+  height: 100%; display: flex; align-items: flex-end; gap: 1.5px;
+}
+.bar-group {
+  flex: 1; display: flex; flex-direction: column-reverse;
+  cursor: pointer; border-radius: 1px 1px 0 0; overflow: hidden;
+  transition: opacity .1s;
+}
+.bar-group:hover   { opacity: .85; }
+.bar-group.current { outline: 1.5px solid var(--cyan); outline-offset: 1px; }
+.bar-seg { width: 100%; }
+.seg-elec   { background: var(--cyan); }
+.seg-heat   { background: var(--emerald); }
+.seg-hydro  { background: var(--purple); }
+.seg-danube { background: #2d3f5a; }
+
+/* x-axis labels */
+.time-axis {
+  display: flex; padding: 3px 14px 5px;
+  font-family: var(--mono); font-size: 9px; color: var(--muted);
+}
+
+/* legend */
+.chart-legend {
+  display: flex; gap: 16px; padding: 5px 14px 7px;
+  border-top: 1px solid var(--border);
+}
+.leg-item { display: flex; align-items: center; gap: 5px; font-size: 11px; color: var(--muted); }
+.leg-dot  { width: 8px; height: 8px; border-radius: 2px; flex-shrink: 0; }
+
+/* tooltip */
+.chart-tooltip {
+  position: absolute; z-index: 20;
+  background: var(--surface2); border: 1px solid var(--border);
+  border-radius: 4px; padding: 7px 10px;
+  font-size: 11px; pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.5);
+  white-space: nowrap; opacity: 0; transition: opacity .08s;
+}
+.chart-tooltip.show { opacity: 1; }
+.tt-head { font-size: 10px; font-weight: 600; color: var(--cyan); margin-bottom: 5px; }
+.tt-row  { display: flex; justify-content: space-between; gap: 14px; }
+.tt-val  { font-family: var(--mono); color: var(--text); }
+
+/* ── METRICS ────────────────────────────────────── */
+#metrics-panel {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface);
+}
+.rev-block {
+  padding: 12px 14px 10px; border-bottom: 1px solid var(--border);
+}
+.rev-label { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.rev-value { font-family: var(--mono); font-size: 28px; color: var(--cyan); line-height: 1; }
+.rev-unit  { font-size: 13px; color: var(--muted); }
+.rev-delta { font-family: var(--mono); font-size: 11px; margin-top: 4px; }
+
+.eff-block {
+  padding: 8px 14px 10px; border-bottom: 1px solid var(--border);
+}
+.eff-row   { display: flex; justify-content: space-between; margin-bottom: 5px; }
+.eff-lbl   { font-size: 11px; color: var(--muted); }
+.eff-val   { font-family: var(--mono); font-size: 12px; color: var(--emerald); }
+.eff-bar   { height: 4px; background: var(--surface2); border-radius: 2px; }
+.eff-fill  { height: 100%; border-radius: 2px; background: var(--emerald); transition: width .4s; }
+
+.stats-grid {
+  display: grid; grid-template-columns: 1fr 1fr; flex: 1;
+}
+.stat-cell {
+  padding: 8px 12px;
+  border-right: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.stat-cell:nth-child(even) { border-right: none; }
+.stat-cell:nth-child(n+3)  { border-bottom: none; }
+.sc-lbl { font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); margin-bottom: 3px; }
+.sc-val { font-family: var(--mono); font-size: 17px; color: var(--text); line-height: 1; }
+.sc-unit{ font-size: 10px; color: var(--muted); }
+
+.cst-mini {
+  padding: 7px 14px; border-top: 1px solid var(--border);
+}
+.cm-title { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 5px; }
+.cm-row   { display: flex; align-items: center; gap: 7px; margin-bottom: 4px; }
+.cm-dot   { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+.cm-name  { font-size: 11px; color: var(--muted); flex: 1; }
+.cm-margin{ font-family: var(--mono); font-size: 10px; }
+
+/* ── FORECAST STRIP ─────────────────────────────── */
+#forecast {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  border-top: 1px solid var(--border);
+  overflow: hidden;
+}
+.fc-panel {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface);
+}
+.fc-header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 12px; border-bottom: 1px solid var(--border);
+}
+.fc-title   { font-size: 10px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: var(--muted); }
+.fc-current { font-family: var(--mono); font-size: 12px; }
+.fc-body    { flex: 1; padding: 2px 6px; position: relative; }
+
+/* ── CONSTRAINT PANEL ───────────────────────────── */
+#constraints {
+  display: flex; flex-direction: column; overflow: hidden;
+  background: var(--surface); border-top: 1px solid var(--border);
+  border-right: none;
+}
+#cst-grid {
+  display: grid; grid-template-columns: repeat(6,1fr);
+  flex: 1; overflow: hidden;
+}
+.cg {
+  padding: 6px 12px; border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 3px; position: relative;
+}
+.cg:last-child { border-right: none; }
+.cg-name    { font-size: 9px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+.cg-nums    { display: flex; align-items: baseline; gap: 4px; }
+.cg-cur     { font-family: var(--mono); font-size: 15px; line-height: 1; }
+.cg-lim     { font-family: var(--mono); font-size: 9px; color: var(--muted); }
+.cg-bar     { height: 3px; background: var(--surface2); border-radius: 2px; }
+.cg-fill    { height: 100%; border-radius: 2px; transition: width .4s; }
+.cg-ind     { position: absolute; top: 7px; right: 10px; width: 6px; height: 6px; border-radius: 50%; }
+
+/* ── EXPLANATION PANEL ──────────────────────────── */
+#explain-panel {
+  position: fixed; right: 0; top: 48px; bottom: 0; width: 320px;
+  background: var(--surface); border-left: 1px solid var(--border);
+  box-shadow: -4px 0 20px rgba(0,0,0,.4);
+  z-index: 100; display: flex; flex-direction: column; overflow: hidden;
+  transform: translateX(100%); transition: transform .22s ease;
+}
+#explain-panel.open { transform: translateX(0); }
+
+.ep-head {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  padding: 12px 14px; border-bottom: 1px solid var(--border);
+}
+.ep-time { font-family: var(--mono); font-size: 16px; color: var(--cyan); }
+.ep-sub  { font-size: 11px; color: var(--muted); margin-top: 2px; }
+.ep-close {
+  background: none; border: 1px solid var(--border); border-radius: 4px;
+  color: var(--muted); cursor: pointer; padding: 3px 8px; font-size: 11px;
+  transition: all .15s; font-family: var(--font);
+}
+.ep-close:hover { color: var(--text); border-color: #334155; }
+
+.ep-section { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.ep-sec-title { font-size: 10px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+
+.savings-box {
+  background: rgba(52,211,153,.08); border: 1px solid rgba(52,211,153,.2);
+  border-radius: 4px; padding: 8px 12px; text-align: center;
+}
+.savings-val { font-family: var(--mono); font-size: 20px; color: var(--emerald); }
+.savings-lbl { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+.alloc-row { display: flex; align-items: center; gap: 7px; margin-bottom: 5px; }
+.alloc-lbl { font-size: 11px; color: var(--muted); width: 64px; flex-shrink: 0; }
+.alloc-bg  { flex: 1; height: 7px; background: var(--surface2); border-radius: 3px; }
+.alloc-fg  { height: 100%; border-radius: 3px; }
+.alloc-val { font-family: var(--mono); font-size: 11px; color: var(--text); width: 52px; text-align: right; }
+
+.binding-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 8px; background: rgba(251,113,133,.06);
+  border: 1px solid rgba(251,113,133,.18); border-radius: 3px; margin-bottom: 4px;
+}
+.binding-name { font-size: 11px; color: var(--text); }
+.binding-val  { font-family: var(--mono); font-size: 11px; color: var(--rose); }
+
+/* ── STATUS COLORS ──────────────────────────────── */
+.ok   { color: var(--emerald); }
+.warn { color: var(--amber); }
+.crit { color: var(--rose); }
+.bg-ok   { background: var(--emerald); }
+.bg-warn { background: var(--amber); }
+.bg-crit { background: var(--rose); animation: blink 1s step-end infinite; }
+
+::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- TOP BAR -->
+<header id="topbar">
+  <span class="brand">Paks NPP <span class="brand-sub">Thermal Optimizer</span></span>
+  <div class="sep"></div>
+
+  <div class="reactors">
+    <span class="r-label">Paks I</span>
+    <div class="r-dot ok"   title="Unit 1 — 500 MW"></div>
+    <div class="r-dot ok"   title="Unit 2 — 500 MW"></div>
+    <div class="r-dot warn" title="Unit 3 — 480 MW, reduced load"></div>
+    <div class="r-dot ok"   title="Unit 4 — 500 MW"></div>
+    <span class="r-label" style="margin-left:8px">Paks II</span>
+    <div class="r-dot off"  title="Unit 5 — maintenance"></div>
+    <div class="r-dot off"  title="Unit 6 — maintenance"></div>
+  </div>
+
+  <div class="sep"></div>
+  <div class="alerts"><div class="alert-dot"></div> 2 alerts</div>
+  <div class="sep"></div>
+
+  <div class="scenarios">
+    <span class="sc-label">Scenario</span>
+    <button class="sc-btn active" onclick="loadScenario('summer',this)">☀ Summer afternoon</button>
+    <button class="sc-btn"        onclick="loadScenario('winter',this)">❄ Winter morning</button>
+    <button class="sc-btn"        onclick="loadScenario('heatwave',this)">⚠ Heatwave crisis</button>
+  </div>
+
+  <div class="sep"></div>
+  <div class="clock" id="clock">—</div>
+</header>
+
+<!-- MAIN ROW -->
+<div id="main">
+
+  <!-- MAP -->
+  <div id="map-panel">
+    <div class="ph">
+      <span class="ph-title">Geographic allocation</span>
+      <span class="ph-value">Hungary · CET</span>
+    </div>
+    <div id="map-body">
+      <svg viewBox="0 0 600 360" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <marker id="arr" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
+            <circle cx="2.5" cy="2.5" r="1.8" fill="currentColor" opacity=".6"/>
+          </marker>
+        </defs>
+
+        <!-- Hungary -->
+        <polygon
+          points="88,108 110,88 150,76 195,72 238,80 285,72 322,78 355,85 385,98 410,88 440,95 468,110 482,130 478,152 465,170 472,195 458,215 438,232 415,245 388,248 358,250 320,255 288,248 262,258 235,262 205,255 175,258 150,252 128,240 110,225 95,208 82,190 78,168 82,148 88,128"
+          fill="#131f35" stroke="#1e3a5f" stroke-width="1.5"
+        />
+
+        <!-- Danube -->
+        <path
+          d="M285,72 Q298,110 310,148 Q318,185 322,215 Q325,235 320,255"
+          fill="none" stroke="#0e4f6b" stroke-width="4" stroke-linecap="round"
+        />
+
+        <!-- Flow lines -->
+        <line id="fl-szekszard"   x1="310" y1="195" x2="355" y2="225" stroke="#34d399" stroke-width="3.5" opacity=".75" class="flow-line" stroke-dasharray="7 5"/>
+        <line id="fl-dunaujvaros" x1="310" y1="195" x2="295" y2="162" stroke="#38bdf8" stroke-width="5.5" opacity=".8"  class="flow-line" stroke-dasharray="7 5"/>
+        <line id="fl-budapest"    x1="310" y1="195" x2="250" y2="118" stroke="#c084fc" stroke-width="2.5" opacity=".6"  class="flow-line" stroke-dasharray="7 5"/>
+
+        <!-- PAKS NPP -->
+        <g onclick="selectCity('paks')" style="cursor:pointer" transform="translate(310,195)">
+          <circle r="14" fill="rgba(56,189,248,.08)" stroke="rgba(56,189,248,.5)" stroke-width="1.5"/>
+          <circle r="5"  fill="rgba(56,189,248,.4)"/>
+          <circle r="2"  fill="#38bdf8"/>
+          <text y="24" text-anchor="middle" fill="#94a3b8" font-family="'Inter'" font-size="9" font-weight="600">PAKS NPP</text>
+          <text y="33" text-anchor="middle" fill="#475569" font-family="'JetBrains Mono'" font-size="8">1980 MW</text>
+        </g>
+
+        <!-- Budapest -->
+        <g onclick="selectCity('budapest')" style="cursor:pointer" transform="translate(250,118)">
+          <circle r="8" fill="rgba(192,132,252,.12)" stroke="rgba(192,132,252,.5)" stroke-width="1.5"/>
+          <circle r="3" fill="#c084fc"/>
+          <text y="-12" text-anchor="middle" fill="#cbd5e1" font-family="'Inter'" font-size="10" font-weight="600">Budapest</text>
+          <text y="-3"  text-anchor="middle" fill="#475569" font-family="'JetBrains Mono'" font-size="8">320 MW</text>
+        </g>
+
+        <!-- Dunaújváros -->
+        <g onclick="selectCity('dunaujvaros')" style="cursor:pointer" transform="translate(295,162)">
+          <circle r="7" fill="rgba(56,189,248,.12)" stroke="rgba(56,189,248,.5)" stroke-width="1.5"/>
+          <circle r="2.5" fill="#38bdf8"/>
+          <text y="-11" x="-7" text-anchor="end" fill="#cbd5e1" font-family="'Inter'" font-size="9" font-weight="600">Dunaújváros</text>
+          <text y="-2"  x="-7" text-anchor="end" fill="#475569" font-family="'JetBrains Mono'" font-size="8">185 MW</text>
+        </g>
+
+        <!-- Szekszárd -->
+        <g onclick="selectCity('szekszard')" style="cursor:pointer" transform="translate(355,225)">
+          <circle r="6" fill="rgba(52,211,153,.12)" stroke="rgba(52,211,153,.5)" stroke-width="1.5"/>
+          <circle r="2.5" fill="#34d399"/>
+          <text y="17"  text-anchor="middle" fill="#cbd5e1" font-family="'Inter'" font-size="9" font-weight="600">Szekszárd</text>
+          <text y="26"  text-anchor="middle" fill="#475569" font-family="'JetBrains Mono'" font-size="8">95 MW</text>
+        </g>
+      </svg>
+
+      <div id="city-card">
+        <div class="cc-name" id="cc-name">Dunaújváros</div>
+        <div class="cc-row"><span class="cc-lbl">Heat delivered</span><span class="cc-val" id="cc-heat">185 MW</span></div>
+        <div class="cc-row"><span class="cc-lbl">Distance</span><span class="cc-val">42 km</span></div>
+        <div class="cc-row"><span class="cc-lbl">Pipeline loss</span><span class="cc-val">3.2%</span></div>
+        <div class="cc-row"><span class="cc-lbl">Demand coverage</span><span class="cc-val ok">94%</span></div>
+      </div>
+    </div>
+
+    <div id="danube-strip">
+      <span class="ds-label">Danube temp</span>
+      <div class="ds-bar"><div class="ds-fill" id="ds-fill" style="width:73%"></div></div>
+      <span class="ds-val warn" id="ds-temp">26.3°C</span>
+      <span class="ds-lim">/ 30°C limit</span>
+    </div>
+  </div>
+
+  <!-- TIMELINE -->
+  <div id="timeline-panel">
+    <div class="ph">
+      <span class="ph-title">48-hour allocation timeline</span>
+      <span class="ph-value">MW / hour</span>
+    </div>
+    <div id="chart-wrap">
+      <div class="chart-area" id="chart-area"></div>
+      <div class="chart-tooltip" id="chart-tooltip"></div>
+    </div>
+    <div class="time-axis" id="time-axis"></div>
+    <div class="chart-legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--cyan)"></div>Electricity</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--emerald)"></div>Heat</div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--purple)"></div>Hydrogen</div>
+      <div class="leg-item"><div class="leg-dot" style="background:#2d3f5a"></div>Danube cooling</div>
+    </div>
+  </div>
+
+  <!-- METRICS -->
+  <div id="metrics-panel">
+    <div class="ph"><span class="ph-title">Live metrics</span></div>
+
+    <div class="rev-block">
+      <div class="rev-label">Revenue rate</div>
+      <div class="rev-value"><span id="rev-val">84,200</span><span class="rev-unit"> €/hr</span></div>
+      <div class="rev-delta" id="rev-delta"></div>
+    </div>
+
+    <div class="eff-block">
+      <div class="eff-row">
+        <span class="eff-lbl">Thermal efficiency</span>
+        <span class="eff-val" id="eff-val">87.4%</span>
+      </div>
+      <div class="eff-bar"><div class="eff-fill" id="eff-fill" style="width:87.4%"></div></div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-cell">
+        <div class="sc-lbl">Today's revenue</div>
+        <div class="sc-val" id="s-rev">1.82<span class="sc-unit"> M€</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="sc-lbl">H₂ produced</div>
+        <div class="sc-val" id="s-h2">4.3<span class="sc-unit"> t</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="sc-lbl">Heat delivered</div>
+        <div class="sc-val" id="s-heat">600<span class="sc-unit"> MW</span></div>
+      </div>
+      <div class="stat-cell">
+        <div class="sc-lbl">Electricity out</div>
+        <div class="sc-val" id="s-elec">920<span class="sc-unit"> MW</span></div>
+      </div>
+    </div>
+
+    <div class="cst-mini">
+      <div class="cm-title">Active constraints</div>
+      <div class="cm-row">
+        <div class="cm-dot bg-warn"></div>
+        <span class="cm-name">Danube temperature</span>
+        <span class="cm-margin warn">3.7°C margin</span>
+      </div>
+      <div class="cm-row">
+        <div class="cm-dot bg-ok"></div>
+        <span class="cm-name">H₂ capacity</span>
+        <span class="cm-margin ok">at max</span>
+      </div>
+      <div class="cm-row">
+        <div class="cm-dot bg-ok"></div>
+        <span class="cm-name">Grid frequency</span>
+        <span class="cm-margin ok">±0.02 Hz</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FORECAST STRIP -->
+<div id="forecast">
+  <div class="fc-panel">
+    <div class="fc-header">
+      <span class="fc-title">Electricity price forecast</span>
+      <span class="fc-current" id="fc-price" style="color:var(--rose)">−18 €/MWh</span>
+    </div>
+    <div class="fc-body"><svg id="fc-elec-svg" width="100%" height="100%"></svg></div>
+  </div>
+  <div class="fc-panel">
+    <div class="fc-header">
+      <span class="fc-title">Danube temperature</span>
+      <span class="fc-current" id="fc-danube" style="color:var(--amber)">26.3°C</span>
+    </div>
+    <div class="fc-body"><svg id="fc-danube-svg" width="100%" height="100%"></svg></div>
+  </div>
+  <div class="fc-panel">
+    <div class="fc-header">
+      <span class="fc-title">Heat demand</span>
+      <span class="fc-current" id="fc-heat" style="color:var(--cyan)">600 MW</span>
+    </div>
+    <div class="fc-body"><svg id="fc-heat-svg" width="100%" height="100%"></svg></div>
+  </div>
+</div>
+
+<!-- CONSTRAINTS -->
+<div id="constraints">
+  <div class="ph" style="border-bottom:1px solid var(--border)">
+    <span class="ph-title">Safety constraints</span>
+  </div>
+  <div id="cst-grid"></div>
+</div>
+
+</div><!-- #app -->
+
+<!-- EXPLANATION PANEL -->
+<div id="explain-panel">
+  <div class="ep-head">
+    <div>
+      <div class="ep-time" id="ep-time">14:00 – 15:00</div>
+      <div class="ep-sub" id="ep-sub">H₂ at max · Danube 0.3°C below limit</div>
+    </div>
+    <button class="ep-close" onclick="closeExplain()">Close</button>
+  </div>
+
+  <div class="ep-section">
+    <div class="ep-sec-title">Optimization gain</div>
+    <div class="savings-box">
+      <div class="savings-val" id="ep-savings">+€19,400</div>
+      <div class="savings-lbl">vs full electricity output</div>
+    </div>
+  </div>
+
+  <div class="ep-section">
+    <div class="ep-sec-title">Hour allocation</div>
+    <div id="ep-alloc"></div>
+  </div>
+
+  <div class="ep-section">
+    <div class="ep-sec-title">Binding constraints</div>
+    <div id="ep-bindings">
+      <div class="binding-row"><span class="binding-name">H₂ max capacity</span><span class="binding-val">360 / 360 MW</span></div>
+      <div class="binding-row"><span class="binding-name">Danube temp limit</span><span class="binding-val">29.7 / 30.0°C</span></div>
+    </div>
+  </div>
+
+  <div class="ep-section" style="border:none">
+    <div class="ep-sec-title">Marginal revenue (€/MWh)</div>
+    <div id="ep-marginal"></div>
+  </div>
+</div>
+
+<script>
+/* ── Clock ── */
+function tick() {
+  document.getElementById('clock').textContent =
+    new Date().toLocaleTimeString('hu-HU',{timeZone:'Europe/Budapest',hour12:false}) + ' CET';
+}
+tick(); setInterval(tick, 1000);
+
+/* ── Scenario data ── */
+const SC = {
+  summer: {
+    revenue:'84,200', revDelta:'▲ +12% vs baseline', revUp:true,
+    eff:87.4, h2:'4.3', heat:'600', elec:'920', todayRev:'1.82',
+    dTemp:26.3, dPct:73, dColor:'var(--amber)',
+    fcPrice:'−18 €/MWh', fcPriceColor:'var(--rose)',
+    fcDanube:'26.3°C', fcDanubeColor:'var(--amber)',
+    fcHeat:'600 MW', profile:'summer',
+  },
+  winter: {
+    revenue:'142,800', revDelta:'▲ +8% vs baseline', revUp:true,
+    eff:93.1, h2:'1.2', heat:'880', elec:'1,100', todayRev:'3.22',
+    dTemp:4.1, dPct:10, dColor:'var(--cyan)',
+    fcPrice:'+98 €/MWh', fcPriceColor:'var(--emerald)',
+    fcDanube:'4.1°C', fcDanubeColor:'var(--cyan)',
+    fcHeat:'880 MW', profile:'winter',
+  },
+  heatwave: {
+    revenue:'61,500', revDelta:'▼ −5% constrained', revUp:false,
+    eff:74.2, h2:'5.8', heat:'420', elec:'680', todayRev:'1.41',
+    dTemp:29.4, dPct:96, dColor:'var(--rose)',
+    fcPrice:'+12 €/MWh', fcPriceColor:'var(--text)',
+    fcDanube:'29.4°C', fcDanubeColor:'var(--rose)',
+    fcHeat:'420 MW', profile:'heatwave',
+  },
+};
+
+const CST = {
+  summer: [
+    {name:'Danube temp',  cur:'26.3', lim:'30.0°C', pct:88, st:'warn'},
+    {name:'H₂ capacity',  cur:'360',  lim:'360 MW',  pct:100,st:'ok'},
+    {name:'Grid freq',    cur:'50.02',lim:'±0.2 Hz', pct:10, st:'ok'},
+    {name:'Thermal power',cur:'1980', lim:'2000 MW', pct:99, st:'warn'},
+    {name:'Steam pressure',cur:'6.84',lim:'7.0 MPa', pct:98, st:'warn'},
+    {name:'Coolant flow', cur:'4820', lim:'5000 m³/h',pct:96,st:'ok'},
+  ],
+  winter: [
+    {name:'Danube temp',  cur:'4.1',  lim:'30.0°C', pct:14, st:'ok'},
+    {name:'H₂ capacity',  cur:'80',   lim:'360 MW',  pct:22, st:'ok'},
+    {name:'Grid freq',    cur:'50.00',lim:'±0.2 Hz', pct:0,  st:'ok'},
+    {name:'Thermal power',cur:'1980', lim:'2000 MW', pct:99, st:'warn'},
+    {name:'Steam pressure',cur:'6.92',lim:'7.0 MPa', pct:99, st:'warn'},
+    {name:'Coolant flow', cur:'4950', lim:'5000 m³/h',pct:99,st:'warn'},
+  ],
+  heatwave: [
+    {name:'Danube temp',  cur:'29.4', lim:'30.0°C', pct:98, st:'crit'},
+    {name:'H₂ capacity',  cur:'360',  lim:'360 MW',  pct:100,st:'ok'},
+    {name:'Grid freq',    cur:'49.98',lim:'±0.2 Hz', pct:10, st:'ok'},
+    {name:'Thermal power',cur:'1540', lim:'2000 MW', pct:77, st:'ok'},
+    {name:'Steam pressure',cur:'6.62',lim:'7.0 MPa', pct:95, st:'warn'},
+    {name:'Coolant flow', cur:'4100', lim:'5000 m³/h',pct:82,st:'ok'},
+  ],
+};
+
+let current = 'summer';
+let selectedHour = 14;
+let timelineData = [];
+
+/* ── Timeline data gen ── */
+function genTimeline(profile) {
+  return Array.from({length:48}, (_,i) => {
+    const t = i % 24;
+    let e, h, hy, d;
+    if (profile === 'summer') {
+      const neg = t >= 11 && t <= 17;
+      e  = neg ? .28 + Math.random()*.12 : .52 + Math.random()*.12;
+      hy = neg ? .20 + Math.random()*.08 : .05 + Math.random()*.04;
+      h  = .22 + Math.random()*.07 + (neg ? .08 : 0);
+      d  = .05;
+    } else if (profile === 'winter') {
+      const peak = (t>=6&&t<=9)||(t>=17&&t<=21);
+      e  = peak ? .58+Math.random()*.1 : .44+Math.random()*.1;
+      h  = .30+Math.random()*.08+(peak?.06:0);
+      hy = .04+Math.random()*.03; d=.03;
+    } else {
+      e=.30+Math.random()*.12; hy=.30+Math.random()*.10;
+      h=.22+Math.random()*.08; d=.12+Math.random()*.04;
+    }
+    const tot = e+h+hy+d;
+    return {e:e/tot, h:h/tot, hy:hy/tot, d:d/tot, raw:{e,h,hy,d}};
+  });
+}
+
+/* ── Build timeline ── */
+function buildTimeline() {
+  const area = document.getElementById('chart-area');
+  const tt   = document.getElementById('chart-tooltip');
+  area.innerHTML = '';
+
+  timelineData.forEach((bar, i) => {
+    const g = document.createElement('div');
+    g.className = 'bar-group' + (i === selectedHour ? ' current' : '');
+    g.style.height = '100%';
+
+    [['seg-danube',bar.d],['seg-hydro',bar.hy],['seg-heat',bar.h],['seg-elec',bar.e]].forEach(([cls,pct]) => {
+      const s = document.createElement('div');
+      s.className = 'bar-seg ' + cls;
+      s.style.flex = pct;
+      g.appendChild(s);
+    });
+
+    g.addEventListener('mouseenter', ev => {
+      const h24 = String(i%24).padStart(2,'0');
+      const rw = bar.raw;
+      const total = 1980;
+      tt.innerHTML = `
+        <div class="tt-head">${h24}:00${i<24?' — today':' — tomorrow'}</div>
+        <div class="tt-row"><span style="color:var(--cyan)">Electricity</span><span class="tt-val">${Math.round(rw.e*total)} MW</span></div>
+        <div class="tt-row"><span style="color:var(--emerald)">Heat</span><span class="tt-val">${Math.round(rw.h*total)} MW</span></div>
+        <div class="tt-row"><span style="color:var(--purple)">Hydrogen</span><span class="tt-val">${Math.round(rw.hy*total)} MW</span></div>
+        <div class="tt-row"><span style="color:#64748b">Danube</span><span class="tt-val">${Math.round(rw.d*total)} MW</span></div>
+      `;
+      tt.classList.add('show');
+      const ar = area.getBoundingClientRect();
+      const br = g.getBoundingClientRect();
+      let left = br.left - ar.left + br.width/2 - 88;
+      left = Math.max(0, Math.min(left, ar.width - 180));
+      tt.style.left = left + 'px';
+      tt.style.top  = '-88px';
+    });
+    g.addEventListener('mouseleave', () => tt.classList.remove('show'));
+    g.addEventListener('click', () => { selectedHour = i; openExplain(i); buildTimeline(); });
+
+    area.appendChild(g);
+  });
+
+  // axis labels
+  const ax = document.getElementById('time-axis');
+  ax.innerHTML = '';
+  ['00:00','06:00','12:00','18:00','+24h','06:00','12:00','18:00','+48h'].forEach((lbl, idx) => {
+    const s = document.createElement('span');
+    s.style.cssText = 'flex:1; text-align:' + (idx===0?'left':idx===8?'right':'center');
+    s.textContent = lbl;
+    ax.appendChild(s);
+  });
+}
+
+/* ── Forecast SVGs ── */
+function drawForecast(id, vals, color, limit) {
+  const svg = document.getElementById(id);
+  if (!svg) return;
+  const W = svg.parentElement.offsetWidth || 200;
+  const H = svg.parentElement.offsetHeight || 110;
+  svg.setAttribute('viewBox', `0 0 ${W} ${H}`);
+
+  const mn = Math.min(...vals), mx = Math.max(...vals);
+  const pad = (mx - mn) * .15 || 1;
+  const sy = v => H - ((v - mn + pad) / (mx - mn + pad*2)) * H * .9 - H*.04;
+  const dx = W / (vals.length - 1);
+  const pts = vals.map((v,i) => `${i*dx},${sy(v)}`).join(' ');
+  const close = `${(vals.length-1)*dx},${H} 0,${H}`;
+
+  const gid = 'g' + id;
+  svg.innerHTML = `
+    <defs>
+      <linearGradient id="${gid}" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0%" stop-color="${color}" stop-opacity=".2"/>
+        <stop offset="100%" stop-color="${color}" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <polygon points="${pts} ${close}" fill="url(#${gid})"/>
+    <polyline points="${pts}" fill="none" stroke="${color}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    ${limit!=null ? `<line x1="0" y1="${sy(limit)}" x2="${W}" y2="${sy(limit)}" stroke="var(--rose)" stroke-width="1" stroke-dasharray="3 3" opacity=".7"/>` : ''}
+    <circle cx="${24*dx}" cy="${sy(vals[24])}" r="3" fill="${color}" stroke="var(--surface)" stroke-width="1.5"/>
+  `;
+}
+
+function buildForecasts() {
+  const p = current;
+  const prices = Array.from({length:48},(_,i)=>{
+    const t=i%24;
+    if(p==='summer') return t>=11&&t<=17?-20+Math.random()*8:30+Math.random()*30;
+    if(p==='winter') return 75+Math.sin(i/4)*45+Math.random()*20;
+    return 10+Math.random()*15;
+  });
+  drawForecast('fc-elec-svg', prices, p==='summer'?'var(--rose)':'var(--cyan)', 0);
+
+  const base = p==='heatwave'?29.4:p==='summer'?26.3:4.1;
+  drawForecast('fc-danube-svg',
+    Array.from({length:48},(_,i)=>base+Math.sin(i/8)*.7+Math.random()*.25),
+    p==='heatwave'?'var(--rose)':'var(--amber)', 30);
+
+  const hBase = p==='winter'?880:p==='summer'?600:420;
+  drawForecast('fc-heat-svg',
+    Array.from({length:48},(_,i)=>hBase+Math.sin((i%24)/3)*55+Math.random()*25),
+    'var(--cyan)');
+}
+
+/* ── Constraints ── */
+function buildConstraints() {
+  const colors = {ok:'var(--emerald)', warn:'var(--amber)', crit:'var(--rose)'};
+  document.getElementById('cst-grid').innerHTML = CST[current].map(c => `
+    <div class="cg">
+      <div class="cg-ind bg-${c.st}"></div>
+      <div class="cg-name">${c.name}</div>
+      <div class="cg-nums">
+        <span class="cg-cur" style="color:${colors[c.st]}">${c.cur}</span>
+        <span class="cg-lim">/ ${c.lim}</span>
+      </div>
+      <div class="cg-bar"><div class="cg-fill" style="width:${c.pct}%;background:${colors[c.st]}"></div></div>
+    </div>
+  `).join('');
+}
+
+/* ── Metrics ── */
+function updateMetrics() {
+  const s = SC[current];
+  document.getElementById('rev-val').textContent   = s.revenue;
+  const rd = document.getElementById('rev-delta');
+  rd.textContent = s.revDelta;
+  rd.className = 'rev-delta ' + (s.revUp ? 'ok' : 'crit');
+  document.getElementById('eff-val').textContent  = s.eff + '%';
+  document.getElementById('eff-fill').style.width = s.eff + '%';
+  document.getElementById('s-rev').innerHTML  = s.todayRev + '<span class="sc-unit"> M€</span>';
+  document.getElementById('s-h2').innerHTML   = s.h2 + '<span class="sc-unit"> t</span>';
+  document.getElementById('s-heat').innerHTML = s.heat + '<span class="sc-unit"> MW</span>';
+  document.getElementById('s-elec').innerHTML = s.elec + '<span class="sc-unit"> MW</span>';
+  document.getElementById('ds-fill').style.width   = s.dPct + '%';
+  document.getElementById('ds-temp').textContent   = s.dTemp + '°C';
+  document.getElementById('ds-temp').style.color   = s.dColor;
+  document.getElementById('fc-price').textContent  = s.fcPrice;
+  document.getElementById('fc-price').style.color  = s.fcPriceColor;
+  document.getElementById('fc-danube').textContent = s.fcDanube;
+  document.getElementById('fc-danube').style.color = s.fcDanubeColor;
+  document.getElementById('fc-heat').textContent   = s.fcHeat;
+}
+
+/* ── Scenario switch ── */
+function loadScenario(name, btn) {
+  current = name;
+  document.querySelectorAll('.sc-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  timelineData = genTimeline(SC[name].profile);
+  updateMetrics(); buildTimeline(); buildConstraints();
+  setTimeout(buildForecasts, 50);
+}
+
+/* ── City card ── */
+const CITIES = {
+  paks:        {name:'Paks NPP', heat:'1980 MW (source)', dist:'—',     loss:'—',    cov:'—'},
+  budapest:    {name:'Budapest', heat:'320 MW',            dist:'120 km',loss:'5.1%', cov:'68%'},
+  dunaujvaros: {name:'Dunaújváros',heat:'185 MW',          dist:'42 km', loss:'3.2%', cov:'94%'},
+  szekszard:   {name:'Szekszárd', heat:'95 MW',            dist:'28 km', loss:'2.8%', cov:'88%'},
+};
+function selectCity(id) {
+  const c = CITIES[id];
+  document.getElementById('cc-name').textContent = c.name;
+  document.getElementById('cc-heat').textContent = c.heat;
+  const rows = document.querySelectorAll('.cc-row');
+  rows[1].querySelector('.cc-val').textContent = c.dist;
+  rows[2].querySelector('.cc-val').textContent = c.loss;
+  rows[3].querySelector('.cc-val').textContent = c.cov;
+}
+
+/* ── Explanation panel ── */
+function openExplain(i) {
+  const t = i % 24;
+  document.getElementById('ep-time').textContent =
+    String(t).padStart(2,'0') + ':00 – ' + String(t+1).padStart(2,'0') + ':00';
+
+  const bar = timelineData[i];
+  const total = 1980;
+  const e  = Math.round(bar.e  * total);
+  const h  = Math.round(bar.h  * total);
+  const hy = Math.round(bar.hy * total);
+  const d  = Math.round(bar.d  * total);
+  const mx = Math.max(e,h,hy,d);
+
+  const savings = Math.round((current==='summer'?10000:current==='winter'?6000:2000) + Math.random()*12000);
+  document.getElementById('ep-savings').textContent = '+€' + savings.toLocaleString('en');
+
+  document.getElementById('ep-alloc').innerHTML = [
+    ['Electricity', e,  'var(--cyan)'],
+    ['Heat',        h,  'var(--emerald)'],
+    ['Hydrogen',    hy, 'var(--purple)'],
+    ['Danube',      d,  '#2d3f5a'],
+  ].map(([lbl, v, col]) => `
+    <div class="alloc-row">
+      <span class="alloc-lbl">${lbl}</span>
+      <div class="alloc-bg"><div class="alloc-fg" style="width:${Math.round(v/mx*100)}%;background:${col}"></div></div>
+      <span class="alloc-val">${v} MW</span>
+    </div>
+  `).join('');
+
+  document.getElementById('ep-marginal').innerHTML = [
+    ['Electricity', current==='summer'?-18:90, 'var(--cyan)'],
+    ['Heat',        42, 'var(--emerald)'],
+    ['Hydrogen',    58, 'var(--purple)'],
+  ].map(([lbl, v, col]) => {
+    const pct = Math.abs(v) / 100 * 100;
+    return `<div class="alloc-row">
+      <span class="alloc-lbl">${lbl}</span>
+      <div class="alloc-bg"><div class="alloc-fg" style="width:${pct}%;background:${col}"></div></div>
+      <span class="alloc-val" style="color:${v<0?'var(--rose)':col}">${v>0?'+':''}${v}</span>
+    </div>`;
+  }).join('');
+
+  document.getElementById('explain-panel').classList.add('open');
+}
+function closeExplain() {
+  document.getElementById('explain-panel').classList.remove('open');
+}
+
+/* ── Init ── */
+window.addEventListener('load', () => {
+  timelineData = genTimeline('summer');
+  updateMetrics(); buildTimeline(); buildConstraints();
+  setTimeout(buildForecasts, 100);
+
+  // live revenue jitter
+  setInterval(() => {
+    const base = parseInt(SC[current].revenue.replace(/,/g,''));
+    const j = base + Math.round((Math.random()-.5)*300);
+    document.getElementById('rev-val').textContent = j.toLocaleString('en');
+  }, 3500);
+});
+
+window.addEventListener('resize', () => { buildTimeline(); setTimeout(buildForecasts, 50); });
+</script>
+</body>
+</html>
