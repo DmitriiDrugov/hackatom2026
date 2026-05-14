@@ -33,6 +33,24 @@ type ScenarioSeed = {
 };
 
 const seeds: Record<ScenarioKey, ScenarioSeed> = {
+  live: {
+    key: "live",
+    label: "🔴 Live Ticker",
+    summary: "Live optimized output based on current market and Danube conditions.",
+    alerts: 0,
+    revenueRateEuroHr: 0,
+    deltaPct: 0,
+    deltaLabel: "vs baseline",
+    efficiencyPct: 87.4,
+    todayRevenueMEur: 0,
+    h2ProducedTonnes: 0,
+    heatDeliveredMw: 0,
+    electricityOutMw: 0,
+    danubeTempC: 20.0,
+    danubeStatus: "ok",
+    priceCurrent: 40,
+    heatCurrent: 0,
+  },
   summer_negative_price: {
     key: "summer_negative_price",
     label: "Summer afternoon",
@@ -514,6 +532,7 @@ export function getScenarioComparison(inputs: ScenarioInputs): ScenarioCompariso
 // Narrows arbitrary route params to the OpenAPI ScenarioName enum.
 export function isScenarioKey(value: string): value is ScenarioKey {
   return (
+    value === "live" ||
     value === "summer_negative_price" ||
     value === "winter_peak_demand" ||
     value === "danube_overheating"

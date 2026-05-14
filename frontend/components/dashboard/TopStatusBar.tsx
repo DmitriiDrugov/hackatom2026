@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertTriangle, Bell, Flame, Search, Snowflake, Sun } from "lucide-react";
+import { AlertTriangle, Bell, Flame, Search, Snowflake, Sun, Activity } from "lucide-react";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 
@@ -12,6 +12,7 @@ const scenarioButtons: Array<{
   label: string;
   Icon: typeof Sun;
 }> = [
+  { key: "live", label: "🔴 Live Ticker", Icon: Activity },
   { key: "summer_negative_price", label: "Summer afternoon", Icon: Sun },
   { key: "winter_peak_demand", label: "Winter morning", Icon: Snowflake },
   { key: "danube_overheating", label: "Heatwave crisis", Icon: Flame },

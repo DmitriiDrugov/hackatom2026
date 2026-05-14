@@ -1,4 +1,5 @@
 export const scenarioKeys = [
+  "live",
   "summer_negative_price",
   "winter_peak_demand",
   "danube_overheating",

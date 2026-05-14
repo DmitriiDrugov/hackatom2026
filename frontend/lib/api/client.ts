@@ -96,8 +96,9 @@ export function useScenarioQuery(scenario: ScenarioKey) {
   const query = useQuery({
     queryKey: ["scenario", scenario],
     queryFn: () => requestJson<ScenarioPayload>(`/mock/scenario/${scenario}`),
-    staleTime: 60_000,
+    staleTime: scenario === "live" ? 2000 : 60_000,
     gcTime: 10 * 60_000,
+    refetchInterval: scenario === "live" ? 5000 : false,
   });
   const isSlow = useSlowFlag(query.isFetching);
 
