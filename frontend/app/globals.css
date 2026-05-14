@@ -1,0 +1,205 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  /* Background: very light mint gradient base. */
+  --bg: #ebfaf2;
+  --bg-deep: #d4f0e0;
+  /* Card surface. */
+  --surface: #ffffff;
+  --surface-elevated: #f5fbf7;
+  --surface-sunken: #f0f8f3;
+  /* Borders. */
+  --border: #dcebe1;
+  --border-strong: #c3decd;
+  /* Brand / primary — mint green. */
+  --primary: #10b981;
+  --primary-soft: #d1fae5;
+  --primary-softer: #ecfdf5;
+  --primary-strong: #047857;
+  /* Accents — tuned for warmth and harmony with mint. */
+  --cyan: #0e7490;
+  --blue: #1d4ed8;
+  --emerald: #059669;
+  --amber: #c2740b;
+  --rose: #dc2626;
+  --purple: #7c3aed;
+  /* Neutral text scale. */
+  --muted: #6b7280;
+  --muted-strong: #4b5563;
+  --text: #0f172a;
+  --text-soft: #1f2937;
+  /* Channel and status visualization. */
+  --c-electricity: #2563eb;
+  --c-heat: #10b981;
+  --c-hydrogen: #8b5cf6;
+  --c-cooling: #0891b2;
+  --s-ok: #10b981;
+  --s-warn: #f59e0b;
+  --s-crit: #ef4444;
+  --s-off: #9ca3af;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-height: 100%;
+  height: 100%;
+  margin: 0;
+  color: var(--text);
+  font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, system-ui, sans-serif;
+  font-feature-settings: "ss01", "ss02", "cv11";
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  line-height: 1.4;
+  text-rendering: geometricPrecision;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, rgba(212, 240, 224, 0.55) 0%, rgba(235, 250, 242, 0.78) 34%, #f8fbf9 100%),
+    linear-gradient(90deg, rgba(29, 78, 216, 0.035), rgba(16, 185, 129, 0.045));
+  background-attachment: fixed;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+svg {
+  display: block;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5d8;
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3a8;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.45);
+}
+
+/* Compact uppercase eyebrow label. */
+.panel-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+/* Panel section title. */
+.panel-title {
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.panel-meta {
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.mono {
+  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
+  font-feature-settings: "tnum", "zero";
+  letter-spacing: 0;
+}
+
+/* Stat number — dominant numeric display. */
+.stat-num {
+  font-family: var(--font-sans), "Plus Jakarta Sans", sans-serif;
+  font-feature-settings: "tnum", "zero";
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: 0;
+  color: var(--text);
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(220, 235, 225, 0.6),
+    rgba(240, 250, 245, 0.95),
+    rgba(220, 235, 225, 0.6)
+  );
+  background-size: 180% 100%;
+  animation: skeleton-pulse 1.2s ease-in-out infinite;
+}
+
+/* Floating panel card — gapped-card layout. */
+.dashboard-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow:
+    0 1px 1px rgba(15, 23, 42, 0.025),
+    0 8px 22px -14px rgba(15, 23, 42, 0.12);
+  overflow: hidden;
+}
+
+.soft-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+@keyframes skeleton-pulse {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: -26;
+  }
+}
+
+.animate-flow {
+  animation: flow 1.8s linear infinite;
+}
+
+@media (max-width: 1279px) {
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+}
