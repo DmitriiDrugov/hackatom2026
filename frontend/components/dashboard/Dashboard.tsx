@@ -52,7 +52,7 @@ export function Dashboard() {
         alerts={data.alerts}
         onScenarioChange={setActiveScenario}
       />
-      <div className="grid min-h-0 grid-cols-[38%_37%_25%] overflow-hidden">
+      <div className="grid min-h-0 grid-cols-[42%_35%_23%] overflow-hidden">
         <MapPanel data={data} />
         <AllocationTimeline data={data} />
         <LiveMetricsPanel data={data} />
@@ -70,7 +70,7 @@ function DashboardSkeleton() {
       <div className="border-b border-app-border bg-app-surface px-4 py-3">
         <div className="skeleton h-5 w-64 rounded" />
       </div>
-      <div className="grid min-h-0 grid-cols-[38%_37%_25%]">
+      <div className="grid min-h-0 grid-cols-[42%_35%_23%]">
         <div className="border-r border-app-border bg-app-surface p-3">
           <div className="skeleton h-full rounded" />
         </div>

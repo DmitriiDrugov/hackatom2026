@@ -13,6 +13,17 @@ const colorMap = {
   purple: "#b78cff",
 };
 
+const cityLabelLayout: Record<
+  string,
+  { x: number; y: number; width: number; anchorX: number; anchorY: number }
+> = {
+  budapest: { x: 210, y: 101, width: 70, anchorX: 250, anchorY: 118 },
+  dunaujvaros: { x: 201, y: 150, width: 94, anchorX: 295, anchorY: 162 },
+  paks: { x: 342, y: 249, width: 72, anchorX: 310, anchorY: 195 },
+  szekszard: { x: 430, y: 242, width: 76, anchorX: 355, anchorY: 225 },
+};
+
+// Renders an interactive city marker without overlapping text labels.
 function CityMarker({
   city,
   active,
@@ -37,29 +48,59 @@ function CityMarker({
       <circle r={city.kind === "source" ? 5 : 4} fill={`${color}66`} />
       <circle r="2" fill={color} />
       {active ? <circle r={city.kind === "source" ? 18 : 14} fill="none" stroke={color} strokeWidth="1" /> : null}
+    </g>
+  );
+}
+
+// Renders a readable map label separated from the marker by a leader line.
+function CityLabel({ city, active }: { city: CityAllocation; active: boolean }) {
+  const layout = cityLabelLayout[city.id];
+
+  if (!layout) {
+    return null;
+  }
+
+  const color = colorMap[city.color];
+  const labelX = layout.x - layout.width / 2;
+
+  return (
+    <g pointerEvents="none">
+      <line
+        x1={layout.anchorX}
+        y1={layout.anchorY}
+        x2={layout.x}
+        y2={layout.y + 8}
+        stroke={color}
+        strokeWidth="1"
+        opacity={active ? "0.8" : "0.45"}
+      />
+      <rect
+        x={labelX}
+        y={layout.y}
+        width={layout.width}
+        height="18"
+        rx="4"
+        fill={active ? "#182231" : "#101722"}
+        stroke={active ? color : "#2a3648"}
+        strokeWidth="1"
+        opacity="0.96"
+      />
       <text
-        y={city.kind === "source" ? 24 : -13}
+        x={layout.x}
+        y={layout.y + 12}
         textAnchor="middle"
-        fill="#c6d3e4"
+        fill={active ? "#f2f6fb" : "#c8d3e2"}
         fontFamily="Inter"
-        fontSize="9"
-        fontWeight="600"
+        fontSize="9.5"
+        fontWeight={active ? "700" : "600"}
       >
         {city.name}
-      </text>
-      <text
-        y={city.kind === "source" ? 33 : -4}
-        textAnchor="middle"
-        fill="#7f91aa"
-        fontFamily="JetBrains Mono"
-        fontSize="8"
-      >
-        {city.kind === "source" ? "1980 MW" : `${city.heatMw} MW`}
       </text>
     </g>
   );
 }
 
+// Renders the geographic allocation panel with city flows and Danube safety state.
 export function MapPanel({ data }: { data: ScenarioPayload }) {
   const selectedCityId = useDashboardStore((state) => state.selectedCityId);
   const setSelectedCityId = useDashboardStore((state) => state.setSelectedCityId);
@@ -72,7 +113,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
     <section className="flex min-h-0 flex-col overflow-hidden border-r border-app-border bg-app-surface">
       <PanelHeader title="Geographic allocation" value="Hungary · CET" />
       <div className="relative min-h-0 flex-1 overflow-hidden">
-        <svg viewBox="0 0 600 360" className="h-full w-full" aria-label="Hungary heat allocation map">
+        <svg viewBox="48 62 482 238" className="h-full w-full" aria-label="Hungary heat allocation map">
           <polygon
             points="88,108 110,88 150,76 195,72 238,80 285,72 322,78 355,85 385,98 410,88 440,95 468,110 482,130 478,152 465,170 472,195 458,215 438,232 415,245 388,248 358,250 320,255 288,248 262,258 235,262 205,255 175,258 150,252 128,240 110,225 95,208 82,190 78,168 82,148 88,128"
             fill="#0f1824"
@@ -114,11 +155,15 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
               onSelect={() => setSelectedCityId(city.id)}
             />
           ))}
+
+          {data.cities.map((city) => (
+            <CityLabel key={`${city.id}-label`} city={city} active={city.id === selectedCity.id} />
+          ))}
         </svg>
 
-        <div className="absolute right-3 top-3 w-44 rounded-md border border-app-border bg-app-elevated/95 p-3 shadow-[0_10px_24px_rgba(0,0,0,0.26)]">
-          <div className="mb-2 text-[12px] font-semibold text-app-text">{selectedCity.name}</div>
-          <div className="space-y-1">
+        <div className="absolute right-3 top-3 w-[188px] rounded-md border border-app-border bg-app-elevated/95 p-3 shadow-[0_10px_24px_rgba(0,0,0,0.26)]">
+          <div className="mb-2 truncate text-[13px] font-semibold text-app-text">{selectedCity.name}</div>
+          <div className="space-y-1.5">
             <CityRow label="Heat delivered" value={formatMw(selectedCity.heatMw)} />
             <CityRow label="Distance" value={selectedCity.distanceKm == null ? "-" : `${selectedCity.distanceKm} km`} />
             <CityRow
@@ -157,6 +202,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
   );
 }
 
+// Renders one compact city detail row inside the selected-city card.
 function CityRow({ label, value, status }: { label: string; value: string; status?: "ok" }) {
   return (
     <div className="flex items-baseline justify-between gap-3">
