@@ -59,13 +59,13 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
               x2={width}
               y1={y(series.limit)}
               y2={y(series.limit)}
-              stroke="#ff6b7a"
+              stroke="var(--rose)"
               strokeWidth="1"
               strokeDasharray="4 4"
               opacity="0.75"
             />
           ) : null}
-          <line x1={markerX} x2={markerX} y1="0" y2={height} stroke="#8fa1b8" strokeWidth="1" opacity="0.55" />
+          <line x1={markerX} x2={markerX} y1="0" y2={height} stroke="var(--muted)" strokeWidth="1" opacity="0.55" />
           <polyline
             points={points}
             fill="none"
@@ -74,7 +74,7 @@ function ForecastPanel({ series, color }: { series: ForecastSeries; color: strin
             strokeLinecap="round"
             strokeLinejoin="round"
           />
-          <circle cx={markerX} cy={y(series.points[24].value)} r="3" fill={color} stroke="#101722" strokeWidth="1.5" />
+          <circle cx={markerX} cy={y(series.points[24].value)} r="3" fill={color} stroke="var(--surface)" strokeWidth="1.5" />
         </svg>
       </div>
     </div>

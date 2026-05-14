@@ -24,6 +24,8 @@ export type CityAllocation = {
   color: "cyan" | "emerald" | "purple";
   x: number;
   y: number;
+  latitude: number;
+  longitude: number;
   heatMw: number;
   distanceKm: number | null;
   pipelineLossPct: number | null;
