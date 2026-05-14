@@ -20,6 +20,10 @@ const config: Config = {
           "muted-strong": "var(--muted-strong)",
           text: "var(--text)",
           "text-soft": "var(--text-soft)",
+          primary: "var(--primary)",
+          "primary-soft": "var(--primary-soft)",
+          "primary-softer": "var(--primary-softer)",
+          "primary-strong": "var(--primary-strong)",
           cyan: "var(--cyan)",
           blue: "var(--blue)",
           emerald: "var(--emerald)",
@@ -29,22 +33,19 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ["var(--font-inter)", "Inter", "sans-serif"],
+        sans: ["var(--font-sans)", "Plus Jakarta Sans", "sans-serif"],
         mono: ["var(--font-mono)", "JetBrains Mono", "monospace"],
       },
       boxShadow: {
         "panel-card":
-          "0 1px 1px rgba(15,23,42,0.04), 0 8px 24px rgba(15,23,42,0.06), 0 24px 60px -28px rgba(15,23,42,0.18)",
+          "0 1px 1px rgba(15,23,42,0.025), 0 8px 22px -14px rgba(15,23,42,0.12)",
         "soft-pop":
-          "0 1px 2px rgba(15,23,42,0.04), 0 8px 20px rgba(15,23,42,0.10)",
+          "0 1px 2px rgba(15,23,42,0.04), 0 6px 18px -8px rgba(15,23,42,0.12)",
       },
       keyframes: {
         blink: {
           "0%, 100%": { opacity: "1" },
           "50%": { opacity: "0.25" },
-        },
-        flow: {
-          to: { strokeDashoffset: "-26" },
         },
         "soft-pulse": {
           "0%, 100%": { transform: "scale(1)", opacity: "0.7" },
@@ -53,7 +54,6 @@ const config: Config = {
       },
       animation: {
         blink: "blink 1.4s ease-in-out infinite",
-        flow: "flow 1.8s linear infinite",
         "soft-pulse": "soft-pulse 1.8s ease-out infinite",
       },
     },

@@ -25,8 +25,8 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
   return (
     <aside
-      className="fixed bottom-4 right-4 top-4 z-40 flex w-[332px] flex-col overflow-hidden rounded-[14px] border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
-      style={{ transform: explanationOpen ? "translateX(0)" : "translateX(calc(100% + 20px))" }}
+      className="fixed bottom-3 right-3 top-3 z-40 flex w-[332px] flex-col overflow-hidden rounded-[20px] border border-app-border bg-app-surface shadow-panel-card transition-transform duration-[220ms] ease-out"
+      style={{ transform: explanationOpen ? "translateX(0)" : "translateX(calc(100% + 24px))" }}
       aria-hidden={!explanationOpen}
     >
       <div className="flex items-start justify-between border-b border-app-border bg-app-sunken/60 px-4 py-3.5">
@@ -51,11 +51,11 @@ export function ExplanationPanel({ data }: { data: ScenarioPayload }) {
 
       <div className="flex-1 overflow-y-auto">
         <PanelSection title="Optimization gain">
-          <div className="rounded-lg border border-app-emerald/20 bg-emerald-50/70 px-4 py-3 text-center">
-            <div className="stat-num text-[24px] leading-none text-app-emerald">
+          <div className="rounded-xl bg-gradient-to-br from-app-primary-soft to-app-primary-softer px-4 py-3 text-center">
+            <div className="stat-num text-[26px] leading-none text-app-primary-strong">
               {formatSignedEuro(hour.savingsVsElectricEuro)}
             </div>
-            <div className="mt-1 text-[11px] text-app-muted">vs full electricity output</div>
+            <div className="mt-1 text-[11px] font-medium text-app-muted">vs full electricity output</div>
           </div>
         </PanelSection>
 

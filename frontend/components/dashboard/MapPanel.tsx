@@ -27,7 +27,7 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
     <section className="dashboard-card flex min-h-0 flex-col">
       <PanelHeader title="Geographic allocation" value="Hungary · CET" accent="var(--cyan)" />
 
-      <div className="relative min-h-0 flex-1 overflow-hidden bg-gradient-to-br from-slate-50 to-slate-100">
+      <div className="relative min-h-0 flex-1 overflow-hidden bg-gradient-to-br from-app-primary-softer via-white to-app-sunken">
         <HungaryMap
           cities={data.cities}
           selectedCityId={selectedCityId}
@@ -36,12 +36,12 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
         />
 
         {/* Top-left network summary chip */}
-        <div className="pointer-events-none absolute left-3 top-3 rounded-md border border-app-border bg-white/95 px-3 py-2 text-app-text shadow-soft-pop backdrop-blur-sm">
+        <div className="pointer-events-none absolute left-3 top-3 rounded-xl border border-app-border bg-white/95 px-3 py-2 text-app-text shadow-soft-pop backdrop-blur-sm">
           <div className="flex items-center gap-2">
-            <span className="grid h-4 w-4 place-items-center rounded-sm bg-app-cyan/15 text-app-cyan">
-              <span className="block h-1.5 w-1.5 rounded-full bg-app-cyan" />
+            <span className="grid h-5 w-5 place-items-center rounded-md bg-app-primary-soft text-app-primary-strong">
+              <span className="block h-1.5 w-1.5 rounded-full bg-app-primary" />
             </span>
-            <span className="text-[12px] font-semibold tracking-tight">Cogeneration network</span>
+            <span className="text-[12px] font-bold tracking-tight">Cogeneration network</span>
           </div>
           <div className="mono mt-1 text-[10px] tabular-nums text-app-muted">{flowSummary}</div>
         </div>
@@ -77,13 +77,6 @@ export function MapPanel({ data }: { data: ScenarioPayload }) {
           </div>
         </div>
 
-        {/* Bottom-left scenario hint */}
-        <div className="pointer-events-none absolute bottom-3 left-3 flex items-center gap-2 rounded-md border border-app-border bg-white/95 px-2.5 py-1.5 text-[10px] font-medium uppercase tracking-wider text-app-muted shadow-soft-pop">
-          <span className="mono text-app-text-soft">{data.cities.length}</span>
-          <span>nodes</span>
-          <span className="text-app-border-strong">·</span>
-          <span>click to inspect</span>
-        </div>
       </div>
 
       {/* Danube footer */}
