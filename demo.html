@@ -411,7 +411,8 @@ html, body {
 
   <div class="scenarios">
     <span class="sc-label">Scenario</span>
-    <button class="sc-btn active" onclick="loadScenario('summer',this)">☀ Summer afternoon</button>
+    <button class="sc-btn active" onclick="loadScenario('live',this)">🔴 Live Ticker</button>
+    <button class="sc-btn"        onclick="loadScenario('summer',this)">☀ Summer afternoon</button>
     <button class="sc-btn"        onclick="loadScenario('winter',this)">❄ Winter morning</button>
     <button class="sc-btn"        onclick="loadScenario('heatwave',this)">⚠ Heatwave crisis</button>
   </div>
@@ -664,6 +665,14 @@ tick(); setInterval(tick, 1000);
 
 /* ── Scenario data ── */
 const SC = {
+  live: {
+    revenue:'—', revDelta:'Live AI Optimization', revUp:true,
+    eff:87.4, h2:'—', heat:'—', elec:'—', todayRev:'—',
+    dTemp:20, dPct:60, dColor:'var(--cyan)',
+    fcPrice:'— €/MWh', fcPriceColor:'var(--cyan)',
+    fcDanube:'—°C', fcDanubeColor:'var(--cyan)',
+    fcHeat:'— MW', profile:'live',
+  },
   summer: {
     revenue:'84,200', revDelta:'▲ +12% vs baseline', revUp:true,
     eff:87.4, h2:'4.3', heat:'600', elec:'920', todayRev:'1.82',
@@ -691,6 +700,14 @@ const SC = {
 };
 
 const CST = {
+  live: [
+    {name:'Danube temp',  cur:'20.0', lim:'30.0°C', pct:66, st:'ok'},
+    {name:'H₂ capacity',  cur:'100',  lim:'360 MW',  pct:27,st:'ok'},
+    {name:'Grid freq',    cur:'50.00',lim:'±0.2 Hz', pct:0, st:'ok'},
+    {name:'Thermal power',cur:'2000', lim:'2000 MW', pct:100, st:'ok'},
+    {name:'Steam pressure',cur:'7.00',lim:'7.0 MPa', pct:100, st:'ok'},
+    {name:'Coolant flow', cur:'5000', lim:'5000 m³/h',pct:100,st:'ok'},
+  ],
   summer: [
     {name:'Danube temp',  cur:'26.3', lim:'30.0°C', pct:88, st:'warn'},
     {name:'H₂ capacity',  cur:'360',  lim:'360 MW',  pct:100,st:'ok'},
@@ -717,7 +734,7 @@ const CST = {
   ],
 };
 
-let current = 'summer';
+let current = 'live';
 let selectedHour = 14;
 let timelineData = [];
 
@@ -966,14 +983,64 @@ function closeExplain() {
   document.getElementById('explain-panel').classList.remove('open');
 }
 
+/* ── Live Backend Polling ── */
+async function fetchLiveStatus() {
+  try {
+    const res = await fetch('live_status.json');
+    if (!res.ok) return;
+    const data = await res.json();
+    
+    const metrics = data.live_metrics;
+    const rec = data.recommendation;
+    const opt_rev = Math.round(metrics.current_price_eur * 2000 + data.revenue_gain_eur_per_hour);
+    
+    SC['live'].revenue = opt_rev.toLocaleString('en');
+    SC['live'].revDelta = (data.revenue_gain_eur_per_hour >= 0 ? '▲ +' : '▼ ') + Math.round(data.revenue_gain_eur_per_hour).toLocaleString('en') + ' €/hr vs baseline';
+    SC['live'].revUp = data.revenue_gain_eur_per_hour >= 0;
+    SC['live'].h2 = (rec.h2 / 55).toFixed(1);
+    SC['live'].heat = rec.heat;
+    SC['live'].elec = rec.elec;
+    SC['live'].dTemp = metrics.danube_temp_c;
+    SC['live'].dPct = Math.min(100, Math.max(0, (metrics.danube_temp_c / 30) * 100));
+    SC['live'].dColor = metrics.danube_temp_c > 25 ? 'var(--rose)' : 'var(--cyan)';
+    SC['live'].fcPrice = metrics.predicted_next_price_eur + ' €/MWh';
+    SC['live'].fcPriceColor = metrics.predicted_next_price_eur < 0 ? 'var(--rose)' : 'var(--emerald)';
+    SC['live'].fcDanube = metrics.danube_temp_c + '°C';
+    SC['live'].fcDanubeColor = metrics.danube_temp_c > 25 ? 'var(--rose)' : 'var(--cyan)';
+    SC['live'].fcHeat = rec.heat + ' MW';
+    
+    CST['live'][0].cur = metrics.danube_temp_c.toString();
+    CST['live'][0].pct = SC['live'].dPct;
+    CST['live'][0].st = metrics.danube_temp_c > 25 ? 'warn' : 'ok';
+    CST['live'][1].cur = rec.h2.toString();
+    CST['live'][1].pct = Math.min(100, (rec.h2/360)*100);
+    CST['live'][3].cur = (rec.elec + rec.heat + rec.h2).toString();
+
+    if (current === 'live') {
+      updateMetrics();
+      buildConstraints();
+      const alerts = document.querySelector('.alerts');
+      alerts.innerHTML = '<div class="alert-dot" style="background:var(--emerald)"></div> ' + data.ai_explanation;
+      alerts.style.color = 'var(--emerald)';
+      alerts.style.borderColor = 'rgba(52,211,153,.3)';
+    }
+  } catch(e) {
+    console.error('Live fetch error:', e);
+  }
+}
+
 /* ── Init ── */
 window.addEventListener('load', () => {
-  timelineData = genTimeline('summer');
+  timelineData = genTimeline('live');
   updateMetrics(); buildTimeline(); buildConstraints();
   setTimeout(buildForecasts, 100);
+  
+  fetchLiveStatus();
+  setInterval(fetchLiveStatus, 10000);
 
   // live revenue jitter
   setInterval(() => {
+    if (current === 'live' || SC[current].revenue === '—') return;
     const base = parseInt(SC[current].revenue.replace(/,/g,''));
     const j = base + Math.round((Math.random()-.5)*300);
     document.getElementById('rev-val').textContent = j.toLocaleString('en');
