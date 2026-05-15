@@ -1,0 +1,13 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": "nextjs",
+  "installCommand": "npm install --no-audit --no-fund",
+  "env": {
+    "NEXT_PUBLIC_USE_MOCK": "true"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_USE_MOCK": "true"
+    }
+  }
+}

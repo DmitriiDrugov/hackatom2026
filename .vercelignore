@@ -1,0 +1,11 @@
+backend/
+shared/notes.md
+frontend/demo.html
+frontend/FRONTEND_PROMPT.md
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.mypy_cache/
+*.log
+.idea/
+.vscode/
