@@ -26,16 +26,7 @@ function normalizeBaseUrl(value: string) {
 // Resolves frontend-local mock paths or backend API paths from a contract-relative path.
 function resolveUrl(path: string) {
   const apiPath = path.startsWith("/") ? path : `/${path}`;
-
-  if (USE_MOCK) {
-    if (apiPath.startsWith("/mock/")) {
-      return `/api${apiPath}`;
-    }
-
-    return `/api/mock${apiPath}`;
-  }
-
-  return `${normalizeBaseUrl(API_URL)}/api${apiPath}`;
+  return `/api${apiPath}`;
 }
 
 // Fetches JSON with bounded exponential-backoff retry behavior.
@@ -95,7 +86,7 @@ function useSlowFlag(isFetching: boolean, thresholdMs = 500) {
 export function useScenarioQuery(scenario: ScenarioKey) {
   const query = useQuery({
     queryKey: ["scenario", scenario],
-    queryFn: () => requestJson<ScenarioPayload>(`/mock/scenario/${scenario}`),
+    queryFn: () => requestJson<any>(`/scenario?scenario=${scenario}`),
     staleTime: scenario === "live" ? 2000 : 60_000,
     gcTime: 10 * 60_000,
     refetchInterval: scenario === "live" ? 5000 : false,

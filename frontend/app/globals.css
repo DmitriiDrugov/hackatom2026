@@ -1,45 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  color-scheme: light;
-  /* Background: very light mint gradient base. */
-  --bg: #ebfaf2;
-  --bg-deep: #d4f0e0;
-  /* Card surface. */
-  --surface: #ffffff;
-  --surface-elevated: #f5fbf7;
-  --surface-sunken: #f0f8f3;
-  /* Borders. */
-  --border: #dcebe1;
-  --border-strong: #c3decd;
-  /* Brand / primary — mint green. */
-  --primary: #10b981;
-  --primary-soft: #d1fae5;
-  --primary-softer: #ecfdf5;
-  --primary-strong: #047857;
-  /* Accents — tuned for warmth and harmony with mint. */
-  --cyan: #0e7490;
-  --blue: #1d4ed8;
-  --emerald: #059669;
-  --amber: #c2740b;
-  --rose: #dc2626;
-  --purple: #7c3aed;
-  /* Neutral text scale. */
-  --muted: #6b7280;
-  --muted-strong: #4b5563;
-  --text: #0f172a;
-  --text-soft: #1f2937;
-  /* Channel and status visualization. */
-  --c-electricity: #2563eb;
-  --c-heat: #10b981;
-  --c-hydrogen: #8b5cf6;
-  --c-cooling: #0891b2;
-  --s-ok: #10b981;
-  --s-warn: #f59e0b;
-  --s-crit: #ef4444;
-  --s-off: #9ca3af;
+  --on-surface: #d7e5ec;
+  --on-secondary-container: #f2f3ff;
+  --surface-bright: #2e3b41;
+  --inverse-surface: #d7e5ec;
+  --outline-variant: #3b4a3d;
+  --on-error: #690005;
+  --surface-container-highest: #2a373c;
+  --on-error-container: #ffdad6;
+  --on-surface-variant: #bacbb9;
+  --on-secondary: #002d6e;
+  --primary-container: #00e676;
+  --on-tertiary-fixed: #400009;
+  --secondary-fixed: #d9e2ff;
+  --on-primary-fixed-variant: #005226;
+  --on-tertiary-fixed-variant: #920021;
+  --on-background: #d7e5ec;
+  --secondary-fixed-dim: #b0c6ff;
+  --tertiary: #ffdddc;
+  --primary: #75ff9e;
+  --on-secondary-fixed-variant: #00429b;
+  --on-tertiary-container: #ab0028;
+  --surface: #08151a;
+  --tertiary-fixed-dim: #ffb3b3;
+  --on-primary-container: #00612e;
+  --surface-tint: #00e475;
+  --outline: #859585;
+  --inverse-on-surface: #253238;
+  --background: #08151a;
+  --inverse-primary: #006d35;
+  --on-primary-fixed: #00210b;
+  --on-primary: #003918;
+  --tertiary-container: #ffb6b6;
+  --on-secondary-fixed: #001945;
+  --secondary: #b0c6ff;
+  --surface-container-high: #1f2c31;
+  --error: #ffb4ab;
+  --surface-variant: #2a373c;
+  --surface-container-low: #101d23;
+  --primary-fixed: #62ff96;
+  --tertiary-fixed: #ffdad9;
+  --on-tertiary: #680014;
+  --secondary-container: #0068ed;
+  --error-container: #93000a;
+  --surface-container-lowest: #041015;
+  --primary-fixed-dim: #00e475;
+  --surface-container: #142127;
+  --surface-dim: #08151a;
+  --critical: #FF1744;
 }
 
 * {
@@ -48,158 +62,61 @@
 
 html,
 body {
-  min-height: 100%;
   height: 100%;
   margin: 0;
-  color: var(--text);
-  font-family: var(--font-sans), "Plus Jakarta Sans", -apple-system, system-ui, sans-serif;
-  font-feature-settings: "ss01", "ss02", "cv11";
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0;
-  line-height: 1.4;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
+  background-color: var(--background);
+  color: var(--on-surface);
+  font-family: 'Inter', sans-serif;
   overflow: hidden;
-  background:
-    linear-gradient(180deg, rgba(212, 240, 224, 0.55) 0%, rgba(235, 250, 242, 0.78) 34%, #f8fbf9 100%),
-    linear-gradient(90deg, rgba(29, 78, 216, 0.035), rgba(16, 185, 129, 0.045));
-  background-attachment: fixed;
 }
 
-button,
-input {
-  font: inherit;
+.font-display {
+  font-family: 'JetBrains Mono', monospace;
 }
 
-button {
-  color: inherit;
+.font-body {
+  font-family: 'Inter', sans-serif;
 }
 
-svg {
-  display: block;
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--surface-container-lowest);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5d8;
-  border-radius: 999px;
+  background: var(--outline-variant);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3a8;
+  background: var(--outline);
 }
 
-.focus-ring {
-  outline: none;
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
 }
 
-.focus-ring:focus-visible {
-  box-shadow: 0 0 0 2px rgba(16, 185, 129, 0.45);
-}
-
-/* Compact uppercase eyebrow label. */
-.panel-label {
-  color: var(--muted);
-  font-size: 10px;
-  font-weight: 600;
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-/* Panel section title. */
-.panel-title {
-  color: var(--text);
-  font-size: 13px;
-  font-weight: 700;
-  letter-spacing: 0;
-}
-
-.panel-meta {
-  color: var(--muted);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0;
-}
-
-.mono {
-  font-family: var(--font-mono), "JetBrains Mono", ui-monospace, monospace;
-  font-feature-settings: "tnum", "zero";
-  letter-spacing: 0;
-}
-
-/* Stat number — dominant numeric display. */
-.stat-num {
-  font-family: var(--font-sans), "Plus Jakarta Sans", sans-serif;
-  font-feature-settings: "tnum", "zero";
-  font-variant-numeric: tabular-nums;
-  font-weight: 700;
-  letter-spacing: 0;
-  color: var(--text);
-}
-
-.skeleton {
-  background: linear-gradient(
-    90deg,
-    rgba(220, 235, 225, 0.6),
-    rgba(240, 250, 245, 0.95),
-    rgba(220, 235, 225, 0.6)
-  );
-  background-size: 180% 100%;
-  animation: skeleton-pulse 1.2s ease-in-out infinite;
-}
-
-/* Floating panel card — gapped-card layout. */
-.dashboard-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  box-shadow:
-    0 1px 1px rgba(15, 23, 42, 0.025),
-    0 8px 22px -14px rgba(15, 23, 42, 0.12);
-  overflow: hidden;
-}
-
-.soft-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
-@keyframes skeleton-pulse {
-  0% {
-    background-position: 100% 0;
-  }
-
-  100% {
-    background-position: 0 0;
-  }
-}
-
-@keyframes flow {
-  to {
-    stroke-dashoffset: -26;
-  }
-}
-
-.animate-flow {
-  animation: flow 1.8s linear infinite;
-}
-
-@media (max-width: 1279px) {
-  body {
-    overflow-x: hidden;
-    overflow-y: auto;
-  }
+.animate-pulse-soft {
+  animation: pulse-soft 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

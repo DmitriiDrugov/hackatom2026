@@ -1,50 +1,47 @@
 "use client";
 
-import { RotateCw } from "lucide-react";
-
 import { useScenarioQuery } from "@/lib/api/client";
-import type { ScenarioPayload } from "@/lib/domain";
 import { useDashboardStore } from "@/lib/store/dashboard-store";
-import { AllocationTimeline } from "@/components/dashboard/AllocationTimeline";
-import { ConstraintPanel } from "@/components/dashboard/ConstraintPanel";
-import { ForecastStrip } from "@/components/dashboard/ForecastStrip";
-import { LiveMetricsPanel } from "@/components/dashboard/LiveMetricsPanel";
-import { MapPanel } from "@/components/dashboard/MapPanel";
-import { ReactorsView } from "@/components/dashboard/ReactorsView";
-import { Sidebar } from "@/components/dashboard/Sidebar";
-import { TopStatusBar } from "@/components/dashboard/TopStatusBar";
-import { ExplanationPanel } from "@/components/ExplanationPanel";
+import { TopAppBar } from "@/components/dashboard/TopAppBar";
+import { AllocationTopology } from "@/components/dashboard/AllocationTopology";
+import { KPICards } from "@/components/dashboard/KPICards";
+import { CriticalThresholds } from "@/components/dashboard/CriticalThresholds";
+import { SystemReasoningLog } from "@/components/dashboard/SystemReasoningLog";
+import { FooterTicker } from "@/components/dashboard/FooterTicker";
+
+import { AlertTriangle } from "lucide-react";
 
 export function Dashboard() {
   const activeScenario = useDashboardStore((state) => state.activeScenario);
-  const activeView = useDashboardStore((state) => state.activeView);
-  const setActiveScenario = useDashboardStore((state) => state.setActiveScenario);
-  const setActiveView = useDashboardStore((state) => state.setActiveView);
   const query = useScenarioQuery(activeScenario);
 
-  if (query.isLoading || query.isSlow) {
-    return <DashboardSkeleton />;
+  if (query.isLoading) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-background text-primary">
+        <div className="flex flex-col items-center gap-4">
+          <div className="w-12 h-12 border-4 border-primary/20 border-t-primary rounded-full animate-spin"></div>
+          <div className="font-display text-sm tracking-widest uppercase">Initializing RT-Optimizer...</div>
+        </div>
+      </div>
+    );
   }
 
   if (query.isError || !query.data) {
     return (
-      <div className="flex min-h-screen items-center justify-center p-8 text-app-text">
-        <div className="dashboard-card w-full max-w-[380px] p-5">
-          <div className="mb-1 text-[15px] font-bold text-app-text">
-            Scenario data unavailable
+      <div className="flex min-h-screen items-center justify-center bg-background text-error p-8">
+        <div className="bg-surface-container/60 backdrop-blur-md border border-error/50 p-6 rounded max-w-md">
+          <div className="flex items-center gap-2 mb-4">
+            <AlertTriangle size={24} />
+            <h2 className="font-display text-xl font-bold">System Connection Error</h2>
           </div>
-          <p className="mb-4 text-[12px] leading-relaxed text-app-muted">
-            Mock mode should serve local data from{" "}
-            <span className="mono text-app-text-soft">/api/mock</span>. Retry once the dev
-            server is ready.
+          <p className="font-body-md text-on-surface-variant mb-6">
+            Failed to load real-time telemetry from Paks NPP servers. Ensure the RT-Brain Python process is active.
           </p>
           <button
-            type="button"
             onClick={() => query.refetch()}
-            className="focus-ring inline-flex h-9 items-center gap-2 rounded-lg bg-app-primary px-3.5 text-[12px] font-semibold text-white shadow-soft-pop transition-colors hover:bg-app-primary-strong"
+            className="w-full bg-error/10 border border-error text-error py-2 rounded-DEFAULT hover:bg-error/20 transition-colors font-bold"
           >
-            <RotateCw size={13} strokeWidth={2.2} />
-            Retry
+            Retry Connection
           </button>
         </div>
       </div>
@@ -54,101 +51,35 @@ export function Dashboard() {
   const data = query.data;
 
   return (
-    <div className="grid min-h-screen grid-rows-[auto_minmax(0,1fr)] gap-3 p-2 text-[13px] text-app-text sm:p-3 xl:h-screen xl:min-h-[720px] xl:grid-cols-[232px_minmax(0,1fr)] xl:grid-rows-1">
-      <Sidebar activeView={activeView} onSelectView={setActiveView} alerts={data.alerts} />
+    <div className="bg-background text-on-surface font-body h-screen w-screen overflow-hidden flex flex-col">
+      <TopAppBar data={data} />
+      
+      <div className="flex-1 flex overflow-hidden w-full">
+        <main className="flex-1 flex flex-col p-4 gap-4 w-full overflow-hidden" style={{ height: "calc(100vh - 48px - 32px)" }}>
+          {/* Top Dashboard Area */}
+          <div className="flex-1 grid grid-cols-12 gap-4 min-h-0 overflow-hidden">
+            {/* Left Column: Flow Map */}
+            <div className="col-span-3">
+              <AllocationTopology data={data} />
+            </div>
 
-      <main className="grid min-h-0 min-w-0 grid-rows-[auto_minmax(0,1fr)] gap-3 overflow-visible xl:h-full xl:overflow-hidden">
-        <TopStatusBar
-          activeScenario={activeScenario}
-          reactors={data.reactors}
-          alerts={data.alerts}
-          onScenarioChange={setActiveScenario}
-        />
+            {/* Center Grid: 4 Cards */}
+            <div className="col-span-6">
+              <KPICards data={data} />
+            </div>
 
-        <div className="min-h-0 overflow-visible xl:overflow-hidden">
-          {activeView === "overview" && <OverviewView data={data} />}
-          {activeView === "geographic" && <GeographicView data={data} />}
-          {activeView === "allocation" && <AllocationView data={data} />}
-          {activeView === "forecasts" && <ForecastsView data={data} />}
-          {activeView === "constraints" && <ConstraintsView data={data} />}
-          {activeView === "reactors" && <ReactorsView data={data} />}
-        </div>
-      </main>
+            {/* Right Column: Safety */}
+            <div className="col-span-3">
+              <CriticalThresholds data={data} />
+            </div>
+          </div>
 
-      <ExplanationPanel data={data} />
-    </div>
-  );
-}
-
-// Default operator view — map + timeline + live metrics + forecasts + constraints in a balanced grid.
-function OverviewView({ data }: { data: ScenarioPayload }) {
-  return (
-    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-rows-[minmax(0,1fr)_108px] xl:overflow-hidden">
-      <div className="grid min-h-0 gap-3 xl:grid-cols-[minmax(0,1fr)_minmax(300px,360px)] xl:overflow-hidden 2xl:grid-cols-[minmax(0,1fr)_minmax(320px,380px)]">
-        <div className="grid min-h-0 gap-3 xl:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] xl:overflow-hidden">
-          <MapPanel data={data} />
-          <AllocationTimeline data={data} />
-        </div>
-        <div className="grid min-h-0 gap-3 xl:grid-rows-[260px_minmax(236px,1fr)] xl:overflow-hidden">
-          <LiveMetricsPanel data={data} compact />
-          <ForecastStrip data={data} />
-        </div>
+          {/* Bottom Section: Terminal Log */}
+          <SystemReasoningLog data={data} />
+        </main>
       </div>
-      <ConstraintPanel data={data} />
-    </div>
-  );
-}
 
-// Focused map view — map fills available space, live metrics on the right.
-function GeographicView({ data }: { data: ScenarioPayload }) {
-  return (
-    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-cols-[minmax(0,1fr)_340px] xl:overflow-hidden">
-      <MapPanel data={data} />
-      <LiveMetricsPanel data={data} />
-    </div>
-  );
-}
-
-// Focused 48-hour timeline view with constraints below.
-function AllocationView({ data }: { data: ScenarioPayload }) {
-  return (
-    <div className="grid min-h-0 gap-3 xl:h-full xl:grid-rows-[minmax(0,1fr)_120px] xl:overflow-hidden">
-      <AllocationTimeline data={data} />
-      <ConstraintPanel data={data} />
-    </div>
-  );
-}
-
-// Forecasts only — all three series stretch to the full panel height.
-function ForecastsView({ data }: { data: ScenarioPayload }) {
-  return (
-    <div className="min-h-0 xl:h-full xl:overflow-hidden">
-      <ForecastStrip data={data} expanded />
-    </div>
-  );
-}
-
-// Constraints only — bigger cells with extra room.
-function ConstraintsView({ data }: { data: ScenarioPayload }) {
-  return (
-    <div className="min-h-0 xl:h-full xl:overflow-hidden">
-      <ConstraintPanel data={data} expanded />
-    </div>
-  );
-}
-
-function DashboardSkeleton() {
-  return (
-    <div className="grid min-h-screen grid-rows-[auto_minmax(0,1fr)] gap-3 p-3 xl:h-screen xl:grid-cols-[232px_minmax(0,1fr)] xl:grid-rows-1">
-      <div className="dashboard-card" />
-      <main className="grid min-h-0 grid-rows-[auto_minmax(0,1fr)] gap-3 xl:h-full xl:overflow-hidden">
-        <div className="dashboard-card flex items-center px-5">
-          <div className="skeleton h-5 w-64 rounded" />
-        </div>
-        <div className="dashboard-card p-5">
-          <div className="skeleton h-full rounded-md" />
-        </div>
-      </main>
+      <FooterTicker data={data} />
     </div>
   );
 }
